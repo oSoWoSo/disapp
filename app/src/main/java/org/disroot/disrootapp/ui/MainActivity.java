@@ -389,8 +389,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
     }
 
-    private void launchRecommendedAppButton(int mailBtnId, final String serviceAppPackageId, final int serviceInfoTitleId, final int serviceInfoTextId, final int installServiceAppTextId, final String helpUrl) {
-        button = findViewById(mailBtnId);
+    private void launchRecommendedAppButton(int buttonId, final String serviceAppPackageId, final int serviceInfoTitleId, final int serviceInfoTextId, final int installServiceAppTextId, final String helpUrl) {
+        button = findViewById(buttonId);
         button.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
