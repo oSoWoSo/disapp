@@ -66,7 +66,6 @@ import android.widget.Toast;
 
 
 import org.disroot.disrootapp.R;
-import org.disroot.disrootapp.ui.listener.FirstTapCheckerListener;
 import org.disroot.disrootapp.utils.Constants;
 import org.disroot.disrootapp.utils.HttpHandler;
 import org.disroot.disrootapp.webviews.DisWebChromeClient;
@@ -90,9 +89,6 @@ import de.cketti.library.changelog.ChangeLog;
 
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements View.OnLongClickListener {
-
-    public static final String CONVERSATIONS = "eu.siacs.conversations";
-    public static final String PIX_ART = "de.pixart.messenger";
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private WebView webView;
@@ -131,7 +127,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     static String incidenturl0 ="https://state.disroot.org/api/v1/incidents?sort=id&order=desc";
     ArrayList<HashMap<String, String>> messageList;
     ArrayList<HashMap<String, String>> getDate;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -207,132 +202,459 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     }
                 });
 
-        launchRecommendedAppButton(
-                R.id.MailBtn,
-                "com.fsck.k9",
-                R.string.MailInfoTitle,
-                R.string.MailInfo,
-                R.string.MailDialog,
-                Constants.URL_DisApp_K9HELP);
-        launchRecommendedAppButton(
-                R.id.CloudBtn,
-                "com.nextcloud.client",
-                R.string.CloudInfoTitle,
-                R.string.CloudInfo,
-                R.string.CloudDialog,
-                Constants.URL_DisApp_CLOUDHELP);
+        //Set buttons
+        // Locate the button in activity_main.xml
+        button = findViewById(R.id.MailBtn);//MailBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showMailInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                String k9 = "com.fsck.k9";
+                Intent mail = getPackageManager().getLaunchIntentForPackage(k9);
+                if(mail == null) {
+                    showMailDialog();
+                    return;
+                }
+                else startActivity(mail);
+            }
 
-        launchRecommendedAppButton(
-                R.id.DiasporaBtn,
-                "com.github.dfa.diaspora_android",
-                R.string.DiasporaTitle,
-                R.string.DiasporaInfo,
-                R.string.DiasporaDialog,
-                Constants.URL_DisApp_DIAHELP);
-
-        launchWebviewApp(
-                R.id.ForumBtn,
-                R.string.ForumTitle,
-                R.string.ForumInfo,
-                Constants.URL_DisApp_FORUM,
-                Constants.URL_DisApp_FORUMHELP);
-
-        // TODO: Let user choose the client
-        launchRecommendedAppButton(
-                R.id.ChatBtn,
-                getInstalledOption(CONVERSATIONS, PIX_ART),
-                R.string.ChatTitle,
-                R.string.ChatInfo,
-                R.string.ChatDialog,
-                Constants.URL_DisApp_XMPPHELP);
-
-        launchRecommendedAppButton(
-                R.id.PadBtn,
-                "com.mikifus.padland",
-                R.string.PadTitle,
-                R.string.PadInfo,
-                R.string.PadDialog,
-                Constants.URL_DisApp_PADHELP);
-
-        launchWebviewApp(
-                R.id.CalcBtn,
-                R.string.CalcTitle,
-                R.string.CalcInfo,
-                Constants.URL_DisApp_CALC,
-                Constants.URL_DisApp_CALCHELP);
-
-        launchWebviewApp(
-                R.id.BinBtn,
-                R.string.BinTitle,
-                R.string.BinInfo,
-                Constants.URL_DisApp_BIN,
-                Constants.URL_DisApp_BINHELP);
-
-        launchWebviewWithNativeBrowser(
-                R.id.UploadBtn,
-                R.string.UploadTitle,
-                R.string.UploadInfo,
-                Constants.URL_DisApp_UPLOAD,
-                Constants.URL_DisApp_UPLOADHELP);
-
-        launchWebviewApp(
-                R.id.SearxBtn,
-                R.string.SearxTitle,
-                R.string.SearxInfo,
-                Constants.URL_DisApp_SEARX,
-                Constants.URL_DisApp_SEARXHELP);
-
-        launchWebviewApp(
-                R.id.PollsBtn,
-                R.string.PollsTitle,
-                R.string.PollsInfo,
-                Constants.URL_DisApp_POLL,
-                Constants.URL_DisApp_POLLHELP);
-
-        launchWebviewApp(
-                R.id.BoardBtn,
-                R.string.BoardTitle,
-                R.string.BoardInfo,
-                Constants.URL_DisApp_BOARD,
-                Constants.URL_DisApp_BOARDHELP);
+        });
 
 
-        launchRecommendedAppButton(
-                R.id.NotesBtn,
-                "it.niedermann.owncloud.notes",
-                R.string.NotesTitle,
-                R.string.NotesInfo,
-                R.string.NotesDialog,
-                Constants.URL_DisApp_NOTESHELP
-        );
+        button = findViewById(R.id.CloudBtn);//CloudBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showCloudInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                String nc = "com.nextcloud.client";
+                Intent cloud = getPackageManager().getLaunchIntentForPackage(nc);
+                if(cloud == null) {
+                    showCloudDialog();
+                    return;
+                }
+                else startActivity(cloud);
+            }
 
-        launchWebviewApp(
-                R.id.UserBtn,
-                R.string.UserTitle,
-                R.string.UserInfo,
-                Constants.URL_DisApp_USER,
-                null);
+        });
 
-        launchActivity(
-                R.id.StateBtn,
-                R.string.StateTitle,
-                R.string.StateInfo,
-                new Intent(this, StateActivity.class),
-                null);
+        button = findViewById(R.id.DiasporaBtn);//DiasporaBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showDiaInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                String Diaspora = "com.github.dfa.diaspora_android";
+                Intent pod = getPackageManager().getLaunchIntentForPackage(Diaspora);
+                if(pod == null) {
+                    showDiaDialog();
+                    return;
+                }
+                else startActivity(pod);
+            }
+        });
 
-        launchWebviewApp(
-                R.id.HowtoBtn,
-                R.string.HowToTitle,
-                R.string.HowToInfo,
-                Constants.URL_DisApp_HOWTO,
-                null);
+        button = findViewById(R.id.ForumBtn);//ForumBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showForumInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_FORUM);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
 
-        launchActivity(
-                R.id.AboudBtn,
-                R.string.AboutTitle,
-                R.string.AboutInfo,
-                new Intent(MainActivity.this, AboutActivity.class),
-                null);
+        });
+
+        button = findViewById(R.id.ChatBtn);//ChatBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showChatInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                String Conversations = "eu.siacs.conversations";
+                Intent xmpp1 = getPackageManager().getLaunchIntentForPackage(Conversations);
+                String PixArt = "de.pixart.messenger";
+                Intent xmpp2 = getPackageManager().getLaunchIntentForPackage(PixArt);
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                if((xmpp1 == null)&&(xmpp2 == null)) {
+                    showChatDialog();
+                    return;
+                }
+                /* if((xmpp1 == null)&&(xmpp2 != null)) { */
+                if((xmpp1 == null)&&(xmpp2 != null)) {//if(xmpp1 == null) {
+                    startActivity(xmpp2);
+                    return;
+                }
+                //need to change to give user choise  || check.getBoolean("checkPix",false)
+                if((xmpp1 != null)&&(xmpp2 != null)) {
+                    if(check.getBoolean("checkConv", Boolean.parseBoolean(null))||check.getBoolean("checkConv", false)) {
+                        startActivity(xmpp1);
+                        return;
+                    }
+                    if(check.getBoolean("checkPix", Boolean.parseBoolean(null))||check.getBoolean("checkPix", false)) {
+                        startActivity(xmpp2);
+                        return;
+                    }
+                    else
+                        showChoose();
+                    return;
+                    }
+                else
+                startActivity(xmpp1);
+            }
+
+        });
+
+        button = findViewById(R.id.PadBtn);//PadBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showPadInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                String Padland = "com.mikifus.padland";
+                Intent pad = getPackageManager().getLaunchIntentForPackage(Padland);
+                if(pad == null) {
+                    showPAdDialog();
+                    return;
+                }
+                else startActivity(pad);
+            }
+
+        });
+
+        button = findViewById(R.id.CalcBtn);//CalcBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showCalcInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_CALC);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.BinBtn);//BinBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showBinInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_BIN);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.UploadBtn);//UploadBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showUploadInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else {
+                    Uri uri = Uri.parse(Constants.URL_DisApp_UPLOAD);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                }
+                //workaround for crashing app
+               // webView.loadUrl(Constants.URL_DisApp_UPLOAD);
+               // webView.setVisibility(View.VISIBLE);
+               // dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.SearxBtn);//SearxBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showSearxInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_SEARX);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.PollsBtn);//PollsBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showPollsInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_POLL);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.BoardBtn);//BoardBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showBoardInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_BOARD);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.NotesBtn);//NotesBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showNotesInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                String NotesApp = "it.niedermann.owncloud.notes";
+                Intent notes = getPackageManager().getLaunchIntentForPackage(NotesApp);
+                if(notes == null) {
+                    showNotesDialog();
+                    return;
+                }
+                else startActivity(notes);
+            }
+        });
+
+        button = findViewById(R.id.UserBtn);//UserBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showUserInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_USER);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.StateBtn);//StateBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showStateInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent goState = new Intent(MainActivity.this, StateActivity.class);
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                MainActivity.this.startActivity(goState);
+                //webView.loadUrl(Constants.URL_DisApp_STATE);
+                //webView.setVisibility(View.VISIBLE);
+                //dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.HowtoBtn);//HowToBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showHowToInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                    return;
+                }
+                else
+                webView.loadUrl(Constants.URL_DisApp_HOWTO);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+
+        });
+
+        button = findViewById(R.id.AboudBtn);//AboutBtn
+        button.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                showAboutInfo();
+                return true;
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent goAbout = new Intent(MainActivity.this, AboutActivity.class);
+                //first time tap check
+                if (firstStart.getBoolean("firsttap", true)){
+                    showFirstTap();
+                    firstStart.edit().putBoolean("firsttap", false).apply();
+                }
+                else
+                MainActivity.this.startActivity(goAbout);
+            }
+
+        });
 
         ImageButton imageButton = findViewById(R.id.logo);//LogoBtn
         imageButton.setOnLongClickListener(new View.OnLongClickListener() {
@@ -367,116 +689,56 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         }, 100, 100000);//100000=100sec
     }
 
-    private void launchActivity(int buttonId, final int serviceInfoTitleId, final int serviceInfoText, final Intent targetIntent, final String helpUrl) {
-        Button button = findViewById(buttonId);//StateBtn
-        button.setOnLongClickListener(new View.OnLongClickListener() {
+    //Dialog windows
+    private void showChoose() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        //builder.setCancelable(false);
+        builder.setTitle(R.string.ChooseChatTitle)
+                .setMessage(R.string.ChooseChat);
+        //LayoutInflater inflater = getLayoutInflater();
+        View view = View.inflate(this, R.layout.check_remember, null);
+        final CheckBox checkChat = (CheckBox) view.findViewById(R.id.checkChat);
+        checkChat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceInfoTitleId, serviceInfoText, helpUrl);
-                return true;
-            }
-        });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
-            @Override
-            public void onServiceClick(View v) {
-                MainActivity.this.startActivity(targetIntent);
-            }
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
             }
         });
-    }
-
-    private void launchRecommendedAppButton(int mailBtnId, final String serviceAppPackageId, final int serviceInfoTitleId, final int serviceInfoTextId, final int installServiceAppTextId, final String helpUrl) {
-        button = findViewById(mailBtnId);
-        button.setOnLongClickListener(new View.OnLongClickListener() {
+        builder.setPositiveButton(R.string.Conversations, new DialogInterface.OnClickListener() {
+            String Conversations = "eu.siacs.conversations";
+            Intent xmpp1 = getPackageManager().getLaunchIntentForPackage(Conversations);
             @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceInfoTitleId, serviceInfoTextId, helpUrl);
-                return true;
+            public void onClick(DialogInterface dialog, int which) {
+                if (((CheckBox) checkChat).isChecked()) {
+                         check.edit().putBoolean("checkConv", true).apply();
+                         startActivity(xmpp1);
+                         return;
+                }
+                else
+                    startActivity(xmpp1);
+                return;
             }
         });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
+        builder.setNegativeButton(R.string.PixArt, new DialogInterface.OnClickListener() {
+            String PixArt = "de.pixart.messenger";
+            Intent xmpp2 = getPackageManager().getLaunchIntentForPackage(PixArt);
             @Override
-            public void onServiceClick(View v) {
-                Intent mail = getPackageManager().getLaunchIntentForPackage(serviceAppPackageId);
-                if(mail == null) {
-                    showInstallRecommendedAppDialog(installServiceAppTextId, serviceAppPackageId);
+            public void onClick(DialogInterface dialog, int which) {
+                if (((CheckBox) checkChat).isChecked()) {
+                    check.edit().putBoolean("checkPix", true).apply();
+                    startActivity(xmpp2);
                     return;
                 }
-                startActivity(mail);
-            }
-
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
+                else
+                    startActivity(xmpp2);
+                return;
             }
         });
+        builder.setView(view);
+        builder.show();
     }
-
-    private void launchWebviewApp(int buttonId, final int serviceTitleId, final int serviceInfoId, final String appUrl, final String helpUrl) {
-        button = findViewById(buttonId);
-        button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceTitleId, serviceInfoId, helpUrl);
-                return true;
-            }
-        });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
-            @Override
-            public void onServiceClick(View v) {
-                ScrollView dashboard = findViewById(R.id.dashboard);
-                webView.loadUrl(appUrl);
-                webView.setVisibility(View.VISIBLE);
-                dashboard.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
-            }
-        });
-    }
-
-    private void launchWebviewWithNativeBrowser(int buttonId, final int serviceInfoTitleId, final int serviceInfoId, final String appUrl, final String helpUrl) {
-        Button button = findViewById(buttonId);
-        button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceInfoTitleId, serviceInfoId, helpUrl);
-                return true;
-            }
-        });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
-            @Override
-            public void onServiceClick(View v) {
-                Uri uri = Uri.parse(Constants.URL_DisApp_UPLOAD);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
-            }
-        });
-    }
-
-    private String getInstalledOption(String ...optionPackageNames) {
-        for (String packageName : optionPackageNames) {
-            if (getPackageManager().getLaunchIntentForPackage(packageName) != null){
-                return packageName;
-            }
-        }
-        return null;
-    }
-
 
     private void showFirstTap() {
-        firstStart.edit().putBoolean("firsttap", false).apply();
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.FirstTitle);
@@ -491,42 +753,132 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         return false;
     }
 
-    private void showIconInfo(int titleId, int messageId, final String helpUrl) {
+    //Mail Info
+    private void showMailInfo() {
         final ScrollView dashboard = findViewById(R.id.dashboard);
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
-        builder.setTitle(titleId);
-        builder.setMessage(getString(messageId));
+        builder.setTitle(R.string.MailInfoTitle);
+        builder.setMessage(getString(R.string.MailInfo));
         builder.setPositiveButton(R.string.global_ok, null);
-        if (helpUrl != null) {
-            builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    webView.loadUrl(helpUrl);
-                    webView.setVisibility(View.VISIBLE);
-                    dashboard.setVisibility(View.GONE);
-                }
-            });
-        }
-
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_K9HELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
         builder.show();
     }
-
-    private void showInstallRecommendedAppDialog(int installDialogTextId, final String appPackage){
+    private void showMailDialog(){
         final ScrollView dashboard = findViewById(R.id.dashboard);
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(getString(installDialogTextId));
+        builder.setMessage(getString(R.string.MailDialog));
         builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
-            Intent mail = getPackageManager().getLaunchIntentForPackage(appPackage);
+            String k9 = "com.fsck.k9";
+            Intent mail = getPackageManager().getLaunchIntentForPackage(k9);
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mail = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackage));
+                mail = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + k9));
                 startActivity(mail);
             }
         });
         builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+
+    //Cloud Info
+    private void showCloudInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.CloudInfoTitle);
+        builder.setMessage(getString(R.string.CloudInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_CLOUDHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+    private void showCloudDialog(){
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.CloudDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            String nc = "com.nextcloud.client";
+            Intent cloud = getPackageManager().getLaunchIntentForPackage(nc);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cloud = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + nc));
+                startActivity(cloud);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+
+    //Diaspora info
+    private void showDiaInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiasporaTitle);
+        builder.setMessage(getString(R.string.DiasporaInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_DIAHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+    private void showDiaDialog(){
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.DiasporaDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            String Diaspora = "com.github.dfa.diaspora_android";
+            Intent pod = getPackageManager().getLaunchIntentForPackage(Diaspora);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                pod = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Diaspora));
+                startActivity(pod);
+                }
+            });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+
+    private void showForumInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.ForumTitle);
+        builder.setMessage(getString(R.string.ForumInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_FORUMHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
         builder.show();
     }
 
@@ -551,7 +903,245 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }
 
-    //TODO: WIP -- this dialog has been lost during refactor WIP
+    private void showChatInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.ChatTitle);
+        builder.setMessage(getString(R.string.ChatInfo));
+        // ||check.getBoolean("checkPix", true)==true
+        if(check.getBoolean("checkConv", true)|| check.getBoolean("checkPix",true)) {
+            View view = View.inflate(this, R.layout.check_forget, null);
+            final CheckBox forgetChat = (CheckBox) view.findViewById(R.id.forgetChat);
+            forgetChat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    check.edit().putBoolean("checkConv", false).apply();
+                    check.edit().putBoolean("checkPix", false).apply();
+                }
+            });
+            builder.setView(view);
+        }
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_XMPPHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+    private void showChatDialog(){
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.ChatDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            String Conversations = "eu.siacs.conversations";
+            Intent xmpp1 = getPackageManager().getLaunchIntentForPackage(Conversations);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                xmpp1 = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Conversations));
+                startActivity(xmpp1);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+
+    private void showPadInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.PadTitle);
+        builder.setMessage(getString(R.string.PadInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_PADHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+    private void showPAdDialog(){
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.PadDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            String Padland = "com.mikifus.padland";
+            Intent pad = getPackageManager().getLaunchIntentForPackage(Padland);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                pad = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Padland));
+                startActivity(pad);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+
+    private void showCalcInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.CalcTitle);
+        builder.setMessage(getString(R.string.CalcInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_CALCHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+
+    private void showBinInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.BinTitle);
+        builder.setMessage(getString(R.string.BinInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_BINHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+
+    private void showUploadInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.UploadTitle);
+        builder.setMessage(getString(R.string.UploadInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_UPLOADHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+
+    private void showSearxInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.SearxTitle);
+        builder.setMessage(getString(R.string.SearxInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_SEARXHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+
+    private void showPollsInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.PollsTitle);
+        builder.setMessage(getString(R.string.PollsInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_POLLHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+
+    private void showBoardInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.BoardTitle);
+        builder.setMessage(getString(R.string.BoardInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_BOARDHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+
+    //There is no extra info about Nextcoud notes yet
+    private void showNotesInfo() {
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.NotesTitle);
+        builder.setMessage(getString(R.string.NotesInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_NOTESHELP);
+                webView.setVisibility(View.VISIBLE);
+                dashboard.setVisibility(View.GONE);
+            }
+        });
+        builder.show();
+    }
+    private void showNotesDialog(){
+        final ScrollView dashboard = findViewById(R.id.dashboard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.NotesDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            String NotesApp = "it.niedermann.owncloud.notes";
+            Intent notes = getPackageManager().getLaunchIntentForPackage(NotesApp);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                notes = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + NotesApp));
+                startActivity(notes);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+
+    private void showUserInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false)
+               .setTitle(R.string.UserTitle)
+               .setMessage(getString(R.string.UserInfo))
+               .setPositiveButton(R.string.global_ok, null);
+        builder.show();
+    }
+
     private void showStateInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false)
@@ -559,7 +1149,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 //.setMessage(getString(R.string.StateInfo));
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.state_dialog, (ViewGroup) findViewById(R.id.StateView));
-
         //xmppBtn
         Button xmppBtn = view.findViewById(R.id.xmppBtn);
         xmppBtn.setOnClickListener(new View.OnClickListener() {
@@ -613,6 +1202,37 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.setView(view)
                 .setPositiveButton(R.string.global_ok, null)
                 .show();
+
+
+       /*
+        final SpannableString s;
+        s = new SpannableString(getString(R.string.StateInfo));
+        final TextView tx1=new TextView(MainActivity.this);
+        tx1.setText(s);
+        tx1.setAutoLinkMask(RESULT_OK);
+        tx1.setMovementMethod(LinkMovementMethod.getInstance());
+
+        Linkify.addLinks(s, Linkify.WEB_URLS);
+        builder.setTitle(R.string.StateTitle)
+                .setCancelable(false)
+                .setPositiveButton(R.string.global_ok, null);
+                //.setNegativeButton("Decline", new DialogInterface.OnClickListener() {
+                  //  public void onClick(DialogInterface dialog, int id) {
+                  //      finish();
+                  //  }
+               // });
+        builder.setView(tx1);
+        builder.show();*/
+       /* builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.state_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Uri uri = Uri.parse(String.valueOf(Constants.URL_DisApp_STATEXMPP));
+                Intent xmpp = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
+                startActivity(xmpp);
+            }
+        });
+        builder.show();*/
     }
 
     private void showHowToInfo() {
