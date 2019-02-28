@@ -48,36 +48,6 @@ public class DashboardPresenter {
 		configureNativeBrowserEntryPoint(nativeBrowserEntryPoint);
 	}
 
-	public static void launchRecommendedAppButton(
-			final RecommendedAppEntryPoint recommendedAppEntryPoint,
-			final Activity activity,
-			final WebView webView,
-			final SharedPreferences firstStart) {
-		new DashboardPresenter(activity, webView, firstStart).launch(recommendedAppEntryPoint);
-	}
-
-	public static void launchWebviewApp(
-			final WebviewEntryPoint webviewEntryPoint,
-			final WebView webView,
-			final SharedPreferences firstStart,
-			final MainActivity mainActivity) {
-
-		new DashboardPresenter(mainActivity, webView, firstStart).launch(webviewEntryPoint);
-	}
-
-	public static void launchActivity(
-			final ActivityEntryPoint activityEntryPoint,
-			final Activity activity, final WebView webView,
-			final SharedPreferences firstStart) {
-		new DashboardPresenter(activity, webView, firstStart).launch(activityEntryPoint);
-	}
-
-	public static void launchWebviewWithNativeBrowser(
-			final NativeBrowserEntryPoint nativeBrowserEntryPoint, final WebView webView, final Activity activity,
-			final SharedPreferences firstStart) {
-		new DashboardPresenter(activity, webView, firstStart).launch(nativeBrowserEntryPoint);
-	}
-
 	private void configureNativeBrowserEntryPoint(final NativeBrowserEntryPoint nativeBrowserEntryPoint) {
 		Button button = activity.findViewById(nativeBrowserEntryPoint.getButtonId());
 		button.setOnLongClickListener(new View.OnLongClickListener() {
