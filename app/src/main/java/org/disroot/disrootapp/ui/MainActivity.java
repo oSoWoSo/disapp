@@ -66,7 +66,11 @@ import android.widget.Toast;
 
 
 import org.disroot.disrootapp.R;
-import org.disroot.disrootapp.ui.listener.FirstTapCheckerListener;
+import org.disroot.disrootapp.model.ActivityEntryPoint;
+import org.disroot.disrootapp.model.NativeBrowserEntryPoint;
+import org.disroot.disrootapp.model.RecommendedAppEntryPoint;
+import org.disroot.disrootapp.model.WebviewEntryPoint;
+import org.disroot.disrootapp.presenter.DashboardPresenter;
 import org.disroot.disrootapp.utils.Constants;
 import org.disroot.disrootapp.utils.HttpHandler;
 import org.disroot.disrootapp.webviews.DisWebChromeClient;
@@ -208,132 +212,79 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     }
                 });
 
-        launchRecommendedAppButton(
-                R.id.MailBtn,
-                "com.fsck.k9",
-                R.string.MailInfoTitle,
-                R.string.MailInfo,
-                R.string.MailDialog,
-                Constants.URL_DisApp_K9HELP);
-        launchRecommendedAppButton(
-                R.id.CloudBtn,
-                "com.nextcloud.client",
-                R.string.CloudInfoTitle,
-                R.string.CloudInfo,
-                R.string.CloudDialog,
-                Constants.URL_DisApp_CLOUDHELP);
+        DashboardPresenter.launchRecommendedAppButton(
+				new RecommendedAppEntryPoint(R.id.MailBtn, "com.fsck.k9", R.string.MailInfoTitle, R.string.MailInfo,
+						R.string.MailDialog, Constants.URL_DisApp_K9HELP), MainActivity.this, MainActivity.this.webView, firstStart);
+        DashboardPresenter.launchRecommendedAppButton(
+				new RecommendedAppEntryPoint(R.id.CloudBtn, "com.nextcloud.client", R.string.CloudInfoTitle,
+						R.string.CloudInfo, R.string.CloudDialog, Constants.URL_DisApp_CLOUDHELP), MainActivity.this, MainActivity.this.webView, firstStart);
 
-        launchRecommendedAppButton(
-                R.id.DiasporaBtn,
-                "com.github.dfa.diaspora_android",
-                R.string.DiasporaTitle,
-                R.string.DiasporaInfo,
-                R.string.DiasporaDialog,
-                Constants.URL_DisApp_DIAHELP);
+        DashboardPresenter.launchRecommendedAppButton(
+				new RecommendedAppEntryPoint(R.id.DiasporaBtn, "com.github.dfa.diaspora_android",
+						R.string.DiasporaTitle, R.string.DiasporaInfo, R.string.DiasporaDialog,
+						Constants.URL_DisApp_DIAHELP), MainActivity.this, MainActivity.this.webView, firstStart);
 
-        launchWebviewApp(
-                R.id.ForumBtn,
-                R.string.ForumTitle,
-                R.string.ForumInfo,
-                Constants.URL_DisApp_FORUM,
-                Constants.URL_DisApp_FORUMHELP);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.ForumBtn, R.string.ForumTitle, R.string.ForumInfo,
+						Constants.URL_DisApp_FORUM, Constants.URL_DisApp_FORUMHELP), MainActivity.this.webView, firstStart,
+                MainActivity.this);
 
         // TODO: Let user choose the client
-        launchRecommendedAppButton(
-                R.id.ChatBtn,
-                getInstalledOption(CONVERSATIONS, PIX_ART),
-                R.string.ChatTitle,
-                R.string.ChatInfo,
-                R.string.ChatDialog,
-                Constants.URL_DisApp_XMPPHELP);
+        DashboardPresenter.launchRecommendedAppButton(
+				new RecommendedAppEntryPoint(R.id.ChatBtn, getInstalledOption(CONVERSATIONS, PIX_ART),
+						R.string.ChatTitle, R.string.ChatInfo, R.string.ChatDialog, Constants.URL_DisApp_XMPPHELP),
+				MainActivity.this, MainActivity.this.webView, firstStart);
 
-        launchRecommendedAppButton(
-                R.id.PadBtn,
-                "com.mikifus.padland",
-                R.string.PadTitle,
-                R.string.PadInfo,
-                R.string.PadDialog,
-                Constants.URL_DisApp_PADHELP);
+        DashboardPresenter.launchRecommendedAppButton(
+				new RecommendedAppEntryPoint(R.id.PadBtn, "com.mikifus.padland", R.string.PadTitle, R.string.PadInfo,
+						R.string.PadDialog, Constants.URL_DisApp_PADHELP), MainActivity.this, MainActivity.this.webView, firstStart);
 
-        launchWebviewApp(
-                R.id.CalcBtn,
-                R.string.CalcTitle,
-                R.string.CalcInfo,
-                Constants.URL_DisApp_CALC,
-                Constants.URL_DisApp_CALCHELP);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.CalcBtn, R.string.CalcTitle, R.string.CalcInfo, Constants.URL_DisApp_CALC,
+						Constants.URL_DisApp_CALCHELP), MainActivity.this.webView, firstStart, MainActivity.this);
 
-        launchWebviewApp(
-                R.id.BinBtn,
-                R.string.BinTitle,
-                R.string.BinInfo,
-                Constants.URL_DisApp_BIN,
-                Constants.URL_DisApp_BINHELP);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.BinBtn, R.string.BinTitle, R.string.BinInfo, Constants.URL_DisApp_BIN,
+						Constants.URL_DisApp_BINHELP), MainActivity.this.webView, firstStart, MainActivity.this);
 
-        launchWebviewWithNativeBrowser(
-                R.id.UploadBtn,
-                R.string.UploadTitle,
-                R.string.UploadInfo,
-                Constants.URL_DisApp_UPLOAD,
-                Constants.URL_DisApp_UPLOADHELP);
+        DashboardPresenter.launchWebviewWithNativeBrowser(
+                new NativeBrowserEntryPoint(R.id.UploadBtn, R.string.UploadTitle, R.string.UploadInfo,
+                        Constants.URL_DisApp_UPLOAD, Constants.URL_DisApp_UPLOADHELP), webView, MainActivity.this, firstStart);
 
-        launchWebviewApp(
-                R.id.SearxBtn,
-                R.string.SearxTitle,
-                R.string.SearxInfo,
-                Constants.URL_DisApp_SEARX,
-                Constants.URL_DisApp_SEARXHELP);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.SearxBtn, R.string.SearxTitle, R.string.SearxInfo,
+						Constants.URL_DisApp_SEARX, Constants.URL_DisApp_SEARXHELP), MainActivity.this.webView, firstStart, MainActivity.this);
 
-        launchWebviewApp(
-                R.id.PollsBtn,
-                R.string.PollsTitle,
-                R.string.PollsInfo,
-                Constants.URL_DisApp_POLL,
-                Constants.URL_DisApp_POLLHELP);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.PollsBtn, R.string.PollsTitle, R.string.PollsInfo,
+						Constants.URL_DisApp_POLL, Constants.URL_DisApp_POLLHELP), MainActivity.this.webView, firstStart, MainActivity.this);
 
-        launchWebviewApp(
-                R.id.BoardBtn,
-                R.string.BoardTitle,
-                R.string.BoardInfo,
-                Constants.URL_DisApp_BOARD,
-                Constants.URL_DisApp_BOARDHELP);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.BoardBtn, R.string.BoardTitle, R.string.BoardInfo,
+						Constants.URL_DisApp_BOARD, Constants.URL_DisApp_BOARDHELP), MainActivity.this.webView, firstStart, MainActivity.this);
 
 
-        launchRecommendedAppButton(
-                R.id.NotesBtn,
-                "it.niedermann.owncloud.notes",
-                R.string.NotesTitle,
-                R.string.NotesInfo,
-                R.string.NotesDialog,
-                Constants.URL_DisApp_NOTESHELP
-        );
+        DashboardPresenter.launchRecommendedAppButton(
+				new RecommendedAppEntryPoint(R.id.NotesBtn, "it.niedermann.owncloud.notes", R.string.NotesTitle,
+						R.string.NotesInfo, R.string.NotesDialog, Constants.URL_DisApp_NOTESHELP), MainActivity.this,
+				MainActivity.this.webView, firstStart
+		);
 
-        launchWebviewApp(
-                R.id.UserBtn,
-                R.string.UserTitle,
-                R.string.UserInfo,
-                Constants.URL_DisApp_USER,
-                null);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.UserBtn, R.string.UserTitle, R.string.UserInfo, Constants.URL_DisApp_USER,
+						null), MainActivity.this.webView, firstStart, MainActivity.this);
 
-        launchActivity(
-                R.id.StateBtn,
-                R.string.StateTitle,
-                R.string.StateInfo,
-                new Intent(this, StateActivity.class),
-                null);
+        DashboardPresenter.launchActivity(
+                new ActivityEntryPoint(R.id.StateBtn, R.string.StateTitle, R.string.StateInfo, new Intent(this,
+                        StateActivity.class), null), MainActivity.this, webView, firstStart);
 
-        launchWebviewApp(
-                R.id.HowtoBtn,
-                R.string.HowToTitle,
-                R.string.HowToInfo,
-                Constants.URL_DisApp_HOWTO,
-                null);
+        DashboardPresenter.launchWebviewApp(
+				new WebviewEntryPoint(R.id.HowtoBtn, R.string.HowToTitle, R.string.HowToInfo,
+						Constants.URL_DisApp_HOWTO, null), MainActivity.this.webView, firstStart, MainActivity.this);
 
-        launchActivity(
-                R.id.AboudBtn,
-                R.string.AboutTitle,
-                R.string.AboutInfo,
-                new Intent(MainActivity.this, AboutActivity.class),
-                null);
+        DashboardPresenter.launchActivity(
+                new ActivityEntryPoint(R.id.AboudBtn, R.string.AboutTitle, R.string.AboutInfo,
+                        new Intent(MainActivity.this, AboutActivity.class), null), MainActivity.this, webView, firstStart);
 
         ImageButton imageButton = findViewById(R.id.logo);//LogoBtn
         imageButton.setOnLongClickListener(new View.OnLongClickListener() {
@@ -368,105 +319,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         }, 100, 100000);//100000=100sec
     }
 
-    private void launchActivity(int buttonId, final int serviceInfoTitleId, final int serviceInfoText, final Intent targetIntent, final String helpUrl) {
-        Button button = findViewById(buttonId);//StateBtn
-        button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceInfoTitleId, serviceInfoText, helpUrl);
-                return true;
-            }
-        });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
-            @Override
-            public void onServiceClick(View v) {
-                MainActivity.this.startActivity(targetIntent);
-            }
-
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
-            }
-        });
-    }
-
-    private void launchRecommendedAppButton(int buttonId, final String serviceAppPackageId, final int serviceInfoTitleId, final int serviceInfoTextId, final int installServiceAppTextId, final String helpUrl) {
-        button = findViewById(buttonId);
-        button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceInfoTitleId, serviceInfoTextId, helpUrl);
-                return true;
-            }
-        });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
-            @Override
-            public void onServiceClick(View v) {
-                Intent mail = getPackageManager().getLaunchIntentForPackage(serviceAppPackageId);
-                if(mail == null) {
-                    showInstallRecommendedAppDialog(installServiceAppTextId, serviceAppPackageId);
-                    return;
-                }
-                startActivity(mail);
-            }
-
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
-            }
-        });
-    }
-
-    private void launchWebviewApp(int buttonId, final int serviceTitleId, final int serviceInfoId, final String appUrl, final String helpUrl) {
-        button = findViewById(buttonId);
-        button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceTitleId, serviceInfoId, helpUrl);
-                return true;
-            }
-        });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
-            @Override
-            public void onServiceClick(View v) {
-                ScrollView dashboard = findViewById(R.id.dashboard);
-                webView.loadUrl(appUrl);
-                webView.setVisibility(View.VISIBLE);
-                dashboard.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
-            }
-        });
-    }
-
-    private void launchWebviewWithNativeBrowser(int buttonId, final int serviceInfoTitleId, final int serviceInfoId, final String appUrl, final String helpUrl) {
-        Button button = findViewById(buttonId);
-        button.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                showIconInfo(serviceInfoTitleId, serviceInfoId, helpUrl);
-                return true;
-            }
-        });
-        button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
-            @Override
-            public void onServiceClick(View v) {
-                Uri uri = Uri.parse(Constants.URL_DisApp_UPLOAD);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onFirstTap() {
-                showFirstTap();
-            }
-        });
-    }
-
-    private String getInstalledOption(String ...optionPackageNames) {
+	private String getInstalledOption(String ...optionPackageNames) {
         for (String packageName : optionPackageNames) {
             if (getPackageManager().getLaunchIntentForPackage(packageName) != null){
                 return packageName;
@@ -476,62 +329,13 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     }
 
 
-    private void showFirstTap() {
-        firstStart.edit().putBoolean("firsttap", false).apply();
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.FirstTitle);
-        builder.setMessage(getString(R.string.FirstInfo));
-        builder.setPositiveButton(R.string.global_ok, null);
-        builder.show();
-    }
-
     @Override
     public boolean onLongClick(View view) {
         Toast.makeText(view.getContext(), R.string.activity_main_share_info, Toast.LENGTH_LONG).show();
         return false;
     }
 
-    private void showIconInfo(int titleId, int messageId, final String helpUrl) {
-        final ScrollView dashboard = findViewById(R.id.dashboard);
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(titleId);
-        builder.setMessage(getString(messageId));
-        builder.setPositiveButton(R.string.global_ok, null);
-        if (helpUrl != null) {
-            builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    webView.loadUrl(helpUrl);
-                    webView.setVisibility(View.VISIBLE);
-                    dashboard.setVisibility(View.GONE);
-                }
-            });
-        }
-
-        builder.show();
-    }
-
-    private void showInstallRecommendedAppDialog(int installDialogTextId, final String appPackage){
-        final ScrollView dashboard = findViewById(R.id.dashboard);
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(getString(installDialogTextId));
-        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
-            Intent mail = getPackageManager().getLaunchIntentForPackage(appPackage);
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                mail = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackage));
-                startActivity(mail);
-            }
-        });
-        builder.setNegativeButton(R.string.global_cancel , null);
-        builder.show();
-    }
-
-    private void showForget() {
+	private void showForget() {
         final ScrollView dashboard = findViewById(R.id.dashboard);
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
