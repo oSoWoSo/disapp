@@ -5,7 +5,6 @@ import org.disroot.disrootapp.model.ActivityEntryPoint;
 import org.disroot.disrootapp.model.NativeBrowserEntryPoint;
 import org.disroot.disrootapp.model.RecommendedAppEntryPoint;
 import org.disroot.disrootapp.model.WebviewEntryPoint;
-import org.disroot.disrootapp.ui.MainActivity;
 import org.disroot.disrootapp.ui.listener.FirstTapCheckerListener;
 
 import android.app.Activity;
@@ -55,7 +54,7 @@ public class DashboardPresenter {
 			public boolean onLongClick(View v) {
 				showIconInfo(nativeBrowserEntryPoint.getServiceInfoTitleId(), nativeBrowserEntryPoint.getHelpUrl(),
 						(ScrollView) activity.findViewById(R.id.dashboard), activity,
-						activity.getString(nativeBrowserEntryPoint.getServiceInfoId()), webView);
+						activity.getString(nativeBrowserEntryPoint.getServiceInfoTextId()), webView);
 				return true;
 			}
 		});
@@ -81,7 +80,7 @@ public class DashboardPresenter {
 			public boolean onLongClick(View v) {
 				showIconInfo(activityEntryPoint.getServiceInfoTitleId(), activityEntryPoint.getHelpUrl(),
 						(ScrollView) activity.findViewById(R.id.dashboard), activity,
-						activity.getString(activityEntryPoint.getServiceInfoText()), webView);
+						activity.getString(activityEntryPoint.getServiceInfoTextId()), webView);
 				return true;
 			}
 		});
@@ -135,8 +134,8 @@ public class DashboardPresenter {
 		button.setOnLongClickListener(new View.OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
-				showIconInfo(webviewEntryPoint.getServiceTitleId(), webviewEntryPoint.getHelpUrl(), (ScrollView) activity.findViewById(R.id.dashboard),
-						activity, activity.getString(webviewEntryPoint.getServiceInfoId()), webView);
+				showIconInfo(webviewEntryPoint.getServiceInfoTitleId(), webviewEntryPoint.getHelpUrl(), (ScrollView) activity.findViewById(R.id.dashboard),
+						activity, activity.getString(webviewEntryPoint.getServiceInfoTextId()), webView);
 				return true;
 			}
 		});
