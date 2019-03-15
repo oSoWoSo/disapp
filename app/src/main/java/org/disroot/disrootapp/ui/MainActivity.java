@@ -90,13 +90,15 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import static org.disroot.disrootapp.model.RecommendedAppEntryPoint.*;
+
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements View.OnLongClickListener {
 
-	public static final String CONVERSATIONS = "eu.siacs.conversations";
 	public static final String PIX_ART = "de.pixart.messenger";
 
 	private static final String TAG = MainActivity.class.getSimpleName();
+
 	private WebView webView;
 	private DisWebChromeClient disWebChromeClient;
 	Button button;
@@ -210,40 +212,18 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 				});
 
 		DashboardPresenter dashboardPresenter = new DashboardPresenter(this, this.webView, firstStart);
-		dashboardPresenter.launch(new RecommendedAppEntryPoint(R.id.MailBtn, "com.fsck.k9", R.string.MailInfoTitle,
-				R.string.MailInfo,
-				R.string.MailDialog, Constants.URL_DisApp_K9HELP));
-		dashboardPresenter.launch(new RecommendedAppEntryPoint(R.id.CloudBtn, "com.nextcloud.client",
-				R.string.CloudInfoTitle,
-				R.string.CloudInfo, R.string.CloudDialog, Constants.URL_DisApp_CLOUDHELP));
-
-		dashboardPresenter.launch(new RecommendedAppEntryPoint(R.id.DiasporaBtn, "com.github.dfa.diaspora_android",
-				R.string.DiasporaTitle, R.string.DiasporaInfo, R.string.DiasporaDialog,
-				Constants.URL_DisApp_DIAHELP));
+		for (RecommendedAppEntryPoint entryPoint : recomendedAppEntryPoints) {
+			dashboardPresenter.launch(entryPoint);
+		}
 
 		dashboardPresenter.launch(new WebviewEntryPoint(R.id.ForumBtn, R.string.ForumTitle, R.string.ForumInfo,
 				Constants.URL_DisApp_FORUM, Constants.URL_DisApp_FORUMHELP));
-
-		// TODO: Let user choose the client
-		dashboardPresenter.launch(new RecommendedAppEntryPoint(R.id.ChatBtn, getInstalledOption(CONVERSATIONS,
-				PIX_ART),
-				R.string.ChatTitle, R.string.ChatInfo, R.string.ChatDialog, Constants.URL_DisApp_XMPPHELP));
-
-		dashboardPresenter.launch(new RecommendedAppEntryPoint(R.id.PadBtn, "com.mikifus.padland", R.string.PadTitle,
-				R.string.PadInfo,
-				R.string.PadDialog, Constants.URL_DisApp_PADHELP));
-
 		dashboardPresenter.launch(new WebviewEntryPoint(R.id.CalcBtn, R.string.CalcTitle, R.string.CalcInfo,
 				Constants.URL_DisApp_CALC,
 				Constants.URL_DisApp_CALCHELP));
-
 		dashboardPresenter.launch(new WebviewEntryPoint(R.id.BinBtn, R.string.BinTitle, R.string.BinInfo,
 				Constants.URL_DisApp_BIN,
 				Constants.URL_DisApp_BINHELP));
-
-		new DashboardPresenter(this, webView, firstStart).launch(new NativeBrowserEntryPoint(R.id.UploadBtn,
-				R.string.UploadTitle, R.string.UploadInfo,
-				Constants.URL_DisApp_UPLOAD, Constants.URL_DisApp_UPLOADHELP));
 
 		dashboardPresenter.launch(new WebviewEntryPoint(R.id.SearxBtn, R.string.SearxTitle, R.string.SearxInfo,
 				Constants.URL_DisApp_SEARX, Constants.URL_DisApp_SEARXHELP));
@@ -254,20 +234,20 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 		dashboardPresenter.launch(new WebviewEntryPoint(R.id.BoardBtn, R.string.BoardTitle, R.string.BoardInfo,
 				Constants.URL_DisApp_BOARD, Constants.URL_DisApp_BOARDHELP));
 
-
-		dashboardPresenter.launch(new RecommendedAppEntryPoint(R.id.NotesBtn, "it.niedermann.owncloud.notes",
-				R.string.NotesTitle,
-				R.string.NotesInfo, R.string.NotesDialog, Constants.URL_DisApp_NOTESHELP));
+		dashboardPresenter.launch(new WebviewEntryPoint(R.id.HowtoBtn, R.string.HowToTitle, R.string.HowToInfo,
+				Constants.URL_DisApp_HOWTO, null));
 
 		dashboardPresenter.launch(new WebviewEntryPoint(R.id.UserBtn, R.string.UserTitle, R.string.UserInfo,
 				Constants.URL_DisApp_USER,
 				null));
 
+		dashboardPresenter.launch(new NativeBrowserEntryPoint(R.id.UploadBtn,
+				R.string.UploadTitle, R.string.UploadInfo,
+				Constants.URL_DisApp_UPLOAD, Constants.URL_DisApp_UPLOADHELP));
+
 		dashboardPresenter.launch(new ActivityEntryPoint(R.id.StateBtn,
 				R.string.StateTitle, R.string.StateInfo, StateActivity.class, null));
 
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.HowtoBtn, R.string.HowToTitle, R.string.HowToInfo,
-				Constants.URL_DisApp_HOWTO, null));
 
 		dashboardPresenter.launch(new ActivityEntryPoint(R.id.AboudBtn,
 				R.string.AboutTitle, R.string.AboutInfo,
