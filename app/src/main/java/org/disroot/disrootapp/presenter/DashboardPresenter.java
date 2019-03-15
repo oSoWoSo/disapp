@@ -19,6 +19,12 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ScrollView;
 
+import static org.disroot.disrootapp.model.ActivityEntryPoint.activityEntryPoints;
+import static org.disroot.disrootapp.model.NativeBrowserEntryPoint.*;
+import static org.disroot.disrootapp.model.NativeBrowserEntryPoint.UPLOAD;
+import static org.disroot.disrootapp.model.RecommendedAppEntryPoint.recomendedAppEntryPoints;
+import static org.disroot.disrootapp.model.WebviewEntryPoint.webViewEntryPoints;
+
 public class DashboardPresenter {
 
 	private final Activity activity;
@@ -31,19 +37,19 @@ public class DashboardPresenter {
 		this.firstStart = firstStart;
 	}
 
-	public void launch(RecommendedAppEntryPoint entryPoint) {
+	private void configure(RecommendedAppEntryPoint entryPoint) {
 		configureRecommendedApp(entryPoint);
 	}
 
-	public void launch(WebviewEntryPoint entryPoint) {
+	private void configure(WebviewEntryPoint entryPoint) {
 		configureWebviewEntryPoint(entryPoint);
 	}
 
-	public void launch(ActivityEntryPoint activityEntryPoint) {
+	private void configure(ActivityEntryPoint activityEntryPoint) {
 		configureActivityEntryPoint(activityEntryPoint);
 	}
 
-	public void launch(NativeBrowserEntryPoint nativeBrowserEntryPoint) {
+	private void configure(NativeBrowserEntryPoint nativeBrowserEntryPoint) {
 		configureNativeBrowserEntryPoint(nativeBrowserEntryPoint);
 	}
 
@@ -113,8 +119,9 @@ public class DashboardPresenter {
 		button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
 			@Override
 			public void onServiceClick(View v) {
-				Intent mail = activity.getPackageManager().getLaunchIntentForPackage(recommendedAppEntryPoint.getServiceAppPackageId());
-				if(mail == null) {
+				Intent mail =
+						activity.getPackageManager().getLaunchIntentForPackage(recommendedAppEntryPoint.getServiceAppPackageId());
+				if (mail == null) {
 					showInstallRecommendedAppDialog(recommendedAppEntryPoint.getInstallServiceAppTextId(),
 							recommendedAppEntryPoint.getServiceAppPackageId(), activity);
 					return;
@@ -135,7 +142,8 @@ public class DashboardPresenter {
 		button.setOnLongClickListener(new View.OnLongClickListener() {
 			@Override
 			public boolean onLongClick(View v) {
-				showIconInfo(webviewEntryPoint.getServiceInfoTitleId(), webviewEntryPoint.getHelpUrl(), (ScrollView) activity.findViewById(R.id.dashboard),
+				showIconInfo(webviewEntryPoint.getServiceInfoTitleId(), webviewEntryPoint.getHelpUrl(),
+						(ScrollView) activity.findViewById(R.id.dashboard),
 						activity, activity.getString(webviewEntryPoint.getServiceInfoTextId()), webView);
 				return true;
 			}
@@ -188,20 +196,40 @@ public class DashboardPresenter {
 	}
 
 	private static void showInstallRecommendedAppDialog(int installDialogTextId, final String appPackage,
-			final Activity activity){
+			final Activity activity) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 		builder.setCancelable(false);
 		builder.setTitle(R.string.DiaInstallTitle);
 		builder.setMessage(activity.getString(installDialogTextId));
 		builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
 			Intent mail = activity.getPackageManager().getLaunchIntentForPackage(appPackage);
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				mail = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackage));
 				activity.startActivity(mail);
 			}
 		});
-		builder.setNegativeButton(R.string.global_cancel , null);
+		builder.setNegativeButton(R.string.global_cancel, null);
 		builder.show();
+	}
+
+	public void configure() {
+		for (RecommendedAppEntryPoint entryPoint : recomendedAppEntryPoints) {
+			configure(entryPoint);
+		}
+
+		for (WebviewEntryPoint entryPoint : webViewEntryPoints) {
+			configure(entryPoint);
+		}
+
+		for (ActivityEntryPoint entryPoint : activityEntryPoints) {
+			configure(entryPoint);
+		}
+
+		for (NativeBrowserEntryPoint entryPoint : nativetBrowserEntryPoints) {
+			configure(entryPoint);
+		}
+
 	}
 }

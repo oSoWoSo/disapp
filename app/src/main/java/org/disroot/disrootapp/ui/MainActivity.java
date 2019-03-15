@@ -13,10 +13,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.disroot.disrootapp.R;
-import org.disroot.disrootapp.model.ActivityEntryPoint;
-import org.disroot.disrootapp.model.NativeBrowserEntryPoint;
-import org.disroot.disrootapp.model.RecommendedAppEntryPoint;
-import org.disroot.disrootapp.model.WebviewEntryPoint;
 import org.disroot.disrootapp.presenter.DashboardPresenter;
 import org.disroot.disrootapp.utils.Constants;
 import org.disroot.disrootapp.utils.HttpHandler;
@@ -90,8 +86,6 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
-import static org.disroot.disrootapp.model.RecommendedAppEntryPoint.*;
-
 @SuppressWarnings("ALL")
 public class MainActivity extends AppCompatActivity implements View.OnLongClickListener {
 
@@ -152,6 +146,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 		//getActionBar().setHomeButtonEnabled(true);
 
 		final ScrollView dashboard = findViewById(R.id.dashboard);
+		DashboardPresenter dashboardPresenter = new DashboardPresenter(this, this.webView, firstStart);
+
 
 		//progressbarLoading
 		progressBar = findViewById(R.id.progressbarLoading);
@@ -182,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 		if (cl.isFirstRun()) {
 			cl.getLogDialog().show();
 		}
+		dashboardPresenter.configure();
 
 		//set booleans for checking Chat preference
 		if (firstStart.getBoolean("firsttap", true)) {
@@ -211,47 +208,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 					}
 				});
 
-		DashboardPresenter dashboardPresenter = new DashboardPresenter(this, this.webView, firstStart);
-		for (RecommendedAppEntryPoint entryPoint : recomendedAppEntryPoints) {
-			dashboardPresenter.launch(entryPoint);
-		}
 
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.ForumBtn, R.string.ForumTitle, R.string.ForumInfo,
-				Constants.URL_DisApp_FORUM, Constants.URL_DisApp_FORUMHELP));
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.CalcBtn, R.string.CalcTitle, R.string.CalcInfo,
-				Constants.URL_DisApp_CALC,
-				Constants.URL_DisApp_CALCHELP));
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.BinBtn, R.string.BinTitle, R.string.BinInfo,
-				Constants.URL_DisApp_BIN,
-				Constants.URL_DisApp_BINHELP));
-
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.SearxBtn, R.string.SearxTitle, R.string.SearxInfo,
-				Constants.URL_DisApp_SEARX, Constants.URL_DisApp_SEARXHELP));
-
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.PollsBtn, R.string.PollsTitle, R.string.PollsInfo,
-				Constants.URL_DisApp_POLL, Constants.URL_DisApp_POLLHELP));
-
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.BoardBtn, R.string.BoardTitle, R.string.BoardInfo,
-				Constants.URL_DisApp_BOARD, Constants.URL_DisApp_BOARDHELP));
-
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.HowtoBtn, R.string.HowToTitle, R.string.HowToInfo,
-				Constants.URL_DisApp_HOWTO, null));
-
-		dashboardPresenter.launch(new WebviewEntryPoint(R.id.UserBtn, R.string.UserTitle, R.string.UserInfo,
-				Constants.URL_DisApp_USER,
-				null));
-
-		dashboardPresenter.launch(new NativeBrowserEntryPoint(R.id.UploadBtn,
-				R.string.UploadTitle, R.string.UploadInfo,
-				Constants.URL_DisApp_UPLOAD, Constants.URL_DisApp_UPLOADHELP));
-
-		dashboardPresenter.launch(new ActivityEntryPoint(R.id.StateBtn,
-				R.string.StateTitle, R.string.StateInfo, StateActivity.class, null));
-
-
-		dashboardPresenter.launch(new ActivityEntryPoint(R.id.AboudBtn,
-				R.string.AboutTitle, R.string.AboutInfo,
-				AboutActivity.class, null));
 
 		ImageButton imageButton = findViewById(R.id.logo);//LogoBtn
 		imageButton.setOnLongClickListener(new View.OnLongClickListener() {
