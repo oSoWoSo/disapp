@@ -1,18 +1,16 @@
 package org.disroot.disrootapp.model;
 
-import android.content.Intent;
-
 public class ActivityEntryPoint extends DashboardEntryPoint {
 
-	private final Intent targetIntent;
+	private final Class targetAcivityClass;
 
-	public ActivityEntryPoint(int buttonId, int serviceInfoTitleId, int serviceInfoTextId, Intent targetIntent, String helpUrl) {
+	public ActivityEntryPoint(int buttonId, int serviceInfoTitleId, int serviceInfoTextId, Class targetActivityClass, String helpUrl) {
 		super(buttonId, serviceInfoTitleId, serviceInfoTextId, helpUrl);
-		this.targetIntent = targetIntent;
+		this.targetAcivityClass = targetActivityClass;
 	}
 
-	public Intent getTargetIntent() {
-		return targetIntent;
+	public Class getTargetAcivityClass() {
+		return targetAcivityClass;
 	}
 
 }

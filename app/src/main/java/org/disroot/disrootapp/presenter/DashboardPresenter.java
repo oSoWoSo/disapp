@@ -43,7 +43,7 @@ public class DashboardPresenter {
 		configureActivityEntryPoint(activityEntryPoint);
 	}
 
-	public void launch(final NativeBrowserEntryPoint nativeBrowserEntryPoint) {
+	public void launch(NativeBrowserEntryPoint nativeBrowserEntryPoint) {
 		configureNativeBrowserEntryPoint(nativeBrowserEntryPoint);
 	}
 
@@ -87,7 +87,8 @@ public class DashboardPresenter {
 		button.setOnClickListener(new FirstTapCheckerListener(firstStart) {
 			@Override
 			public void onServiceClick(View v) {
-				activity.startActivity(activityEntryPoint.getTargetIntent());
+				Intent intent = new Intent(activity, activityEntryPoint.getTargetAcivityClass());
+				activity.startActivity(intent);
 			}
 
 			@Override
