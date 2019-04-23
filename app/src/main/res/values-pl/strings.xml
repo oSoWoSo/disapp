@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Disroot App</string>
+    <string name="app_name">Aplikacja Disroot</string>
     <string name="action_home">Strona główna</string>
     <string name="action_mail">Poczta</string>
     <string name="action_cloud">Chmura</string>
@@ -8,11 +8,11 @@
     <string name="action_chat">Czat</string>
     <string name="action_pad">Etherpad</string>
     <string name="action_calc">EtherCalc</string>
-    <string name="action_bin">Private bin</string>
-    <string name="action_upload">Upload</string>
+    <string name="action_bin">PrivateBin</string>
+    <string name="action_upload">Przesyłanie</string>
     <string name="action_searx">Searx</string>
     <string name="action_poll">Ankieta</string>
-    <string name="action_board">Board</string>
+    <string name="action_board">Projekt</string>
     <string name="action_user">Hasło</string>
     <string name="action_state">Stan</string>
     <string name="action_howto">Poradnik</string>
@@ -82,11 +82,11 @@
     <string name="FirstInfo">Możesz długo przytrzymać na każdej ikonie, aby wyświetlić dodatkowe informacje…</string>
     <string name="DiasporaTitle">Ustawienia Diaspora*</string>
     <string name="DiasporaInfo">Rozproszona i zdecentralizowana sieć społecznościowa. Pisz posty, udostępniaj, polubiaj, twórz społeczności.\n\nNazwa użytkownika:\n twoja_nazwauzytkownika_diaspora@pod.disroot.org\n\nHasło:\n twoje_haslo_diaspora</string>
-    <string name="PadInfo">With Etherpad write articles, press releases, to-do lists, etc. together with friends, fellow students or colleagues, all working on the same document at the same time.\nNo registration is required.</string>
-    <string name="PadTitle">EtherPad Info</string>
-    <string name="ChatTitle">XMPP Settings\n</string>
-    <string name="ChatInfo">Conversations is a free, standard and open-source decentralized and federated instant messaging application for chatting with contacts or within groups.\n\nJabber ID :\n Your full Disroot email address\n\nPassword :\n Your Disroot password</string>
-    <string name="CalcInfo">With EtherCalc work together on inventories, survey forms, list management, brainstorming sessions and more!\nNo registration is required.</string>
+    <string name="PadInfo">Z EtherPad możesz pisać artykuły, komunikaty prasowe, listy zadań do wykonania, itp. Możesz pracować na tym samym dokumencie razem z innymi osobami, w tym samym czasie.\nNie jest wymagana rejestracja.</string>
+    <string name="PadTitle">Informacje o EtherPad</string>
+    <string name="ChatTitle">Ustawienia XMPP\n</string>
+    <string name="ChatInfo">Conversations jest darmową, standardową i otwartoźródłową zdecentralizowaną i sfederowaną aplikacją do czatowania z kontaktami lub w grupach.\n\nJabber ID :\n Twój pełny adres e-mail Disroot\n\nPassword :\n Twoje hasło Disroot</string>
+    <string name="CalcInfo">Z EtherCalc możesz pracować razem nad inwentaryzacjami, formularzami ankiet, za, brainstorming sessions and more!\nNo registration is required.</string>
     <string name="CalcTitle">EtherCalc Info</string>
     <string name="BinTitle">PrivateBin Help</string>
     <string name="BinInfo">PrivateBin is an open-source online pastebin and discussion board. Data is encrypted/decrypted in the browser so that the server has zero knowledge of hosted data. Just paste a text, click “Send”, set expiration (and other features) and share the URL.\nNo registration is required.</string>
