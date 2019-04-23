@@ -1,87 +1,87 @@
 <resources>
     <string name="app_name">Disroot App</string>
-    <string name="action_home">Home</string>
-    <string name="action_mail">Mail</string>
-    <string name="action_cloud">Cloud</string>
+    <string name="action_home">Strona główna</string>
+    <string name="action_mail">Poczta</string>
+    <string name="action_cloud">Chmura</string>
     <string name="action_diaspora">Diaspora*</string>
     <string name="action_forum">Forum</string>
-    <string name="action_chat">Chat</string>
+    <string name="action_chat">Czat</string>
     <string name="action_pad">Etherpad</string>
     <string name="action_calc">EtherCalc</string>
     <string name="action_bin">Private bin</string>
     <string name="action_upload">Upload</string>
     <string name="action_searx">Searx</string>
-    <string name="action_poll">Poll</string>
+    <string name="action_poll">Ankieta</string>
     <string name="action_board">Board</string>
-    <string name="action_user">Password</string>
-    <string name="action_state">State</string>
-    <string name="action_howto">How to</string>
+    <string name="action_user">Hasło</string>
+    <string name="action_state">Stan</string>
+    <string name="action_howto">Poradnik</string>
 
-    <string name="action_about">About</string>
-    <string name="action_exit">Exit</string>
-    <string name="action_share">Share</string>
-    <string name="action_reload">Reload</string>
+    <string name="action_about">Informacje</string>
+    <string name="action_exit">Wyjdź</string>
+    <string name="action_share">Udostępnij</string>
+    <string name="action_reload">Odśwież</string>
 
 
-    <string name="action_options">Actions</string>
-    <string name="activity_main_share_info">Share link info</string>
-    <string name="view_loading_description">Loading…</string>
+    <string name="action_options">Akcje</string>
+    <string name="activity_main_share_info">Udostępnij informacje o linku</string>
+    <string name="view_loading_description">Ładowanie…</string>
     <string name="global_ok">OK</string>
-    <string name="more_help">Need more help?</string>
-    <string name="tell_more">Tell me more</string>
+    <string name="more_help">Potrzebujesz dodatkowej pomocy?</string>
+    <string name="tell_more">Powiedz mi więcej</string>
     <string name="title_activity_about">AboutActivity</string>
 
-    <string name="MailInfoTitle">Mail Settings</string>
-    <string name="MailInfo">IMAP: disroot.org\nSSL Port 993\nAuthentication: Normal\nPassword\n\nSMTP: disroot.org\nSTARTTLS Port 587\nAuthentication: Normal\nPassword\n\nPOP: disroot.org\nSSL Port 995\nAuthentication: Normal\nPassword</string>
-    <string name="CloudInfoTitle">Nextcloud Settings</string>
-    <string name="CloudInfo">Keep your data synchronized and safe. With Nextcloud you can share your files, calendars, contacts and more.\n\nHost:\n https://cloud.disroot.org\n\nUsername:\n your_disroot_username\n\nPassword:\n your_disroot_password.</string>
-    <string name="WelcomeTitle">Welcome</string>
-    <string name="WelcomeInfo">Disroot is a platform providing online services based on principles of freedom, privacy, federation and decentralization.\nThis app is like your Swiss Army knife to the Disroot platform, made by the community for the community.\nIf you don\'t have a Disroot account you can still use this  app to access all the Disroot services that do not require an account:\n \ \ \ &#8226; Etherpad\n \ \ \ &#8226; Ethercalc\n \ \ \ &#8226; Private bin\n \ \ \ &#8226; Upload\n \ \ \ &#8226; Poll\n \ \ \ &#8226; Searx\n \ \ \ &#8226; Diaspora* (requires a Diaspora only account)\n\nThe app may require you to install additional apps. We highly recommend you install F-Droid - a free and open source app marketplace - as not all apps can be found on Google\'s Play Store and F-Droid is more privacy oriented (no tracking, no account needed) you can download it by tapping on the F-droid icon.\n</string>
+    <string name="MailInfoTitle">Ustawienia poczty</string>
+    <string name="MailInfo">IMAP: disroot.org\nSSL Port 993\nUwierzytelnianie: Normalne\nHasło\n\nSMTP: disroot.org\nSTARTTLS Port 587\nUwierzytelnianie: Normalne\nHasło\n\nPOP: disroot.org\nSSL Port 995\nUwierzytelnianie: Normalne\nHasło</string>
+    <string name="CloudInfoTitle">Ustawienia NextCloud</string>
+    <string name="CloudInfo">Przechowuj swoje dane zsynchronizowane i zabezpieczone. Z Nextcloud możesz udostępniać swoje pliki, kalendarze, kontakty i jeszcze więcej.\n\nAdres serwera:\n https://cloud.disroot.org\n\nNazwa użytkownika:\n twoja_nazwauzytkownika_disroot\n\nHasło:\n twoje_haslo_disroot.</string>
+    <string name="WelcomeTitle">Witaj</string>
+    <string name="WelcomeInfo">Disroot jest platformą dostarczającą usługi online oparte na zasadach wolności, prywatności, federacji i decentralizacji.\nTa aplikacja jest jak Twój nóż Armii Szwajcarskiej do platformy Disroot, wykonany przez społeczność dla społeczności.\nJeżeli nie posiadasz konta Disroot, nadal możesz używać tą aplikację do korzystania ze wszystkich usług Disroot, które nie wymagają konta:\n \ \ \ &#8226; Etherpad\n \ \ \ &#8226; Ethercalc\n \ \ \ &#8226; Private bin\n \ \ \ &#8226; Upload\n \ \ \ &#8226; Ankieta\n \ \ \ &#8226; Searx\n \ \ \ &#8226; Diaspora* (wymaga jedynie konta Diaspora)\n\nAplikacja może wymagać zainstalowania dodatkowych aplikacji. Bardzo polecamy zainstalowanie F-Droid - repozytorium dla darmowych i otwartoźródłowych aplikacji - ponieważ nie wszystkie aplikacje można znaleźć w Sklepie Play od Google, a F-Droid jest bardziej ukierunkowany w stronę prywatności (brak śledzenia i nie jest wymagane konto), możesz to pobrać przez kliknięcie na ikonę F-Droid.\n</string>
 
-    <string name="help">Help</string>
-    <string name="license">License</string>
-    <string name="action_settings">Settings</string>
-    <string name="licenseTitle">License</string>
-    <string name="license_button">GNU LGPLv3.0 License</string>
+    <string name="help">Pomoc</string>
+    <string name="license">Licencja</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="licenseTitle">Licencja</string>
+    <string name="license_button">Licencja GNU LGPLv3.0</string>
 
     <string name="licenseText" translatable="false">Copyright © 2007 Free Software Foundation, Inc.\n
         This program is free software: you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation, version 3 of the License only.\n\n
         This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more details.
     </string>
 
-    <string name="maintainersTitle">Maintainers</string>
-    <string name="maintainersText">This app is currently being developed and maintained by\n\n</string>
+    <string name="maintainersTitle">Zarządcy</string>
+    <string name="maintainersText">Ta aplikacja jest obecnie rozwijana i zarządzana przez\n\n</string>
     <string name="disrootUrl">https://disroot.org</string>
-    <string name="disroot"> * Disroot Community (Disroot):</string>
-    <string name="contributorsTitle">Contributors</string>
-    <string name="contributors"><b> &#8226; muppeth:</b>\n Disroot admin\n\n<b> &#8226; antilopa:</b>\n Disroot admin\n\n<b> &#8226; Massimiliano:</b>\n Developer\n\n<b> &#8226; Fede:</b>\n Content contributor\n\n<b> &#8226; Meaz:</b>\n Content contributor\n\n<b> &#8226; maryjane:</b>\n Content contributor\n\n<b> &#8226; userdebug:</b>\n Content contributor\n\n</string>
+    <string name="disroot"> * Społeczność Disroot (Disroot):</string>
+    <string name="contributorsTitle">Współtwórcy</string>
+    <string name="contributors"><b> &#8226; muppeth:</b>\n Admin Disroot\n\n<b> &#8226; antilopa:</b>\n Admin Disroot\n\n<b> &#8226; Massimiliano:</b>\n Deweloper\n\n<b> &#8226; Fede:</b>\n Współtwórca treści\n\n<b> &#8226; Meaz:</b>\n Współtwórca treści\n\n<b> &#8226; maryjane:</b>\n Współtwórca treści\n\n<b> &#8226; userdebug:</b>\n Współtwórca treści\n\n</string>
     <string name="fDroid">F-Droid</string>
-    <string name="thirdparty">Third-Party Libraries</string>
-    <string name="thirdpartyText"><a href="https://github.com/cketti/ckChangeLog">ckChangelog: </a>Apache License 2.0\n\n<a href="https://github.com/wsdfhjxc/taponium/">Taponium: </a>GNU General Public License v3.0</string>
-    <string name="misc">Miscellaneous</string>
-    <string name="miscDio">We used Diolinux as our starting base to create this app. Go check it out, it\'s free software as well!</string>
-    <string name="miscDioBtn">Tell me more</string>
-    <string name="AppSection">Application</string>
-    <string name="AppVersion">App Version: %1$s</string>
-    <string name="Device">Device:</string>
-    <string name="Contribute">Contribute</string>
-    <string name="ContributeText">Disroot app is developed free as in Freedom and follows the ideas of the Disroot Foundation. If you want to contribute, go ahead! Currently we are a very small team, so we greatly appreciate any kind of help!</string>
-    <string name="ContributeBtn">Get the source</string>
-    <string name="Translate">Translate</string>
-    <string name="TranslateText">The app is not available in your language? You can change that! Why don\'t you help us by translating it?</string>
-    <string name="TranslateBtn">Let me translate</string>
-    <string name="Feedback">Give Feedback!</string>
-    <string name="FeedbackText">Disroot app is still in development, so if you have suggestions or any kind of feedback, please let us know!</string>
-    <string name="FeedbackBtn1">Report Bugs</string>
-    <string name="FeedbackBtn2">Chat with us</string>
-    <string name="SpreadTheWord">Spread the word!</string>
-    <string name="SpreadTheWordTxt">Tell your friends and family about Disroot! Why don\'t you blog about your experiences? We\'d love to hear from you!</string>
-    <string name="SpreadTheWordBtn">Share the app</string>
-    <string name="DisrootWeb">Disroot web</string>
-    <string name="FirstTitle">I almost forgot</string>
-    <string name="FirstInfo">You can do a long press on each icon to show you extra information…</string>
-    <string name="DiasporaTitle">Diaspora* Settings</string>
-    <string name="DiasporaInfo">Distributed and decentralized social network. Post, share, like, create communities.\n\nUsername:\n your_diaspora_username@pod.disroot.org\n\nPassword:\n your_diaspora_password</string>
+    <string name="thirdparty">Biblioteki osób trzecich</string>
+    <string name="thirdpartyText"><a href="https://github.com/cketti/ckChangeLog">ckChangelog: </a>Licencja Apache 2.0\n\n<a href="https://github.com/wsdfhjxc/taponium/">Taponium: </a>Licencja GNU General Public v3.0</string>
+    <string name="misc">Inne</string>
+    <string name="miscDio">Użyliśmy Diolinux jako nasza baza początkowa do stworzenia tej aplikacji. Sprawdź to, też jest darmowym oprogramowaniem!</string>
+    <string name="miscDioBtn">Powiedz mi więcej</string>
+    <string name="AppSection">Aplikacja</string>
+    <string name="AppVersion">Wersja aplikacji: %1$s</string>
+    <string name="Device">Urządzenie:</string>
+    <string name="Contribute">Współtwórz</string>
+    <string name="ContributeText">Aplikacja Disroot jest rozwijana jak w wolności i podąża za pomysłami Fundacji Disroot. Jeżeli chcesz wnieść jakiś wkład, proszę bardzo! Obecnie jesteśmy małą drużyną, więc bardzo docenimy każdą pomoc!</string>
+    <string name="ContributeBtn">Uzyskaj kod źródłowy</string>
+    <string name="Translate">Przetłumacz</string>
+    <string name="TranslateText">Aplikacja nie jest dostępna w Twoim języku? Możesz to zmienić! Dlaczego nie pomożesz nam w tłumaczeniu?</string>
+    <string name="TranslateBtn">Pozwól mi tłumaczyć</string>
+    <string name="Feedback">Przekaż informację zwrotną!</string>
+    <string name="FeedbackText">Aplikacja Disroot jest cały czas rozwijana, więc jeżeli masz jakieś sugestie lub informację zwrotną, proszę daj nam znać!</string>
+    <string name="FeedbackBtn1">Zgłoś błędy</string>
+    <string name="FeedbackBtn2">Poczatuj z nami</string>
+    <string name="SpreadTheWord">Rozpowszechnij słowo!</string>
+    <string name="SpreadTheWordTxt">Powiedz swoim znajomym i rodzinie o Disroot! Dlaczego nie napiszesz bloga o Twoich doświadczeniach? Bardzo chcielibiśmy coś od Ciebie usłyszeć!</string>
+    <string name="SpreadTheWordBtn">Udostępnij aplikację</string>
+    <string name="DisrootWeb">Sieć Disroot</string>
+    <string name="FirstTitle">Prawie zapomniałem</string>
+    <string name="FirstInfo">Możesz długo przytrzymać na każdej ikonie, aby wyświetlić dodatkowe informacje…</string>
+    <string name="DiasporaTitle">Ustawienia Diaspora*</string>
+    <string name="DiasporaInfo">Rozproszona i zdecentralizowana sieć społecznościowa. Pisz posty, udostępniaj, polubiaj, twórz społeczności.\n\nNazwa użytkownika:\n twoja_nazwauzytkownika_diaspora@pod.disroot.org\n\nHasło:\n twoje_haslo_diaspora</string>
     <string name="PadInfo">With Etherpad write articles, press releases, to-do lists, etc. together with friends, fellow students or colleagues, all working on the same document at the same time.\nNo registration is required.</string>
     <string name="PadTitle">EtherPad Info</string>
     <string name="ChatTitle">XMPP Settings\n</string>
