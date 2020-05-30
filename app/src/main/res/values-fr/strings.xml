@@ -29,7 +29,7 @@
     <string name="global_ok">OK</string>
     <string name="more_help">Besoin d\'aide \?</string>
     <string name="tell_more">En savoir plus</string>
-    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_about">À propos</string>
 
     <string name="MailInfoTitle">Paramètres de messagerie</string>
     <string name="MailInfo">IMAP : disroot.org
