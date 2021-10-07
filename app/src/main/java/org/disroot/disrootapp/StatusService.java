@@ -67,8 +67,7 @@ public class StatusService extends Service {
                 new StatusService.GetList().execute();
             }
         }, 100, 1800000);//100000=100sec
-        
-        
+
     }
     //status report
     @SuppressLint("StaticFieldLeak")
@@ -169,7 +168,6 @@ public class StatusService extends Service {
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(getApplicationContext(), CHANNEL_ID)
                 .setAutoCancel( true )
-                .setOngoing(true)
                 .setSmallIcon(R.drawable.ic_state)
                 .setContentTitle( getString( R.string.NotificationTitle ) )
                 .setContentText(name)//get text Title from json :-)

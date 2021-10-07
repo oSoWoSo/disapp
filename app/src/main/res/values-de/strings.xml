@@ -117,7 +117,6 @@
     <string name="MailDialog">Um fortzufahren, müssen Sie zunächst K9-Mail installieren.\nBitte wählen Sie installieren, um mit der Installation in F-Droid fortzufahren.</string>
     <string name="CloudDialog">Um fortzufahren, müssen Sie zunächst die Nextcloud App installieren.\nBitte wählen Sie installieren, um mit der Installation in F-Droid fortzufahren.</string>
     <string name="ChatDialog">Um fortzufahren, müssen Sie zunächst Conversations installieren.\nBitte wählen Sie installieren, um mit der Installation in F-Droid fortzufahren.</string>
-    <string name="title_activity_state" translatable="false">StatusAktivität</string>
     <string name="app_state">Disroot Status</string>
     <string name="Operational">Voll betriebsfähig</string>
     <string name="MajorOutage">Schwerer Ausfall</string>

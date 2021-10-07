@@ -89,11 +89,11 @@
         <activity android:name=".ui.WelcomeActivity" />
         <activity
             android:name=".ui.StateActivity"
-            android:label="@string/title_activity_state"
+            android:label="@string/app_state"
             android:theme="@style/DisTheme" />
         <activity
             android:name=".ui.StateMessagesActivity"
-            android:label="@string/title_activity_state"
+            android:label="@string/app_state"
             android:theme="@style/DisTheme" />
         <activity
             android:name=".ui.SettingsActivity"
