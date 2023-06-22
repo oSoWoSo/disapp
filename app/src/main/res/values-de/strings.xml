@@ -3,7 +3,7 @@
     <string name="action_home">Home</string>
     <string name="action_mail">Mail</string>
     <string name="action_cloud">Cloud</string>
-    <string name="action_diaspora">Diaspora*</string>
+    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
@@ -62,8 +62,8 @@
     <string name="DisrootWeb">Disroot web</string> //website?
     <string name="FirstTitle">Ein paar letzte Hinweise!</string>
     <string name="FirstInfo">&#8226; Wenn du lange auf ein Icon drückst, erhältst du weitere Informationen… \n\n&#8226; Die Disroot-App kann sich mit der Statusseite von Disroot synchronisieren. Das heißt, dass Du in Echtzeit Neuigkeiten zu Problemen, Downtimes, geplanten Wartungen und Anderem erhältst, die auf https://state.disroot.org veröffentlicht werden.\nWir empfehlen, die Batterieoptimierung abzuschalten und der Disroot-App zu erlauben, im Hintergrund zu laufen. Wenn Du nicht sicher bist, kannst Du die Einstellungen später jederzeit im Menü der Disroot-App ändern.</string>
-    <string name="DiasporaTitle">Diaspora* Einstellungen</string>
-    <string name="DiasporaInfo">Soziales Netzwerk basierend auf einem dezentralem und verteiltem System. Poste, teile, like, gründe Communities.\n\nUsername:\n dein_diaspora_username@pod.disroot.org\n\nPasswort:\n dein_diaspora_passwort</string>
+    <string name="AkkomaTitle">Akkoma Einstellungen</string>
+    <string name="AkkomaInfo">Soziales Netzwerk basierend auf einem dezentralem und verteiltem System. Poste, teile, like, gründe Communities.\n\nUsername:\n dein_disroot_username@fe.disroot.org\n\nPasswort:\n dein_disroot_passwort</string>
     <string name="PadInfo">Mit Etherpad kannst du  mit anderen zusammen in Echtzeit an einem Text-Dokument arbeiten. zB Artikel, Presse release, to-do liste, usw. mit mehreren Teilnehmern, zur gleichen Zeit, dasselbe Dokument bearbeiten.\nKeine Registrierung notwendig.</string>
     <string name="PadTitle">EtherPad Info</string>
     <string name="ChatTitle">XMPP Einstellungen\n</string>
@@ -95,7 +95,7 @@
     <string name="logo">Logo</string>
     <string name="xmppBtn"> \ \ &#8226; Status über xmpp</string>
     <string name="matrixBtn"> \ \ &#8226; Status über Matrix</string>
-    <string name="SocialBtn"> \ \ &#8226; Status über Hubzilla/diaspora/mastodon</string>
+    <!--<string name="SocialBtn"> \ \ &#8226; Status über Fe.disroot</string>-->
     <string name="NewsBtn"> \ \ &#8226; Status updates via email</string>
     <string name="RssBtn"> \ \ &#8226; Status RSS feed</string>
     <string name="ChooseChatTitle">Sie haben zwei XMPP Clients installiert!</string>
@@ -108,7 +108,7 @@
     <string name="title_activity_tap">TapActivity</string> <!-- ?? -->
     <string name="action_clear_cookies">Lösche Cookies</string>
     <string name="DiaInstallTitle">Installationsanfrage</string>
-    <string name="DiasporaDialog">Um fortzufahren, müssen Sie zunächst Dandelion installieren.\nBitte wählen Sie installieren, um mit der Installation in F-Droid fortzufahren.</string>
+    <string name="AkkomaDialog">Um fortzufahren, müssen Sie zunächst Fedilab installieren.\nBitte wählen Sie installieren, um mit der Installation in F-Droid fortzufahren.</string>
     <string name="global_cancel">Abbrechen</string>
     <string name="global_install">Installieren</string>
     <string name="MailDialog">Um fortzufahren, müssen Sie zunächst K9-Mail installieren.\nBitte wählen Sie installieren, um mit der Installation in F-Droid fortzufahren.</string>

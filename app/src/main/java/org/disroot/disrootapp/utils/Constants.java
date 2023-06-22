@@ -23,7 +23,7 @@ public class Constants {
     public static final String URL_DisApp_SEARXHELP = "https://disroot.org/services/search";
     public static final String URL_DisApp_STATEXMPP = "xmpp:state@chat.disroot.org?join";
     public static final String URL_DisApp_STATEMATRIX = "https://matrix.to/#/#state:disroot.org";
-    public static final String URL_DisApp_STATESOCIAL = "https://hub.disroot.org/channel/disroot_state";
+    /*public static final String URL_DisApp_STATESOCIAL = "https://hub.disroot.org/channel/disroot_state";*/
     public static final String URL_DisApp_STATENEWS = "https://state.disroot.org/subscribe";
     public static final String URL_DisApp_STATERSS = "https://state.disroot.org/atom";
 
@@ -43,7 +43,8 @@ public class Constants {
     public static final String URL_DisApp_CRYPTPADHELP = "https://howto.disroot.org/en/tutorials/office/cryptpad";
     public static final String URL_DisApp_BINHELP = "https://howto.disroot.org/en/tutorials/office/bin";
     public static final String URL_DisApp_UPLOADHELP = "https://howto.disroot.org/en/tutorials/office/lufi";
-    public static final String URL_DisApp_BOARDHELP = "https://howto.disroot.org/en/tutorials/project_board";
+    /*public static final String URL_DisApp_BOARDHELP = "https://howto.disroot.org/en/tutorials/project_board";*/
+    public static final String URL_DisApp_SOCIALHELP = "https://howto.disroot.org/en/tutorials/social/fedisroot";
     public static final String URL_DisApp_NOTESHELP = "https://howto.disroot.org/en/tutorials/cloud/apps/notes";
     public static final String URL_DisApp_CALLSHELP = "https://disroot.org/en/services/calls";
     public static final String URL_DisApp_GITHELP = "https://howto.disroot.org/en/contribute/git";
@@ -51,7 +52,7 @@ public class Constants {
 
     public static final String k9 = "com.fsck.k9";
     public static final String nc = "com.nextcloud.client";
-    public static final String Diaspora = "com.github.dfa.diaspora_android";
+    public static final String Fedilab = "fr.gouv.etalab.mastodon";
     public static final String Conversations = "eu.siacs.conversations";
     public static final String PixArt = "de.pixart.messenger";
     public static final String Padland = "com.mikifus.padland";

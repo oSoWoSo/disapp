@@ -3,7 +3,7 @@
     <string name="action_home">Početna</string>
     <string name="action_mail">E-pošta</string>
     <string name="action_cloud">Oblak</string>
-    <string name="action_diaspora">Diaspora*</string>
+    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Forum</string>
     <string name="action_chat">Ćaskanje</string>
     <string name="action_pad">Etherpad</string>
@@ -74,8 +74,8 @@
     <string name="DisrootWeb">Disroot sajt</string>
     <string name="FirstTitle">Još nešto!</string>
     <string name="FirstInfo">&#8226; Duži pritisak na bilo koju ikonicu prikazaće dodatne informacije… \n\n&#8226; Aplikacija se može uskladiti sa statusnom stranicom Disroot sajta. To znači da ćete u realnom vremenu dobijati poruke o problemima, zastojima, zakazanom održavanju i sl. putem https://state.disroot.org\nPreporučujemo da isključite optimizaciju baterije i dozvolite aplikaciji da radi u pozadini. Ako niste sigurni, podešavanja možete izmeniti iz menija Disroot aplikacije. </string>
-    <string name="DiasporaTitle">Diaspora* podešavanja</string>
-    <string name="DiasporaInfo">Raspodeljena i decentralizovana društvena mreža. Objavite, delite, stvarajte zajednice.\n\nKorisnik:\n vaše_diaspora_korisničko_ime@pod.disroot.org\n\nLozinka:\n vaša_diaspora_lozinka</string>
+    <string name="AkkomaTitle">Diaspora* podešavanja</string>
+    <string name="AkkomaInfo">Raspodeljena i decentralizovana društvena mreža. Objavite, delite, stvarajte zajednice.\n\nKorisnik:\n vaše_disroot_korisničko_ime@fe.disroot.org\n\nLozinka:\n vaša_disroot_lozinka</string>
     <string name="PadInfo">Pomoću Etherpad-a pišite članke, medijske objave, podsetnike, itd. Zajedno sa prijateljima, kolegama sa fakulteta ili saradnicima, možete istovremeno raditi na određenom dokumentu.\nRegistracija nije potrebna.</string>
     <string name="PadTitle">EtherPad detalji</string>
     <string name="ChatTitle">XMPP podešavanja\n</string>
@@ -107,7 +107,7 @@
     <string name="logo">Logo</string>
     <string name="xmppBtn"> \ \ &#8226; Stanje XMPP-a</string>
     <string name="matrixBtn"> \ \ &#8226; Stanje Matrix-a</string>
-    <string name="SocialBtn"> \ \ &#8226; Stanje hubzilla/diaspora/mastodon servisa</string>
+    <!--<string name="SocialBtn"> \ \ &#8226; Stanje Fe.disroot servisa</string>-->
     <string name="NewsBtn"> \ \ &#8226; Novosti o stanju putem imejla</string>
     <string name="RssBtn"> \ \ &#8226; Stanje putem RSS-a</string>
     <string name="ChooseChatTitle">Instalirana su dva XMPP korisnička programa!</string>
@@ -120,7 +120,7 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Obriši kolačiće</string>
     <string name="DiaInstallTitle">Potrebna instalacija</string>
-    <string name="DiasporaDialog">Za nastavak je potrebno instalirati aplikaciju Dandelion.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>
+    <string name="AkkomaDialog">Za nastavak je potrebno instalirati aplikaciju Fedilab.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>
     <string name="global_cancel">Otkaži</string>
     <string name="global_install">Instaliraj</string>
     <string name="MailDialog">Za nastavak je potrebno instalirati aplikaciju K9-Mail.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>

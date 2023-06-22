@@ -42,9 +42,9 @@ This app requires access to the Internet and to external storage to be able to u
 ---
 ### Contributors
 The project is always open for contributions and accepts pull requests.
-* Massimiliano
-* Muppeth
-* Antilopa
+* [Massimiliano](https://fe.disroot.org/@massimiliano)
+* [Muppeth](https://fe.disroot.org/@muppeth)
+* [Antilopa](https://fe.disroot.org/@antilopa)
 * Fede
 * Maryjane
 * Meaz
@@ -53,7 +53,7 @@ The project is always open for contributions and accepts pull requests.
 ---
 ### Resources
 * DisApp: [Bugs & Issues](https://git.disroot.org/Disroot/disapp/issues)
-* Disroot Project: [Web](https://disroot.org) | [Git](https://git.disroot.org/Disroot) | [Hubzilla Channel](https://hub.disroot.org/channel/disroot)
+* Disroot Project: [Web](https://disroot.org) | [Git](https://git.disroot.org/Disroot)
 * F-Droid: [Disroot App](https://f-droid.org/en/packages/org.disroot.disrootapp/)
 
 ---

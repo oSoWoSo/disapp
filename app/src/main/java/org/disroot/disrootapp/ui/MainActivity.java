@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     WebChromeClient.FileChooserParams chooserParams;
     ValueCallback<Uri[]> chooserPathUri;
     Button button;
-    private Button MailBtn,CloudBtn,ForumBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,BoardBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
-    private String email,cloud,forum,etherpad,bin,upload,searx,taiga,user,xmpp,notes,git,cryptpad;
+    private Button MailBtn,CloudBtn,ForumBtn,ChatBtn,PadBtn,CryptpadBtn,BinBtn,UploadBtn,SearxBtn,SocialBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
+    private String email,cloud,forum,etherpad,bin,upload,searx,akkoma,user,xmpp,notes,git,cryptpad;
     private CookieManager cookieManager;
     private WebView webView;
     private DisWebChromeClient disWebChromeClient;
@@ -161,7 +161,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "BinBtn", Context.MODE_PRIVATE );//bin
         BtnPreference = getSharedPreferences( "UploadBtn", Context.MODE_PRIVATE );//upload
         BtnPreference = getSharedPreferences( "SearxBtn", Context.MODE_PRIVATE );//search
-        BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//board
+        BtnPreference = getSharedPreferences( "SocialBtn", Context.MODE_PRIVATE );//search
+        /*BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//board*/
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
@@ -234,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         // Link the button in activity_main.xml
         MailBtn = findViewById( R.id.MailBtn );
         CloudBtn = findViewById( R.id.CloudBtn );
-        //DiasporaBtn = findViewById( R.id.DiasporaBtn );//end of Disroot's Dandelion
+        SocialBtn = findViewById( R.id.SocialBtn );
         ForumBtn = findViewById( R.id.ForumBtn );
         ChatBtn = findViewById( R.id.ChatBtn );
         PadBtn = findViewById( R.id.PadBtn );
@@ -272,7 +273,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         //Set longclick buttons
         MailBtn.setOnLongClickListener( this );
         CloudBtn.setOnLongClickListener( this );
-        //DiasporaBtn.setOnLongClickListener( this );//end of Disroot's Dandelion
+        SocialBtn.setOnLongClickListener( this );
         ForumBtn.setOnLongClickListener( this );
         ChatBtn.setOnLongClickListener( this );
         PadBtn.setOnLongClickListener( this );
@@ -292,7 +293,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         //set clickbuttons
         MailBtn.setOnClickListener( this );
         CloudBtn.setOnClickListener( this );
-        //DiasporaBtn.setOnClickListener( this );//end of Disroot's Dandelion
+        SocialBtn.setOnClickListener( this );
         ForumBtn.setOnClickListener( this );
         ChatBtn.setOnClickListener( this );
         PadBtn.setOnClickListener( this );
@@ -329,7 +330,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         else {
             switch (view.getId()) {
                 case R.id.MailBtn:
-                    Intent mail = getPackageManager().getLaunchIntentForPackage( Constants.k9 );
+                    Intent mail = getPackageManager().getLaunchIntentForPackage(Constants.k9);
                     if (mail == null) {
                         showMailDialog();
                         break;
@@ -337,20 +338,20 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     break;
                 case R.id.CloudBtn:
                     Intent cloud = getPackageManager().getLaunchIntentForPackage(Constants.nc);
-                    if(cloud == null) {
+                    if(cloud == null) {buLOc0rw7gSAWdu3s4J9l
                         showCloudDialog();
                         break;
                     }
                     else startActivity(cloud);
                     break;
-                /*case R.id.DiasporaBtn: //end ofDisroot's Dandelion
-                        Intent pod = getPackageManager().getLaunchIntentForPackage(Diaspora);
-                        if(getPackageManager().getLaunchIntentForPackage(Diaspora) == null) {
-                            showDiaDialog();
-                            break;
-                        }
-                        else startActivity(pod);
-                    break;*/
+                case R.id.SocialBtn:
+                    Intent social = getPackageManager().getLaunchIntentForPackage(Constants.Fedilab);
+                    if(getPackageManager().getLaunchIntentForPackage(Fedilab) == null) {
+                        showSocialDialog();
+                        break;
+                    }
+                    else startActivity(social);
+                    break;
                 case R.id.ForumBtn:
                     webView.loadUrl(Constants.URL_DisApp_FORUM);
                     hideDashboard();
@@ -386,7 +387,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 case R.id.PadBtn:
                     Intent pad = getPackageManager().getLaunchIntentForPackage(Constants.Padland);
                     if(pad == null) {
-                        showPAdDialog();
+                        showPadDialog();
                         break;
                     }
                     else startActivity(pad);
@@ -407,10 +408,10 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     webView.loadUrl(Constants.URL_DisApp_SEARX);
                     hideDashboard();
                     break;
-                case R.id.BoardBtn:
+                /*case R.id.BoardBtn:
                     webView.loadUrl(Constants.URL_DisApp_BOARD);
                     hideDashboard();
-                    break;
+                    break;*/
                 case R.id.CallsBtn:
                     Intent board = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
                     if(board == null) {
@@ -466,9 +467,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             case R.id.CloudBtn:
                 showCloudInfo();
                 break;
-            /*case R.id.DiasporaBtn://end of Disroot's Dandelion
-                showDiaInfo();
-                break;*/
+            case R.id.SocialBtn:
+                showSocialInfo();
+                break;
             case R.id.ForumBtn:
                 showForumInfo();
                 break;
@@ -490,9 +491,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             case R.id.SearxBtn:
                 showSearxInfo();
                 break;
-            case R.id.BoardBtn:
+            /*case R.id.BoardBtn:
                 showBoardInfo();
-                break;
+                break;*/
             case R.id.CallsBtn:
                 showCallsInfo();
                 break;
@@ -701,39 +702,38 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }
 
-    /*End of Disroot's Dandelion*
-    //Diaspora info
-    private void showDiaInfo() {
+    //Akkoma info
+    private void showSocialInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
-        builder.setTitle(R.string.DiasporaTitle);
-        builder.setMessage(getString(R.string.DiasporaInfo));
+        builder.setTitle(R.string.AkkomaTitle);
+        builder.setMessage(getString(R.string.AkkomaInfo));
         builder.setPositiveButton(R.string.global_ok, null);
         builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                webView.loadUrl(Constants.URL_DisApp_DIAHELP);
+                webView.loadUrl(Constants.URL_DisApp_SOCIALHELP);
                 hideDashboard();
             }
         });
         builder.show();
     }
-    private void showDiaDialog(){
+    private void showSocialDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(getString(R.string.DiasporaDialog));
+        builder.setMessage(getString(R.string.AkkomaDialog));
         builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
-            Intent pod = getPackageManager().getLaunchIntentForPackage(Diaspora);
+            Intent social = getPackageManager().getLaunchIntentForPackage(Constants.Fedilab);
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                pod = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Diaspora));
-                startActivity(pod);
+                social = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.Fedilab));
+                startActivity(social);
             }
         });
         builder.setNegativeButton(R.string.global_cancel , null);
         builder.show();
-    }*/
+    }
 
     private void showForumInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -860,7 +860,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showPAdDialog(){
+    private void showPadDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -982,7 +982,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }
 
-    private void showBoardInfo() {
+    // Taiga not used; unavailable until another 'board' is decided upon
+    /*private void showBoardInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.BoardTitle);
@@ -1007,6 +1008,23 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
+    
+    private void showBoardDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(taiga +"\n\n"+ getString(R.string.CallsDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            Intent calls = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                calls = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.CallsApp));
+                startActivity(calls);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }*/
 
     private void showCallsInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -1033,24 +1051,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showBoardDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(taiga +"\n\n"+ getString(R.string.CallsDialog));
-        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
-            Intent calls = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                calls = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.CallsApp));
-                startActivity(calls);
-            }
-        });
-        builder.setNegativeButton(R.string.global_cancel , null);
-        builder.show();
-    }
 
-    //There is no extra info about Nextcoud notes yet
+    //There is no extra info about Nextcloud notes yet
     private void showNotesInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
@@ -1181,8 +1183,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
 
         });
-        //SocialBtn
-        Button SocialBtn = view.findViewById(R.id.SocialBtn);
+        //SocialBtn - Possibly needs a rename, when it is reimplemented
+        /*Button SocialBtn = view.findViewById(R.id.SocialBtn);
         SocialBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Uri uri = Uri.parse(String.valueOf(Constants.URL_DisApp_STATESOCIAL));
@@ -1190,7 +1192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 startActivity(social);
             }
 
-        });
+        });*/
         //newsBtn
         Button NewsBtn = view.findViewById(R.id.NewsBtn);
         NewsBtn.setOnClickListener(new View.OnClickListener() {
@@ -2007,10 +2009,14 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         searx = description;
                         getSearx(searx);
                         break;
-                    case "Project board":
+                    case "Fedisroot":
+                        akkoma = description;
+                        getAkkoma(akkoma);
+                        break;
+                    /*case "Project board":
                         taiga = description;
                         getTaiga(taiga);
-                        break;
+                        break;*/
                     case "User Password management":
                         user = description;
                         getUser(user);
@@ -2053,9 +2059,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     private void getSearx(String string){
         searx = string;
     }
-    private void getTaiga(String string){
-        taiga = string;
+    private void getAkkoma(String string){
+        akkoma = string;
     }
+    /*private void getTaiga(String string){
+        taiga = string;
+    }*/
     private void getUser(String string){
         user = string;
     }

@@ -3,7 +3,7 @@
     <string name="action_home">Home</string>
     <string name="action_mail">Mail</string>
     <string name="action_cloud">Cloud</string>
-    <string name="action_diaspora">Diaspora*</string>
+    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Pad</string>
@@ -67,8 +67,8 @@
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">Last couple of things!</string>
     <string name="FirstInfo">&#8226; By doing a long press on each icon you can get extra information… \n\n&#8226; The app can sync with the status page of Disroot. This means that you will receive realtime updates on issues, downtimes, scheduled maintenance and others published via https://status.disroot.org\nWe recommend to turn off battery optimization and allow Disroot app to run in the background. If you\'re not sure, you can always change the setting from the Disroot app menu later.</string>
-    <string name="DiasporaTitle">Diaspora* Settings</string>
-    <string name="DiasporaInfo">Distributed and decentralized social network. Post, share, like, create communities.\n\nUsername:\n your_diaspora_username@pod.disroot.org\n\nPassword:\n your_diaspora_password</string>
+    <string name="AkkomaTitle">Akkoma Settings</string>
+    <string name="AkkomaInfo">Distributed and decentralized social network. Post, share, like, create communities.\n\nUsername:\n your_disroot_username@fe.disroot.org\n\nPassword:\n your_disroot_password</string>
     <string name="PadInfo">With Etherpad write articles, press releases, to-do lists, etc. together with friends, fellow students or colleagues, all working on the same document at the same time.\nNo registration is required.</string>
     <string name="PadTitle">EtherPad Info</string>
     <string name="ChatTitle">XMPP Settings\n</string>
@@ -100,7 +100,7 @@
     <string name="logo">Logo</string>
     <string name="xmppBtn"> \ \ &#8226; State on xmpp</string>
     <string name="matrixBtn"> \ \ &#8226; State on Matrix</string>
-    <string name="SocialBtn"> \ \ &#8226; State on Hubzilla/diaspora/mastodon</string>
+    <!--<string name="SocialBtn"> \ \ &#8226; State on Fe.disroot</string>-->
     <string name="NewsBtn"> \ \ &#8226; State updates via email</string>
     <string name="RssBtn"> \ \ &#8226; State RSS feed</string>
     <string name="ChooseChatTitle">You have two XMPP clients installed!</string>
@@ -113,7 +113,7 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Clear cookies</string>
     <string name="DiaInstallTitle">Installation request</string>
-    <string name="DiasporaDialog">To continue you need to install Dandelion first.\nPlease select install to continue with the installation on F-Droid.</string>
+    <string name="Akkomadialog">To continue you need to install Fedilab first.\nPlease select install to continue with the installation on F-Droid.</string>
     <string name="global_cancel">Cancel</string>
     <string name="global_install">Install</string>
     <string name="MailDialog">To continue you need to install K9-Mail first.\nPlease select install to continue with the installation on F-Droid.</string>

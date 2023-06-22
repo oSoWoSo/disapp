@@ -3,7 +3,7 @@
     <string name="action_home">Home</string>
     <string name="action_mail">Email</string>
     <string name="action_cloud">Cloud</string>
-    <string name="action_diaspora">Diaspora*</string>
+    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Fórum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
@@ -73,8 +73,8 @@
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">Quase que me esquecia</string><!-- need update -->
     <string name="FirstInfo">Podes carregar por alguns segundos em cada ícone para aparecer informação extra…</string><!-- need update -->
-    <string name="DiasporaTitle">Definições do Diaspora*</string>
-    <string name="DiasporaInfo">Rede social Distribuída e Descentralizada. Postar, partilhar, criar comunidades.\n\nUsername:\n o_seu_nome_de_utilizador_no_diaspora@pod.disroot.org\n\nPassword:\n a_sua_password_diaspora</string>
+    <string name="AkkomaTitle">Definições do Akkoma</string>
+    <string name="AkkomaInfo">Rede social Distribuída e Descentralizada. Postar, partilhar, criar comunidades.\n\nUsername:\n o_seu_nome_de_utilizador_no_diaspora@fe.disroot.org\n\nPassword:\n a_sua_password_diaspora</string>
     <string name="PadInfo">Com o Etherpad pode escrever artigos, comunicados de imprensa, listas de tarefas, etc. em conjunto com outras pessoas, amigos, colegas, todos a trabalhar no mesmo documento ao mesmo tempo.\nNão é necessário ter uma conta de utilizador para usar.</string>
     <string name="PadTitle">Sobre EtherPad</string>
     <string name="ChatTitle">Definições do XMPP\n</string>
@@ -106,7 +106,7 @@
     <string name="logo">Logo</string>
     <string name="xmppBtn"> \ \ &#8226; State no xmpp</string>
     <string name="matrixBtn"> \ \ &#8226; State no Matrix</string>
-    <string name="SocialBtn"> \ \ &#8226; State no hubzilla/diaspora/mastodon</string>
+    <!--<string name="SocialBtn"> \ \ &#8226; State no Fe.disroot</string>-->
     <string name="NewsBtn"> \ \ &#8226; State notificações via email</string>
     <string name="RssBtn"> \ \ &#8226; State no feed de RSS</string>
     <string name="ChooseChatTitle">Você tem dois clientes de XMPP instalados!</string>
@@ -119,7 +119,7 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Limpar os cookies</string>
     <string name="DiaInstallTitle">Pedido de instalação</string>
-    <string name="DiasporaDialog">Para continuar é necessário instalar o Dandelion.\nCarregue em instalar para continuar com a instalação do Dandelion a partir do F-Droid.</string>
+    <string name="AkkomaDialog">Para continuar é necessário instalar o Fedilab.\nCarregue em instalar para continuar com a instalação do Fedilab a partir do F-Droid.</string>
     <string name="global_cancel">Cancelar</string>
     <string name="global_install">Instalar</string>
     <string name="MailDialog">Para continuar é necessário instalar o K9-Mail.\nCarregue em instalar para continuar com a instalação do K9-Mail a partir do F-Droid.</string>

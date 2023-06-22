@@ -27,12 +27,12 @@
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
             android:text="@string/matrixBtn"/>
-        <Button
+        <!--<Button
             android:id="@+id/SocialBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
-            android:text="@string/SocialBtn"/>
+            android:text="@string/SocialBtn"/>-->
         <Button
             android:id="@+id/NewsBtn"
             android:layout_width="wrap_content"

@@ -3,7 +3,7 @@
     <string name="action_home">Inicio</string>
     <string name="action_mail">Correo</string>
     <string name="action_cloud">Nube</string>
-    <string name="action_diaspora">Diaspora*</string>
+    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Foro</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
@@ -74,8 +74,8 @@
     <string name="DisrootWeb">Sitio de Disroot</string>
     <string name="FirstTitle">Un par de cosas más… </string>
     <string name="FirstInfo">&#8226; Haciendo una presión larga sobre cada ícono, puedes obtener información adicional… \n\n&#8226; La aplicación puede sincronizar con la página de estado de Disroot. Esto significa que recibirás actualizaciones en tiempo real sobre inconvenientes, caídas, mantenimientos programados y otros que fueran publicados a través de https://state.disroot.org\nRecomendamos apagar la optimización de batería y permitir a la aplicación de Disroot correr en segundo plano. Si no estás seguro, siempre puedes volver a cambiar la configuración desde el menu de la aplicación de Disroot.</string>
-    <string name="DiasporaTitle">Configuración de Diaspora*</string>
-    <string name="DiasporaInfo">Red social distribuida y descentralizada. Publica, comparte, crea comunidades.\nUsuarix: tu_usuarix_de_Diaspora@pod.disroot.org\nContraseña: tu_contraseña_de_diaspora</string>
+    <string name="AkkomaTitle">Configuración de Akkoma</string>
+    <string name="AkkomaInfo">Red social distribuida y descentralizada. Publica, comparte, crea comunidades.\nUsuarix: tu_usuarix_de_Diaspora@fe.disroot.org\nContraseña: tu_contraseña_de_diaspora</string>
     <string name="PadInfo">EtherPad</string>
     <string name="PadTitle">Etherpad:\nEscribe artículos, anuncios de prensa, listas de pendientes, etc., junto a amigxs, compañerxs de estudios o colegas, todxs trabajando en el mismo documento al mismo tiempo.</string>
     <string name="ChatTitle">Configuración de XMPP\n</string>
@@ -107,7 +107,7 @@
     <string name="logo">Logo</string>
     <string name="xmppBtn"> \ \ &#8226; Estado de xmpp</string>
     <string name="matrixBtn"> \ \ &#8226; Estado de Matrix</string>
-    <string name="SocialBtn"> \ \ &#8226; Estado de Hubzilla/Diaspora*/Mastodon</string>
+    <!--<string name="SocialBtn"> \ \ &#8226; Estado de Fe.disroot</string>-->
     <string name="NewsBtn"> \ \ &#8226; Actualización de estados por email</string>
     <string name="RssBtn">Recomendamos apagar la optimización de batería y permitir a la aplicación de Disroot correr en segundo plano. Si no estás seguro, siempre puedes volver a cambiar la configuración desde el menu de la aplicación de Disroot.</string>
     <string name="ChooseChatTitle">¡Tienes dos clientes XMPP instalados!</string>
@@ -120,7 +120,7 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Limpiar cookies</string>
     <string name="DiaInstallTitle">Solicitud de instalación</string>
-    <string name="DiasporaDialog">Para continuar, primero necesitas instalar Dandelion.\nPor favor, selecciona Instalar para continuar desde F-Droid.</string>
+    <string name="AkkomaDialog">Para continuar, primero necesitas instalar Fedilab.\nPor favor, selecciona Instalar para continuar desde F-Droid.</string>
     <string name="global_cancel">Cancelar</string>
     <string name="global_install">Instalar</string>
     <string name="MailDialog">Para continuar, primero necesitas instalar K9-Mail.\nPor favor, selecciona Instalar para continuar desde F-Droid.</string>
