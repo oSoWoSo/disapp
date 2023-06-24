@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "BinBtn", Context.MODE_PRIVATE );//bin
         BtnPreference = getSharedPreferences( "UploadBtn", Context.MODE_PRIVATE );//upload
         BtnPreference = getSharedPreferences( "SearxBtn", Context.MODE_PRIVATE );//search
-        BtnPreference = getSharedPreferences( "SocialBtn", Context.MODE_PRIVATE );//search
+        BtnPreference = getSharedPreferences( "SocialBtn", Context.MODE_PRIVATE );//social
         /*BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//board*/
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
