@@ -45,7 +45,7 @@ The project is always open for contributions and accepts pull requests.
 * [Massimiliano](https://fe.disroot.org/@massimiliano)
 * [Muppeth](https://fe.disroot.org/@muppeth)
 * [Antilopa](https://fe.disroot.org/@antilopa)
-* Fede
+* [Fede](https://fe.disroot.org/@fede)
 * Maryjane
 * Meaz
 * Userdebug
