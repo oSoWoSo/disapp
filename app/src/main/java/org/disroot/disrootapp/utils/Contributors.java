@@ -12,7 +12,7 @@ public class Contributors {
             "<a href='https://fe.disroot.org/@massimiliano'>Massimiliano"
     };
     public static final String[] translators= {
-            "Fede",
+            "<a href='https://fe.disroot.org/@fede'>Fede",
             "Meaz",
             "maryjane",
             "userdebug",
