@@ -95,13 +95,12 @@
                     android:textColor="@color/white"
                     app:fontFamily="@font/open_sans_regular" />
 
-                <!-- ic_diaspora used, until ic_akkoma created -->
                 <Button
                     android:id="@+id/SocialBtn"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/ic_diaspora"
+                    android:drawableTop="@drawable/ic_fedisroot"
                     android:text="@string/action_akkoma"
                     android:textColor="#ffffff"
                     app:fontFamily="@font/open_sans_regular" />
