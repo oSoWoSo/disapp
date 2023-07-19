@@ -102,8 +102,7 @@ public class StatusService extends Service {
                     {
                         checkDate.edit().putString( "storeDate", "stateDate").apply();
                         //return null;
-                    }
-                    else {
+                    } else {
                         assert stateDate != null;
                         if (!stateDate.equals( dateStored )&& !stateDate.equals( "" ))//dateStored
                         {
@@ -125,7 +124,7 @@ public class StatusService extends Service {
                                     Toast.LENGTH_LONG)
                                     .show();
                 }
-            }else {
+            } else {
                 Log.e(TAG, "Couldn't get json from server.");
             }
             return null;
@@ -179,7 +178,7 @@ public class StatusService extends Service {
         notificationBuilder.setSound(alarmSound)
                 .setVibrate(new long[]{50,500,100,300,50,300})
                 .setLights(Color.BLUE, 3000, 3000);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             notificationBuilder.setChannelId(CHANNEL_ID);
         }
 

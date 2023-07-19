@@ -30,8 +30,8 @@
     <string name="CloudInfoTitle">Nextcloud Instellingen</string>
     <string name="CloudInfo">Houd uw gegevens gesynchroniseerd en veilig. Met Nextcloud kunt u uw bestanden, kalenders, contactpersonen en meer delen.\n\nHost:\n https://cloud.disroot.org\n\nGebruikersnaam:\n uw_disroot_gebruikersnaam\n\nWachtwoord:\n uw_disroot_wachtwoord.</string>
     <string name="WelcomeTitle">Welkom</string>
+    <!-- needs translation check (has Diaspora in the translation) -->
     <string name="WelcomeInfo">Disroot is een platform dat online diensten aanbiedt op basis van de principes van vrijheid, privacy, federatie en decentralisatie.\n Deze app is als een Zwitsers mes voor het Disroot platform, gemaakt door de gemeenschap voor de gemeenschap.\nAls je geen Disroot account hebt kun je deze app nog steeds gebruiken om toegang te krijgen tot alle Disroot diensten dat geen account vereist:\n \ \ \ &#8226; Cryptpad\n \ \ \ &#8226; Cryptpad\n \ \ \ &#8226; Private bin\n \ \ \ &#8226; Upload\n \ \ \ &#8226; Searx\n \ \ \ &#8226; Diaspora* (vereist een Diaspora elleen account)\n\nDe app kan vereisen dat u extra apps installeert. We raden u ten zeerste aan om F-Droid - een gratis en open source app marktplaats te installeren, omdat niet alle apps te vinden zijn in de Play Store van Google en F-Droid meer privacy georiënteerd is (geen tracking, geen account nodig), u kunt het downloaden door op het F-droid icoontje te tikken.\n</string>
-
     <string name="help">Help</string>
     <string name="license">Licentie</string>
     <string name="action_settings">Instellingen</string>

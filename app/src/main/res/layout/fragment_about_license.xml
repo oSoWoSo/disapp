@@ -59,6 +59,7 @@
                     android:id="@+id/disrootUrl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
                     android:text="@string/disrootUrl"
                     android:textColor="@color/bg_primary_blue_dark"
                     android:clickable="true"
@@ -221,6 +222,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
                     android:text="@string/thirdPartyText"/>
 
             </LinearLayout>

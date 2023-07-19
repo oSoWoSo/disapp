@@ -135,7 +135,7 @@ public class AboutActivity extends AppCompatActivity {
             assert getArguments() != null;
             View rootView;
             rootView = null;
-            switch (getArguments().getInt(ARG_SECTION_NUMBER)){
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
 
                 case 1:
                     rootView = inflater.inflate(R.layout.fragment_about_help, container, false);

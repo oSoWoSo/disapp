@@ -128,11 +128,10 @@ public class StateActivity extends AppCompatActivity {
                     for (int i = 0; i < data.length(); i++) {
                         JSONObject c = data.getJSONObject(i);
                         HashMap<String, String> service = new HashMap<>();
-                        if (c.has("description")&&!c.isNull("description")){
+                        if (c.has("description")&&!c.isNull("description")) {
                             String description = c.getString("description");
                             service.put("description", description);
-                        }
-                        else {
+                        } else {
                             service.put("description", "No Description");
                         }
 

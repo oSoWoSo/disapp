@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 ScrollView dashboard = findViewById(R.id.dashboard);
                 TranslateAnimation animateup = new TranslateAnimation(0,0,-2*dashboard.getHeight(),0);
                 TranslateAnimation animatedown = new TranslateAnimation(0,0,0,-dashboard.getHeight());
-                if(webView.getVisibility()==View.VISIBLE){
+                if(webView.getVisibility()==View.VISIBLE) {
                     //animation
                     animateup.setDuration(500);
                     animateup.setFillAfter(false);
@@ -132,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     webView.setVisibility(View.GONE);
                     return;
                 }
-                if (webView.getVisibility()==View.GONE && webView.getUrl()!=null){
+                if (webView.getVisibility()==View.GONE && webView.getUrl()!=null) {
                     //animation
                     animatedown.setDuration(500);
                     animatedown.setFillAfter(false);
@@ -204,13 +204,13 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         }
 
         //set booleans for checking Chat preference
-        if (firstStart.getBoolean("firsttap", true)){
+        if (firstStart.getBoolean("firsttap", true)) {
             check.edit().putBoolean("checkConv",false).apply();
             check.edit().putBoolean("checkPix",false).apply();
         }
 
         //set booleans for checking Mail preference
-        if (firstStart.getBoolean("firsttap", true)){
+        if (firstStart.getBoolean("firsttap", true)) {
             check.edit().putBoolean("checkK9",false).apply();
             check.edit().putBoolean("checkFairEmail",false).apply();
         }
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
         {
             @Override
-            public void onRefresh(){
+            public void onRefresh() {
                 swipe.setRefreshing( false );
                 String url = webView.getUrl();
                 webView.loadUrl(url);
@@ -260,7 +260,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 
         Map<String, ?> allEntries = BtnPreference.getAll();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-            if (entry.getValue().equals( false )){
+            if (entry.getValue().equals( false )) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
                 for(int i=0; i<Constants.buttonIDs.length; i++) {
                     Button b = (Button) findViewById(Constants.buttonIDs[i]);
@@ -327,13 +327,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     }
 
     @Override
-    public void onClick(View view){
-        if (firstStart.getBoolean("firsttap", true)){
+    public void onClick(View view) {
+        if (firstStart.getBoolean("firsttap", true)) {
             showFirstTap();
             firstStart.edit().putBoolean("firsttap", false).apply();
             return;
-        }
-        else {
+        } else {
             switch (view.getId()) {
                 case R.id.MailBtn:
                     Intent mail1 = getPackageManager().getLaunchIntentForPackage(Constants.k9);
@@ -368,7 +367,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         showCloudDialog();
                         break;
                     }
-                    else startActivity(cloud);
+                    else
+                        startActivity(cloud);
                     break;
                 case R.id.SocialBtn:
                     Intent social = getPackageManager().getLaunchIntentForPackage(Constants.Fedilab);
@@ -376,7 +376,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         showSocialDialog();
                         break;
                     }
-                    else startActivity(social);
+                    else
+                        startActivity(social);
                     break;
                 case R.id.ForumBtn:
                     webView.loadUrl(Constants.URL_DisApp_FORUM);
@@ -415,7 +416,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         showPadDialog();
                         break;
                     }
-                    else startActivity(pad);
+                    else
+                        startActivity(pad);
                     break;
                 case R.id.CryptpadBtn:
                     webView.loadUrl(Constants.URL_DisApp_CRYPTPAD );
@@ -443,7 +445,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         showCallsDialog();
                         break;
                     }
-                    else startActivity(calls);
+                    else
+                        startActivity(calls);
                     break;
                 case R.id.NotesBtn:
                     Intent notes = getPackageManager().getLaunchIntentForPackage(Constants.NotesApp);
@@ -451,7 +454,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         showNotesDialog();
                         break;
                     }
-                    else startActivity(notes);
+                    else
+                        startActivity(notes);
                     break;
                 case R.id.GitBtn:
                     Intent git = getPackageManager().getLaunchIntentForPackage(Constants.GitApp);
@@ -459,7 +463,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         showGitDialog();
                         break;
                     }
-                    else startActivity(git);
+                    else
+                        startActivity(git);
                     break;
                 case R.id.UserBtn:
                     webView.loadUrl(Constants.URL_DisApp_USER);
@@ -716,7 +721,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.MailBtn).getParent()!=null){
+                if (findViewById( R.id.MailBtn).getParent()!=null) {
                     viewGroup.removeView(MailBtn);
                     BtnPreference.edit().putBoolean( "MailBtn", false ).apply();
                     return;}
@@ -725,7 +730,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }
 
-    private void showMailDialog(){
+    private void showMailDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -760,7 +765,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.CloudBtn).getParent()!=null){
+                if (findViewById( R.id.CloudBtn).getParent()!=null) {
                     viewGroup.removeView(CloudBtn);
                     BtnPreference.edit().putBoolean( "CloudBtn", false ).apply();
                     return;}
@@ -768,7 +773,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showCloudDialog(){
+
+    private void showCloudDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -799,9 +805,21 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 hideDashboard();
             }
         });
+        builder.setNeutralButton( R.string.hide, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
+                if (findViewById( R.id.SocialBtn).getParent()!=null) {
+                    viewGroup.removeView(SocialBtn);
+                    BtnPreference.edit().putBoolean( "SocialBtn", false ).apply();
+                    return;
+                }
+            }
+        });
         builder.show();
     }
-    private void showSocialDialog(){
+
+    private void showSocialDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -835,7 +853,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.ForumBtn).getParent()!=null){
+                if (findViewById( R.id.ForumBtn).getParent()!=null) {
                     viewGroup.removeView(ForumBtn);
                     BtnPreference.edit().putBoolean( "ForumBtn", false ).apply();
                     return;}
@@ -907,7 +925,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.ChatBtn).getParent()!=null){
+                if (findViewById( R.id.ChatBtn).getParent()!=null) {
                     viewGroup.removeView(ChatBtn);
                     BtnPreference.edit().putBoolean( "ChatBtn", false ).apply();
                     return;}
@@ -915,7 +933,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showChatDialog(){
+    private void showChatDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -949,7 +967,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.PadBtn).getParent()!=null){
+                if (findViewById( R.id.PadBtn).getParent()!=null) {
                     viewGroup.removeView(PadBtn);
                     BtnPreference.edit().putBoolean( "PadBtn", false ).apply();
                     return;}
@@ -957,7 +975,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showPadDialog(){
+    private void showPadDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -991,7 +1009,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.CryptpadBtn ).getParent()!=null){
+                if (findViewById( R.id.CryptpadBtn ).getParent()!=null) {
                     viewGroup.removeView( CryptpadBtn );
                     BtnPreference.edit().putBoolean( "CryptpadBtn", false ).apply();
                     return;}
@@ -1017,7 +1035,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.BinBtn).getParent()!=null){
+                if (findViewById( R.id.BinBtn).getParent()!=null) {
                     viewGroup.removeView(BinBtn);
                     BtnPreference.edit().putBoolean( "BinBtn", false ).apply();
                     return;}
@@ -1044,7 +1062,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.UploadBtn).getParent()!=null){
+                if (findViewById( R.id.UploadBtn).getParent()!=null) {
                     viewGroup.removeView(UploadBtn);
                     BtnPreference.edit().putBoolean( "UploadBtn", false ).apply();
                     return;}
@@ -1070,7 +1088,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.SearxBtn).getParent()!=null){
+                if (findViewById( R.id.SearxBtn).getParent()!=null) {
                     viewGroup.removeView(SearxBtn);
                     BtnPreference.edit().putBoolean( "SearxBtn", false ).apply();
                     return;}
@@ -1097,7 +1115,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.BoardBtn).getParent()!=null){
+                if (findViewById( R.id.BoardBtn).getParent()!=null) {
                     viewGroup.removeView(BoardBtn);
                     BtnPreference.edit().putBoolean( "BoardBtn", false ).apply();
                     return;}
@@ -1106,7 +1124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }*/
     
-    private void showCallsDialog(){
+    private void showCallsDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -1140,7 +1158,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.CallsBtn).getParent()!=null){
+                if (findViewById( R.id.CallsBtn).getParent()!=null) {
                     viewGroup.removeView(CallsBtn);
                     BtnPreference.edit().putBoolean( "CallsBtn", false ).apply();
                     return;}
@@ -1167,7 +1185,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.NotesBtn).getParent()!=null){
+                if (findViewById( R.id.NotesBtn).getParent()!=null) {
                     viewGroup.removeView(NotesBtn);
                     BtnPreference.edit().putBoolean( "NotesBtn", false ).apply();
                     return;}
@@ -1175,7 +1193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showNotesDialog(){
+    private void showNotesDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -1209,7 +1227,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.GitBtn).getParent()!=null){
+                if (findViewById( R.id.GitBtn).getParent()!=null) {
                     viewGroup.removeView(GitBtn);
                     BtnPreference.edit().putBoolean( "GitBtn", false ).apply();
                     return;}
@@ -1217,7 +1235,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showGitDialog(){
+    private void showGitDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -1245,7 +1263,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.UserBtn).getParent()!=null){
+                if (findViewById( R.id.UserBtn).getParent()!=null) {
                     viewGroup.removeView(UserBtn);
                     BtnPreference.edit().putBoolean( "UserBtn", false ).apply();
                     return;}
@@ -1325,7 +1343,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.HowToBtn).getParent()!=null){
+                if (findViewById( R.id.HowToBtn).getParent()!=null) {
                     viewGroup.removeView(HowToBtn);
                     BtnPreference.edit().putBoolean( "HowToBtn", false ).apply();
                     return;}
@@ -1344,7 +1362,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.AboutBtn).getParent()!=null){
+                if (findViewById( R.id.AboutBtn).getParent()!=null) {
                     viewGroup.removeView(AboutBtn);
                     BtnPreference.edit().putBoolean( "AboutBtn", false ).apply();
                     return;}
@@ -1374,7 +1392,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 if (Counter < 10)
                     Counter++;
                 //first time tap check
-                if ((Counter == 10 )){
+                if ((Counter == 10 )) {
                     Intent goTap = new Intent(MainActivity.this, wsdfhjxc.taponium.MainActivity.class);
                     MainActivity.this.startActivity(goTap);
                     dialog.dismiss();
@@ -1520,7 +1538,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 shareCurrentPage();
                 return true;
             /*case R.id.action_home:
-                if(webView.getVisibility()==View.VISIBLE){
+                if(webView.getVisibility()==View.VISIBLE) {
                     //animation
                     animateup.setDuration(500);
                     animateup.setFillAfter(false);
@@ -1530,7 +1548,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     return true;
                 }
 
-                if (webView.getVisibility()==View.GONE && webView.getUrl()!=null){
+                if (webView.getVisibility()==View.GONE && webView.getUrl()!=null) {
                     //animation
                     animatedown.setDuration(500);
                     animatedown.setFillAfter(false);
@@ -1560,9 +1578,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 MainActivity.this.startActivity(goBtnSettings);
                 return true;
             case R.id.action_clear_cookies: {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     CookieManager.getInstance().removeAllCookies(null);
-                }else{
+                } else {
                     CookieManager.getInstance().removeAllCookie();
                 }
             }
@@ -1662,7 +1680,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         webView.setWebChromeClient(new ChromeClient());
         webView.loadUrl(loadUrl);
 
-        this.webView.setWebViewClient(new WebViewClient(){
+        this.webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
@@ -1688,7 +1706,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
     }
 
-    public boolean handleUrl(String url){
+    public boolean handleUrl(String url) {
 
         if (url.startsWith("geo:") || url.startsWith("mailto:") || url.startsWith("tel:") || url.startsWith("sms:")|| url.startsWith("xmpp:")) {
             Intent searchAddress = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -1878,15 +1896,15 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             chooserPathUri = filePath;
             chooserParams = fileChooserParams;
 
-            if(checkAndRequestPermissions()){
+            if(checkAndRequestPermissions()) {
                 openChooser(chooserPathUri);
                 return true;
-            }else {
+            } else {
                 return false;
             }
         }
 
-        void openChooser(ValueCallback<Uri[]> filePath){
+        void openChooser(ValueCallback<Uri[]> filePath) {
             // Double check that we don't have any existing callbacks
             if (mFilePathCallback != null) {
                 mFilePathCallback.onReceiveValue(null);
@@ -2020,7 +2038,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         // adding each child node to HashMap key => value
                         //serviceDetails.put("id", id);
                         serviceDetails.put("name", name);
-                        if (c.has("description")&&!c.isNull("description")){
+                        if (c.has("description")&&!c.isNull("description")) {
                             String description = c.getString("description");
                             serviceDetails.put("description", description);
                         } else {
@@ -2067,7 +2085,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 HashMap<String, String> hashmap= (HashMap<String, String>) componentList.get(a);
                 String hash = hashmap.get("name");
                 String description = "";
-                if (hashmap.get("description")!=null &&!hashmap.isEmpty()){//.has("description")&&!hasmap.isNull("description")
+                if (hashmap.get("description")!=null &&!hashmap.isEmpty()) {//.has("description")&&!hasmap.isNull("description")
                     description = hashmap.get("description");
                 } else {
                     description ="No Description";

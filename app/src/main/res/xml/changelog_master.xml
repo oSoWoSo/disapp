@@ -2,7 +2,7 @@
 <changelog>
     <release version="2.0.8" versioncode="31" >
         <change>Added Akkoma</change>
-        <change>Added Jitsi</change>
+        <change>Fixed some code decrepancies with Jitsi</change>
         <change>General Information Update</change>
     </release>
     <release version="2.0.7" versioncode="30" >

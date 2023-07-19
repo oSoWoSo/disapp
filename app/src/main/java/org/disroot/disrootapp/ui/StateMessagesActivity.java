@@ -150,7 +150,7 @@ public class StateMessagesActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG)
                             .show() );
                 }
-            }else {
+            } else {
                 Log.e(TAG, "Couldn't get json from server.");
                 runOnUiThread( () -> Toast.makeText(getApplicationContext(),
                         "Couldn't get json from server. Is your internet connection ok?",
@@ -194,7 +194,7 @@ public class StateMessagesActivity extends AppCompatActivity {
                     //Make Last updated translatable
                     TextView updated = v.findViewById(R.id.category );
                     String updatedValue = updated.getText().toString();
-                        if (updatedValue.startsWith("Last Updated: ")){
+                        if (updatedValue.startsWith("Last Updated: ")) {
                             updated.setText(updatedValue.replace("Last Updated: ",getText(R.string.LastUpdated)));
                         }
                     //Make Scheduled at translatable
