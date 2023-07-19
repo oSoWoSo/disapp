@@ -3,7 +3,6 @@
     <string name="action_home">Početna</string>
     <string name="action_mail">E-pošta</string>
     <string name="action_cloud">Oblak</string>
-    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Forum</string>
     <string name="action_chat">Ćaskanje</string>
     <string name="action_pad">Etherpad</string>
@@ -74,8 +73,8 @@
     <string name="DisrootWeb">Disroot sajt</string>
     <string name="FirstTitle">Još nešto!</string>
     <string name="FirstInfo">&#8226; Duži pritisak na bilo koju ikonicu prikazaće dodatne informacije… \n\n&#8226; Aplikacija se može uskladiti sa statusnom stranicom Disroot sajta. To znači da ćete u realnom vremenu dobijati poruke o problemima, zastojima, zakazanom održavanju i sl. putem https://state.disroot.org\nPreporučujemo da isključite optimizaciju baterije i dozvolite aplikaciji da radi u pozadini. Ako niste sigurni, podešavanja možete izmeniti iz menija Disroot aplikacije. </string>
-    <string name="AkkomaTitle">Diaspora* podešavanja</string>
-    <string name="AkkomaInfo">Raspodeljena i decentralizovana društvena mreža. Objavite, delite, stvarajte zajednice.\n\nKorisnik:\n vaše_disroot_korisničko_ime@fe.disroot.org\n\nLozinka:\n vaša_disroot_lozinka</string>
+    <string name="SocialTitle">FeDisroot podešavanja</string>
+    <string name="SocialInfo">Raspodeljena i decentralizovana društvena mreža. Objavite, delite, stvarajte zajednice.\n\nKorisnik:\n vaše_disroot_korisničko_ime@fe.disroot.org\n\nLozinka:\n vaša_disroot_lozinka</string>
     <string name="PadInfo">Pomoću Etherpad-a pišite članke, medijske objave, podsetnike, itd. Zajedno sa prijateljima, kolegama sa fakulteta ili saradnicima, možete istovremeno raditi na određenom dokumentu.\nRegistracija nije potrebna.</string>
     <string name="PadTitle">EtherPad detalji</string>
     <string name="ChatTitle">XMPP podešavanja\n</string>
@@ -88,8 +87,8 @@
     <string name="UploadInfo">Upload (Otpremi) je softver za privremeno i šifrovano skladištenje datoteka, koje pomoću veze možete podeliti sa drugima. Sve datoteke šifruju se pre slanja sa vašeg računara, što znači da server ne prepoznaje sadržaj pohranjenih datoteka.\nRegistracija nije potrebna.</string>
     <string name="SearxTitle">Searx detalji</string>
     <string name="SearxInfo">Searx je platforma za anonimno pretraživanje interneta, koja sakuplja rezultate sa drugih pretraživača, a pritom ne čuva podatke o svojim korisnicima. Nema praćenja, profiliranja i prikupljanja podataka od strane velikih korporacija. \nRegistracija nije potrebna.</string>
-    <string name="BoardTitle">Upravljanje projektima - detalji</string>
-    <string name="BoardInfo">Taiga je alat za upravljanje projektima, namenjen programerima, dizajnerima i novonastalim preduzećima za moderno poslovanje. Međutim, može se primeniti i na bilo koji projekat ili grupu izvan IT sektora.</string>
+    <!--<string name="BoardTitle">Upravljanje projektima - detalji</string>-->
+    <!--<string name="BoardInfo">Taiga je alat za upravljanje projektima, namenjen programerima, dizajnerima i novonastalim preduzećima za moderno poslovanje. Međutim, može se primeniti i na bilo koji projekat ili grupu izvan IT sektora.</string>-->
     <string name="UserTitle">Pomoć u vezi korisničke lozinke</string>
     <string name="UserInfo">U našem korisničkom centru možete izmeniti vaše podatke i lozinku</string>
     <string name="StateTitle">O stanju servisa</string>
@@ -105,14 +104,20 @@
     <string name="LogoInfo">Zašto? To je samo logo.\nRadoznalost je ubila mačku ;-)</string>
     <string name="LogoBtn">Disroot je zakon \\o/</string>
     <string name="logo">Logo</string>
-    <string name="xmppBtn"> \ \ &#8226; Stanje XMPP-a</string>
-    <string name="matrixBtn"> \ \ &#8226; Stanje Matrix-a</string>
-    <!--<string name="SocialBtn"> \ \ &#8226; Stanje Fe.disroot servisa</string>-->
-    <string name="NewsBtn"> \ \ &#8226; Novosti o stanju putem imejla</string>
-    <string name="RssBtn"> \ \ &#8226; Stanje putem RSS-a</string>
+    <string name="StateXMPPBtn"> \ \ &#8226; Stanje XMPP-a</string>
+    <string name="StateMatrixBtn"> \ \ &#8226; Stanje Matrix-a</string>
+    <string name="StateSocialBtn"> \ \ &#8226; Stanje Fe.disroot servisa</string>
+    <string name="StateNewsBtn"> \ \ &#8226; Novosti o stanju putem imejla</string>
+    <string name="StateRssBtn"> \ \ &#8226; Stanje putem RSS-a</string>
+    <!--  needs translation update -->
+    <string name="ChooseMailTitle">Instalirana su dva e-Mail korisnička programa!</string>
+    <string name="ChooseMail">Molimo izaberite korisnički program koji želite da koristite za Disroot</string>
     <string name="ChooseChatTitle">Instalirana su dva XMPP korisnička programa!</string>
     <string name="ChooseChat">Molimo izaberite korisnički program koji želite da koristite za Disroot</string>
     <string name="Remember">Zapamti moj izbor</string>
+    <!--  needs translation check -->
+    <string name="K9mail">K9 Mail</string>
+    <string name="FairEmail">FairEmail</string>
     <string name="Conversations">Conversations</string>
     <string name="PixArt">Pix-Art Messenger</string>
     <string name="Forget">Zaboravi moj izbor</string>
@@ -120,11 +125,13 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Obriši kolačiće</string>
     <string name="DiaInstallTitle">Potrebna instalacija</string>
-    <string name="AkkomaDialog">Za nastavak je potrebno instalirati aplikaciju Fedilab.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>
+    <string name="SocialDialog">Za nastavak je potrebno instalirati aplikaciju Fedilab.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>
     <string name="global_cancel">Otkaži</string>
     <string name="global_install">Instaliraj</string>
+    <!--  needs translation update -->
     <string name="MailDialog">Za nastavak je potrebno instalirati aplikaciju K9-Mail.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>
     <string name="CloudDialog">Za nastavak je potrebno instalirati aplikaciju Nextcloud.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>
+    <!--  needs translation update -->
     <string name="ChatDialog">Za nastavak je potrebno instalirati aplikaciju Conversations.\nIzaberite \'instaliraj\' i preuzmite aplikaciju pomoću F-Droid-a.</string>
     <string name="app_state">Stanje Disroot servisa</string>
     <string name="Operational">Operativni</string>
@@ -151,7 +158,8 @@
     <string name="do_you_want_to_exit">Želite da izađete?</string>
     <string name="action_optimization">Optimizacija baterije</string>
     <string name="OptimizationTitle">Optimizacija baterije!</string>
-    <string name="action_board">Projektna tabla</string>
+    <string name="action_social">FeDisroot</string>
+    <!--<string name="action_board">Projektna tabla</string>-->
     <string name="action_user">Nalog</string>
     <string name="action_searx">Pretraga</string>
     <string name="OptimizationInfo">Disroot aplikacija može sinhronizovati podatke sa statusnom stranicom sajta. To znači da možete dobijati obaveštenja u realnom vremenu o problemima, zastojima, planiranom održavanju i sl. objavama sa https://state.disroot.org\nPreporučujemo da isključite optimizaciju baterije i dozvolite Disroot aplikaciji rad u pozadini. Ako niste sigurni, podešavanja kasnije možete promeniti u meniju aplikacije.</string>

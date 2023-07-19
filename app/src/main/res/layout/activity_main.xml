@@ -100,8 +100,8 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/ic_fedisroot"
-                    android:text="@string/action_akkoma"
+                    android:drawableTop="@drawable/ic_social"
+                    android:text="@string/action_social"
                     android:textColor="#ffffff"
                     app:fontFamily="@font/open_sans_regular" />
 

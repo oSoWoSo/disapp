@@ -16,35 +16,35 @@
             android:id="@+id/StateView"
             android:text="@string/StateInfo"/>
         <Button
-            android:id="@+id/xmppBtn"
+            android:id="@+id/StateXMPPBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
-            android:text="@string/xmppBtn"/>
+            android:text="@string/StateXMPPBtn"/>
         <Button
-            android:id="@+id/matrixBtn"
+            android:id="@+id/StateMatrixBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
-            android:text="@string/matrixBtn"/>
-        <!--<Button
-            android:id="@+id/SocialBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="?android:attr/borderlessButtonStyle"
-            android:text="@string/SocialBtn"/>-->
+            android:text="@string/StateMatrixBtn"/>
         <Button
-            android:id="@+id/NewsBtn"
+            android:id="@+id/StateSocialBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
-            android:text="@string/NewsBtn"/>
+            android:text="@string/StateSocialBtn"/>
         <Button
-            android:id="@+id/RssBtn"
+            android:id="@+id/StateNewsBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
-            android:text="@string/RssBtn"
+            android:text="@string/StateNewsBtn"/>
+        <Button
+            android:id="@+id/StateRssBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="@string/StateRssBtn"
             android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
     </LinearLayout>

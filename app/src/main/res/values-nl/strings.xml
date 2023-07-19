@@ -3,7 +3,6 @@
     <string name="action_home">Home</string>
     <string name="action_mail">Mail</string>
     <string name="action_cloud">Cloud</string>
-    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
@@ -74,8 +73,8 @@
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">De laatste paar dingen!</string>
     <string name="FirstInfo">&#8226; Je kan op elk pictogram lang drukken om jou extra informatie te tonen…&#8226; De app kan synchroniseren met de statuspagina van Disroot. Dit betekent dat u realtime updates ontvangt over issues, downtimes, gepland onderhoud en andere zaken die gepubliceerd worden via https://state.disroot.org\nWe raden aan om de batterijoptimalisatie uit te schakelen en de Disroot app op de achtergrond te laten draaien. Als u niet zeker bent, kunt u de instelling later altijd nog wijzigen vanuit het Disroot app menu.</string>
-    <string name="AkkomaTitle">Diaspora* Instellingen</string>
-    <string name="AkkomaInfo">Gedistribueerd en gedecentraliseerd sociaal netwerk. Plaatsen, delen, liken, gemeenschappen creëren.\n\nGebruikersnaam:\n jou_disroot_gebruikersnaam@fe.disroot.org\n\nWachtwoord:\n jou_disroot_wachtwoord</string>
+    <string name="SocialTitle">FeDisroot Instellingen</string>
+    <string name="SocialInfo">Gedistribueerd en gedecentraliseerd sociaal netwerk. Plaatsen, delen, liken, gemeenschappen creëren.\n\nGebruikersnaam:\n jou_disroot_gebruikersnaam@fe.disroot.org\n\nWachtwoord:\n jou_disroot_wachtwoord</string>
     <string name="PadInfo">Met Etherpad schrijf artikelen, persberichten, to-do lijsten, etc. samen met vrienden, medestudenten of collega\'s, die allemaal op hetzelfde moment aan hetzelfde document werken.\nEr is geen registratie vereist.</string>
     <string name="PadTitle">EtherPad Info</string>
     <string name="ChatTitle">XMPP Instellingen\n</string>
@@ -89,8 +88,8 @@
     <string name="UploadInfo">Upload is een file hosting software die tijdelijk versleutelde bestanden opslaat, zodat u ze kunt delen met anderen via een link. Alle bestanden worden gecodeerd voordat ze uw computer verlaten, wat betekent dat de server geen kennis heeft van gehoste gegevens.\nEr is geen registratie vereist.</string>
     <string name="SearxTitle">Searx Info</string>
     <string name="SearxInfo">Searx is een anoniem multi zoekmachine platform, dat de resultaten van andere zoekmachines samenvoegt en geen informatie over de gebruikers opslaat.  Geen tracking, geen profilering, geen data mining door grote bedrijven.\nEr is geen registratie vereist.</string>
-    <string name="BoardTitle">Project Management Bord Info</string>
-    <string name="BoardInfo">Taiga is een project management tool, ontwikkeld voor programmeurs, ontwerpers en startups die werken met een flexibele methodologie in gedachten. Het kan echter op vrijwel elk project of groep worden toegepast, zelfs buiten de IT-omgeving.</string>
+    <!--<string name="BoardTitle">Project Management Bord Info</string>-->
+    <!--<string name="BoardInfo">Taiga is een project management tool, ontwikkeld voor programmeurs, ontwerpers en startups die werken met een flexibele methodologie in gedachten. Het kan echter op vrijwel elk project of groep worden toegepast, zelfs buiten de IT-omgeving.</string>-->
     <string name="UserTitle">Gebruikerswachtwoordbeheer Help</string>
     <string name="UserInfo">Gebruik ons User Self Service Center om uw gebruikers- en wachtwoordgegevens te beheren</string>
     <string name="StateTitle">Status Info</string>
@@ -106,14 +105,20 @@
     <string name="LogoInfo">Waarom? Het is gewoon een logo.\n Wees niet te nieuwsgierig  ;-)</string>
     <string name="LogoBtn">Disroot rules \\o/</string>
     <string name="logo">Logo</string>
-    <string name="xmppBtn"> \ \ &#8226; Status op xmpp</string>
-    <string name="matrixBtn"> \ \ &#8226; Status op Matrix</string>
-    <!--<string name="SocialBtn"> \ \ &#8226; Status op Fe.disroot</string>-->
-    <string name="NewsBtn"> \ \ &#8226; Status updates via email</string>
-    <string name="RssBtn"> \ \ &#8226; Status RSS feed</string>
+    <string name="StateXMPPBtn"> \ \ &#8226; Status op xmpp</string>
+    <string name="StateMatrixBtn"> \ \ &#8226; Status op Matrix</string>
+    <string name="StateSocialBtn"> \ \ &#8226; Status op Fe.disroot</string>
+    <string name="StateNewsBtn"> \ \ &#8226; Status updates via email</string>
+    <string name="StateRssBtn"> \ \ &#8226; Status RSS feed</string>
+    <!--  needs translation update-->
+    <string name="ChooseMailTitle">Je hebt twee e-Mail-clients geïnstalleerd!</string>
+    <string name="ChooseMail">Kies de client die je wenst te gebruiken voor Disroot</string>
     <string name="ChooseChatTitle">Je hebt twee XMPP-clients geïnstalleerd!</string>
     <string name="ChooseChat">Kies de client die je wenst te gebruiken voor Disroot</string>
     <string name="Remember">Onthoud mijn keuze</string>
+    <!--  needs translation check -->
+    <string name="K9mail">K9 Mail</string>
+    <string name="FairEmail">FairEmail</string>
     <string name="Conversations">Conversations</string>
     <string name="PixArt">Pix-Art Messenger</string>
     <string name="Forget">Vergeet mijn keuze</string>
@@ -121,11 +126,13 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Verwijder cookies</string>
     <string name="DiaInstallTitle">Installatie vereist</string>
-    <string name="AkkomaDialog">Om verder te gaan moet u eerst Fedilab installeren.\nPlease select install to continue with the installatin on F-Droid.</string>
+    <string name="SocialDialog">Om verder te gaan moet u eerst Fedilab installeren.\nPlease select install to continue with the installatin on F-Droid.</string>
     <string name="global_cancel">Annuleren</string>
     <string name="global_install">Installeren</string>
+    <!--  needs translation update -->
     <string name="MailDialog">Om verder te gaan moet u eerst K9-Mail installeren.\nSelecteer Installeren om verder te gaan met de installatie op F-Droid.</string>
     <string name="CloudDialog">Om verder te gaan moet u eerst Nextcloud app installeren.\nSelecteer Installeren om verder te gaan met de installatie op F-Droid.</string>
+    <!--  needs translation update -->
     <string name="ChatDialog">Om verder te gaan moet u eerst Conversations installeren.\nSelecteer Installeren om verder te gaan met de installatie op F-Droid.</string>
     <string name="app_state">Disroot status</string>
     <string name="Operational">Operationeel</string>
@@ -152,7 +159,8 @@
     <string name="do_you_want_to_exit">Will je de app verlaten?</string>
     <string name="action_optimization">Batterij optimalisatie</string>
     <string name="OptimizationTitle">Batterij optimalisatie!</string>
-    <string name="action_board">Project bord</string>
+    <string name="action_social">FeDisroot</string>
+    <!--<string name="action_board">Project bord</string>-->
     <string name="action_user">Account</string>
     <string name="action_searx">Zoeken</string>
     <string name="OptimizationInfo">De Disroot app kan synchroniseren met de statuspagina van Disroot. Dit betekent dat u realtime updates ontvangt over problemen, uitvaltijden, gepland onderhoud en andere zaken die worden gepubliceerd via https://state.disroot.org\nWe raden aan om de batterijoptimalisatie uit te schakelen en de Disroot app op de achtergrond te laten draaien. Als u niet zeker bent, kunt u de instelling later altijd nog wijzigen via het menu van de Disroot app.</string>

@@ -51,6 +51,7 @@ public class Constants {
     public static final String URL_DisApp_DISAPP = "https://f-droid.org/en/packages/org.disroot.disrootapp/";
 
     public static final String k9 = "com.fsck.k9";
+    public static final String FairEmail = "eu.faircode.email";
     public static final String nc = "com.nextcloud.client";
     public static final String Fedilab = "fr.gouv.etalab.mastodon";
     public static final String Conversations = "eu.siacs.conversations";
@@ -60,7 +61,7 @@ public class Constants {
     public static final String CallsApp = "org.jitsi.meet";
     public static final String GitApp = "org.mian.gitnex";
 
-    public static final int[] buttonIDs = new int[] {R.id.MailBtn, R.id.CloudBtn, R.id.ForumBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.BoardBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
+    public static final int[] buttonIDs = new int[] {R.id.MailBtn, R.id.CloudBtn, R.id.ForumBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
 
 
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;//file upload

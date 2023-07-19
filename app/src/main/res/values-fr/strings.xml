@@ -4,7 +4,6 @@
     <string name="action_home">Accueil</string>
     <string name="action_mail">Courrier</string>
     <string name="action_cloud">Cloud</string>
-    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
@@ -12,7 +11,8 @@
     <string name="action_bin">Private bin</string>
     <string name="action_upload">Téléverser</string>
     <string name="action_searx">Search</string><!--needs update:20/10/2020-->
-    <string name="action_board">Project board</string><!--needs update:20/10/2020-->
+    <string name="action_social">FeDisroot</string>
+    <!--<string name="action_board">Project board</string>-->
     <string name="action_user">Account</string><!--needs update:20/10/2020-->
     <string name="action_state">État des services</string>
     <string name="action_howto">Tutoriels</string>
@@ -99,8 +99,8 @@
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">Dernière chose !</string>
     <string name="FirstInfo"><![CDATA[• En appuyant longuement sur chaque icône, vous pouvez obtenir des informations supplémentaires… \n\n&#8226 ; L\'application peut se synchroniser avec la page de statut de Disroot. Cela signifie que vous recevrez des mises à jour en temps réel sur les problèmes, les temps d\'arrêt, la maintenance programmée et d\'autres problèmes publiés via https://state.disroot.org\nNous vous recommandons de désactiver l\'optimisation de la batterie et d\'autoriser l\'application Disroot à fonctionner en arrière-plan. Si vous n\'êtes pas sûr, vous pouvez toujours changer le réglage à partir du menu de l\'application Disroot plus tard.]]></string>
-    <string name="AkkomaTitle">Paramètres Akkoma</string>
-    <string name="AkkomaInfo">Réseau social distribué et décentralisé. Postez, partagez, aimez, créez des communautés.
+    <string name="SocialTitle">Paramètres FeDisroot</string>
+    <string name="SocialInfo">Réseau social distribué et décentralisé. Postez, partagez, aimez, créez des communautés.
 \n
 \nNom d\'utilisateur :
 \n votre_nom_d\'utilisateur_disroot@fe.disroot.org
@@ -119,8 +119,8 @@
     <string name="UploadInfo">Téléverser est un logiciel d\'hébergement de fichiers qui stocke temporairement des fichiers chiffrés pour que vous puissiez les partager avec d\'autres en utilisant un lien. Tous les fichiers sont chiffrés avant qu\'ils ne quittent votre ordinateur, ce qui signifie que le serveur n\'a aucune connaissance des données hébergées.</string>
     <string name="SearxTitle">Info Searx</string>
     <string name="SearxInfo"> Searx est une plateforme anonyme multi moteurs de recherche, agrégeant les résultats d\'autres moteurs de recherche tout en ne stockant pas d\'informations sur ses utilisateurs.  Pas de suivi, pas de profilage, pas d\'exploration de données par les grandes entreprises.\nAucune inscription n\'est requise.</string>
-    <string name="BoardTitle">Info sur le tableau de gestion de projets</string>
-    <string name="BoardInfo">Taiga est un outil de gestion de projet, développé pour les programmeurs, les concepteurs et les startups travaillant avec une méthodologie de gestion agile à l\'esprit. Il peut cependant s\'appliquer à pratiquement n\'importe quel projet ou groupe, même en dehors du domaine informatique.</string>
+    <!--<string name="BoardTitle">Info sur le tableau de gestion de projets</string>-->
+    <!--<string name="BoardInfo">Taiga est un outil de gestion de projet, développé pour les programmeurs, les concepteurs et les startups travaillant avec une méthodologie de gestion agile à l\'esprit. Il peut cependant s\'appliquer à pratiquement n\'importe quel projet ou groupe, même en dehors du domaine informatique.</string>-->
     <string name="UserTitle">Aide à la gestion des mots de passe des utilisateurs</string>
     <string name="UserInfo">Utilisez notre Centre de libre-service pour gérer vos données d\'utilisateur et de mot de passe</string>
     <string name="StateTitle">Informations sur l\'état des services</string>
@@ -137,14 +137,20 @@
 \nNe soyez pas trop curieux ;-)</string>
     <string name="LogoBtn">Règles Disroot \\o/</string>
     <string name="logo">Logo</string>
-    <string name="xmppBtn">"\\  • État des services sur xmpp"</string>
-    <string name="matrixBtn">"\\  • État des services sur Matrix"</string>
-    <!--<string name="SocialBtn">"\\  • État des services sur Fe.disroot"</string>-->
-    <string name="NewsBtn">"\\  • Info sur l\'état des services par courriel"</string>
-    <string name="RssBtn">"\\  • État des services par flux RSS"</string>
+    <string name="StateXMPPBtn">"\\  • État des services sur xmpp"</string>
+    <string name="StateMatrixBtn">"\\  • État des services sur Matrix"</string>
+    <string name="StateSocialBtn">"\\  • État des services sur Fe.disroot"</string>
+    <string name="StateNewsBtn">"\\  • Info sur l\'état des services par courriel"</string>
+    <string name="StateRssBtn">"\\  • État des services par flux RSS"</string>
+    <!--  needs translation update -->
+    <string name="ChooseMailTitle">Vous avez deux clients e-Mail installés !</string>
+    <string name="ChooseMail">Veuillez choisir le client que vous souhaitez utiliser pour Disroot</string>
     <string name="ChooseChatTitle">Vous avez deux clients XMPP installés !</string>
     <string name="ChooseChat">Veuillez choisir le client que vous souhaitez utiliser pour Disroot</string>
     <string name="Remember">Mémoriser mon choix</string>
+    <!--  needs translation check -->
+    <string name="K9mail">K9 Mail</string>
+    <string name="FairEmail">FairEmail</string>
     <string name="Conversations">Conversations</string>
     <string name="PixArt">Pix-Art Messenger</string>
     <string name="Forget">Oublier mon choix</string>
@@ -152,11 +158,13 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Effacer les cookies</string>
     <string name="DiaInstallTitle">Demande d\'installation</string>
-    <string name="AkkomaDialog">Pour continuer, vous devez d\'abord installer Fedilab.\nVeuillez sélectionner Installer pour continuer l\'installation avec F-Droid.</string>
+    <string name="SocialDialog">Pour continuer, vous devez d\'abord installer Fedilab.\nVeuillez sélectionner Installer pour continuer l\'installation avec F-Droid.</string>
     <string name="global_cancel">Annuler</string>
     <string name="global_install">Installer</string>
+    <!--  needs translation update -->
     <string name="MailDialog">Pour continuer, vous devez d\'abord installer K9-Mail.\nVeuillez sélectionner Installer pour continuer l\'installation avec F-Droid.</string>
     <string name="CloudDialog">Pour continuer, vous devez d\'abord installer l\'application Nextcloud.\nVeuillez sélectionner Installer pour continuer l\'installation avec F-Droid.</string>
+    <!--  needs translation update -->
     <string name="ChatDialog">Pour continuer, vous devez d\'abord installer Conversations.\nVeuillez sélectionner Installer pour continuer l\'installation avec F-Droid.</string>
     <string name="app_state">État Disroot</string>
     <string name="Operational">Opérationnel</string>

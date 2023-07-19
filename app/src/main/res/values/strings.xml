@@ -3,7 +3,6 @@
     <string name="action_home">Home</string>
     <string name="action_mail">Mail</string>
     <string name="action_cloud">Cloud</string>
-    <string name="action_akkoma">Akkoma</string>
     <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Pad</string>
@@ -11,7 +10,8 @@
     <string name="action_bin">Paste bin</string>
     <string name="action_upload">Upload</string>
     <string name="action_searx">Search</string>
-    <string name="action_board">Project board</string>
+    <string name="action_social">FeDisroot</string>
+    <!--<string name="action_board">Project board</string>-->
     <string name="action_state">State</string>
     <string name="action_howto">How to</string>
     <string name="action_about">About</string>
@@ -67,8 +67,8 @@
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">Last couple of things!</string>
     <string name="FirstInfo">&#8226; By doing a long press on each icon you can get extra information… \n\n&#8226; The app can sync with the status page of Disroot. This means that you will receive realtime updates on issues, downtimes, scheduled maintenance and others published via https://status.disroot.org\nWe recommend to turn off battery optimization and allow Disroot app to run in the background. If you\'re not sure, you can always change the setting from the Disroot app menu later.</string>
-    <string name="AkkomaTitle">Akkoma Settings</string>
-    <string name="AkkomaInfo">Distributed and decentralized social network. Post, share, like, create communities.\n\nUsername:\n your_disroot_username@fe.disroot.org\n\nPassword:\n your_disroot_password</string>
+    <string name="SocialTitle">FeDisroot Settings</string>
+    <string name="SocialInfo">Distributed and decentralized social network. Post, share, like, create communities.\n\nUsername:\n your_disroot_username@fe.disroot.org\n\nPassword:\n your_disroot_password</string>
     <string name="PadInfo">With Etherpad write articles, press releases, to-do lists, etc. together with friends, fellow students or colleagues, all working on the same document at the same time.\nNo registration is required.</string>
     <string name="PadTitle">EtherPad Info</string>
     <string name="ChatTitle">XMPP Settings\n</string>
@@ -81,8 +81,8 @@
     <string name="UploadInfo">Upload is a file hosting software that temporarily stores encrypted files so you can share them with others using a link. All files are encrypted before they leave your computer meaning server has zero knowledge of hosted data.\nNo registration is required.</string>
     <string name="SearxTitle">Searx Info</string>
     <string name="SearxInfo">Searx is an anonymous multi search engine platform, aggregating the results of other search engines while not storing information about its users.  No tracking, profiling, no data mining by big corporations. \nNo registration is required.</string>
-    <string name="BoardTitle">Project Management Board Info</string>
-    <string name="BoardInfo">Taiga is a project management tool, developed for programmers, designers and startups working with agile methodology in mind. It can however be applied to virtually any project or group, even outside of IT realm.</string>
+    <!--<string name="BoardTitle">Project Management Board Info</string>-->
+    <!--<string name="BoardInfo">Taiga is a project management tool, developed for programmers, designers and startups working with agile methodology in mind. It can however be applied to virtually any project or group, even outside of IT realm.</string>-->
     <string name="UserTitle">User Password Management Help</string>
     <string name="UserInfo">Use our User Self Service Center to manage your user and password data</string>
     <string name="StateTitle">State Info</string>
@@ -98,14 +98,18 @@
     <string name="LogoInfo">Why? It\'s just a logo.\nDon\'t be too curious ;-)</string>
     <string name="LogoBtn">Disroot rules \\o/</string>
     <string name="logo">Logo</string>
-    <string name="xmppBtn"> \ \ &#8226; State on xmpp</string>
-    <string name="matrixBtn"> \ \ &#8226; State on Matrix</string>
-    <!--<string name="SocialBtn"> \ \ &#8226; State on Fe.disroot</string>-->
-    <string name="NewsBtn"> \ \ &#8226; State updates via email</string>
-    <string name="RssBtn"> \ \ &#8226; State RSS feed</string>
+    <string name="StateXMPPBtn"> \ \ &#8226; State on xmpp</string>
+    <string name="StateMatrixBtn"> \ \ &#8226; State on Matrix</string>
+    <string name="StateSocialBtn"> \ \ &#8226; State on Fe.disroot</string>
+    <string name="StateNewsBtn"> \ \ &#8226; State updates via email</string>
+    <string name="StateRssBtn"> \ \ &#8226; State RSS feed</string>
+    <string name="ChooseMailTitle">You have two e-Mail clients installed!</string>
+    <string name="ChooseMail">Please choose the client you want to use for Disroot</string>
     <string name="ChooseChatTitle">You have two XMPP clients installed!</string>
     <string name="ChooseChat">Please choose the client you want to use for Disroot</string>
     <string name="Remember">Remember my choice</string>
+    <string name="K9mail">K9 Mail</string>
+    <string name="FairEmail">FairEmail</string>
     <string name="Conversations">Conversations</string>
     <string name="PixArt">Pix-Art Messenger</string>
     <string name="Forget">Forget my choice</string>
@@ -113,12 +117,12 @@
     <string name="title_activity_tap">TapActivity</string>
     <string name="action_clear_cookies">Clear cookies</string>
     <string name="DiaInstallTitle">Installation request</string>
-    <string name="Akkomadialog">To continue you need to install Fedilab first.\nPlease select install to continue with the installation on F-Droid.</string>
+    <string name="SocialDialog">To continue you need to install Fedilab first.\nPlease select install to continue with the installation on F-Droid.</string>
     <string name="global_cancel">Cancel</string>
     <string name="global_install">Install</string>
-    <string name="MailDialog">To continue you need to install K9-Mail first.\nPlease select install to continue with the installation on F-Droid.</string>
+    <string name="MailDialog">To continue you need to install an e-Mail client first.\nPlease select install to install our suggested client via F-Droid.</string>
     <string name="CloudDialog">To continue you need to install the Nextcloud app first.\nPlease select install to continue with the installation on F-Droid.</string>
-    <string name="ChatDialog">To continue you need to install Conversations first.\nPlease select install to continue with the installation on F-Droid.</string>
+    <string name="ChatDialog">To continue you need to install an XMPP client first.\nPlease select install to install our suggested client via F-Droid.</string>
     <string name="title_activity_state" translatable="false">StateActivity</string>
     <string name="app_state">Disroot state</string>
     <string name="Operational">Operational</string>
@@ -145,9 +149,6 @@
     <string name="do_you_want_to_exit">Do you want to exit?</string>
     <string name="action_optimization">Battery optimization</string>
     <string name="OptimizationTitle">Battery optimization!</string>
-
-
-
     <string name="OptimizationInfo">The Disroot app can sync with the status page of Disroot. This means you will receive realtime updates on issues, downtimes, scheduled maintenance and others published via https://state.disroot.org\nWe recommend to turn off battery optimization and allow Disroot app to run in background. If you\'re not sure, you can always change the setting from the menu of the Disroot app later.</string>
     <string name="action_user">Account</string>
     <string name="id">id:</string>

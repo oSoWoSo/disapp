@@ -14,190 +14,184 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="1">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:text="@string/edit_apps_title"
-        android:textColor="@color/gray"
-        android:gravity="center"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DisTheme.Settings">
             <TextView
-                android:id="@+id/mailView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/action_mail"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:text="@string/edit_apps_title"
                 android:textColor="@color/gray"
-                android:drawableStart="@drawable/ic_mail"
-                android:drawableTint="@color/gray"
-                android:drawableLeft="@drawable/ic_mail" />
-            <CheckBox
-                android:id="@+id/mailBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
-            </FrameLayout>
-
+                android:gravity="center"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/DisTheme.Settings">
-            <TextView
-                android:id="@+id/cloudView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/Cloud"
-                android:textColor="@color/gray"
-                android:drawableTint="@color/gray"
-                android:drawableStart="@drawable/ic_cloud"
-                android:drawableLeft="@drawable/ic_cloud"/>
-            <CheckBox
-                android:id="@+id/cloudBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
+                <TextView
+                    android:id="@+id/mailView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_mail"
+                    android:textColor="@color/gray"
+                    android:drawableStart="@drawable/ic_mail"
+                    android:drawableTint="@color/gray"
+                    android:drawableLeft="@drawable/ic_mail" />
+                <CheckBox
+                    android:id="@+id/mailBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
             </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DisTheme.Settings">
-            <TextView
-                android:layout_width="wrap_content"
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/action_forum"
-                android:textColor="@color/gray"
-                android:drawableTint="@color/gray"
-                android:drawableStart="@drawable/ic_forum"
-                android:drawableLeft="@drawable/ic_forum"/>
-            <CheckBox
-                android:id="@+id/foumBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:id="@+id/cloudView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/Cloud"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_cloud"
+                    android:drawableLeft="@drawable/ic_cloud"/>
+                <CheckBox
+                    android:id="@+id/cloudBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DisTheme.Settings">
-            <TextView
-                android:layout_width="wrap_content"
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_forum"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_forum"
+                    android:drawableLeft="@drawable/ic_forum"/>
+                <CheckBox
+                    android:id="@+id/foumBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/action_chat"
-                android:textColor="@color/gray"
-                android:drawableTint="@color/gray"
-                android:drawableStart="@drawable/ic_chat"
-                android:drawableLeft="@drawable/ic_chat"/>
-            <CheckBox
-                android:id="@+id/chatBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_chat"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_chat"
+                    android:drawableLeft="@drawable/ic_chat"/>
+                <CheckBox
+                    android:id="@+id/chatBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DisTheme.Settings">
-            <TextView
-                android:layout_width="wrap_content"
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_pad"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_pad"
+                    android:drawableLeft="@drawable/ic_pad"/>
+                <CheckBox
+                    android:id="@+id/padBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/action_pad"
-                android:textColor="@color/gray"
-                android:drawableTint="@color/gray"
-                android:drawableStart="@drawable/ic_pad"
-                android:drawableLeft="@drawable/ic_pad"/>
-            <CheckBox
-                android:id="@+id/padBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_cryptpad"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_cryptpad"
+                    android:drawableLeft="@drawable/ic_cryptpad"/>
+                <CheckBox
+                    android:id="@+id/cryptpadBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DisTheme.Settings">
-            <TextView
-                android:layout_width="wrap_content"
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_bin"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_bin"
+                    android:drawableLeft="@drawable/ic_bin"/>
+                <CheckBox
+                    android:id="@+id/binBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
+            <FrameLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/action_cryptpad"
-                android:textColor="@color/gray"
-                android:drawableTint="@color/gray"
-                android:drawableStart="@drawable/ic_cryptpad"
-                android:drawableLeft="@drawable/ic_cryptpad"/>
-            <CheckBox
-                android:id="@+id/cryptpadBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DisTheme.Settings">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/action_bin"
-                android:textColor="@color/gray"
-                android:drawableTint="@color/gray"
-                android:drawableStart="@drawable/ic_bin"
-                android:drawableLeft="@drawable/ic_bin"/>
-            <CheckBox
-                android:id="@+id/binBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
-        </FrameLayout>
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="@style/DisTheme.Settings">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                style="?android:attr/borderlessButtonStyle"
-                android:text="@string/action_upload"
-                android:textColor="@color/gray"
-                android:drawableTint="@color/gray"
-                android:drawableStart="@drawable/ic_upload"
-                android:drawableLeft="@drawable/ic_upload"/>
-            <CheckBox
-                android:id="@+id/uploadBtnPreference"
-                android:button="@drawable/checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end|center_vertical"/>
-        </FrameLayout>
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_upload"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_upload"
+                    android:drawableLeft="@drawable/ic_upload"/>
+                <CheckBox
+                    android:id="@+id/uploadBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -226,6 +220,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="?android:attr/borderlessButtonStyle"
+                    android:text="@string/action_social"
+                    android:textColor="@color/gray"
+                    android:drawableTint="@color/gray"
+                    android:drawableStart="@drawable/ic_social"
+                    android:drawableLeft="@drawable/ic_social"/>
+                <CheckBox
+                    android:id="@+id/socialBtnPreference"
+                    android:button="@drawable/checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"/>
+            </FrameLayout>
+            <!--<FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/DisTheme.Settings">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/borderlessButtonStyle"
                     android:text="@string/action_board"
                     android:textColor="@color/gray"
                     android:drawableTint="@color/gray"
@@ -237,7 +251,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"/>
-            </FrameLayout>
+            </FrameLayout>-->
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -358,6 +372,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"/>
             </FrameLayout>
-    </GridLayout>
+        </GridLayout>
     </ScrollView>
 </LinearLayout>

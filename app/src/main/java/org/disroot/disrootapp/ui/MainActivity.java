@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     ValueCallback<Uri[]> chooserPathUri;
     Button button;
     private Button MailBtn,CloudBtn,ForumBtn,ChatBtn,PadBtn,CryptpadBtn,BinBtn,UploadBtn,SearxBtn,SocialBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
-    private String email,cloud,forum,etherpad,bin,upload,searx,akkoma,user,xmpp,notes,git,cryptpad;
+    private String email,cloud,forum,etherpad,bin,upload,searx,akkoma,jitsi,user,xmpp,notes,git,cryptpad;
     private CookieManager cookieManager;
     private WebView webView;
     private DisWebChromeClient disWebChromeClient;
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "UploadBtn", Context.MODE_PRIVATE );//upload
         BtnPreference = getSharedPreferences( "SearxBtn", Context.MODE_PRIVATE );//search
         BtnPreference = getSharedPreferences( "SocialBtn", Context.MODE_PRIVATE );//social
-        /*BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//board*/
+        //BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//board
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
@@ -209,6 +209,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             check.edit().putBoolean("checkPix",false).apply();
         }
 
+        //set booleans for checking Mail preference
+        if (firstStart.getBoolean("firsttap", true)){
+            check.edit().putBoolean("checkK9",false).apply();
+            check.edit().putBoolean("checkFairEmail",false).apply();
+        }
+
         //pull to refresh
         final SwipeRefreshLayout swipe = (SwipeRefreshLayout)findViewById(R.id.swipe);
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
@@ -243,7 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BinBtn = findViewById( R.id.BinBtn );
         UploadBtn = findViewById( R.id.UploadBtn );
         SearxBtn = findViewById( R.id.SearxBtn );
-        BoardBtn = findViewById( R.id.BoardBtn );
+        //BoardBtn = findViewById( R.id.BoardBtn );
         CallsBtn = findViewById( R.id.CallsBtn );
         NotesBtn = findViewById( R.id.NotesBtn );
         GitBtn = findViewById( R.id.GitBtn );
@@ -281,7 +287,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BinBtn.setOnLongClickListener( this );
         UploadBtn.setOnLongClickListener( this );
         SearxBtn.setOnLongClickListener( this );
-        BoardBtn.setOnLongClickListener( this );
+        //BoardBtn.setOnLongClickListener( this );
         CallsBtn.setOnLongClickListener( this );
         NotesBtn.setOnLongClickListener( this );
         GitBtn.setOnLongClickListener( this );
@@ -290,7 +296,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         HowToBtn.setOnLongClickListener( this );
         AboutBtn.setOnLongClickListener( this );
 
-        //set clickbuttons
+        //set click buttons
         MailBtn.setOnClickListener( this );
         CloudBtn.setOnClickListener( this );
         SocialBtn.setOnClickListener( this );
@@ -301,7 +307,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BinBtn.setOnClickListener( this );
         UploadBtn.setOnClickListener( this );
         SearxBtn.setOnClickListener( this );
-        BoardBtn.setOnClickListener( this );
+        //BoardBtn.setOnClickListener( this );
         CallsBtn.setOnClickListener( this );
         NotesBtn.setOnClickListener( this );
         GitBtn.setOnClickListener( this );
@@ -330,15 +336,35 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         else {
             switch (view.getId()) {
                 case R.id.MailBtn:
-                    Intent mail = getPackageManager().getLaunchIntentForPackage(Constants.k9);
-                    if (mail == null) {
-                        showMailDialog();
+                    Intent mail1 = getPackageManager().getLaunchIntentForPackage(Constants.k9);
+                    Intent mail2 = getPackageManager().getLaunchIntentForPackage(Constants.FairEmail);
+                    if((mail1 == null)&&(mail2 == null)) {
+                        showChatDialog();
                         break;
-                    } else startActivity(mail);
+                    }
+                    if((mail1 == null)&&(mail2 != null)) {
+                        startActivity(mail2);
+                        break;
+                    }
+                    if((mail1 != null)&&(mail2 != null)) {
+                        if(check.getBoolean("checkK9", Boolean.parseBoolean(null))||check.getBoolean("checkK9", false)) {
+                            startActivity(mail1);
+                            break;
+                        }
+                        if(check.getBoolean("checkFairEmail", Boolean.parseBoolean(null))||check.getBoolean("checkFairEmail", false)) {
+                            startActivity(mail2);
+                            break;
+                        }
+                        else
+                            showMailChoose();
+                        break;
+                    }
+                    else
+                        startActivity(mail1);
                     break;
                 case R.id.CloudBtn:
                     Intent cloud = getPackageManager().getLaunchIntentForPackage(Constants.nc);
-                    if(cloud == null) {buLOc0rw7gSAWdu3s4J9l
+                    if(cloud == null) {
                         showCloudDialog();
                         break;
                     }
@@ -346,7 +372,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     break;
                 case R.id.SocialBtn:
                     Intent social = getPackageManager().getLaunchIntentForPackage(Constants.Fedilab);
-                    if(getPackageManager().getLaunchIntentForPackage(Fedilab) == null) {
+                    if(getPackageManager().getLaunchIntentForPackage(Constants.Fedilab) == null) {
                         showSocialDialog();
                         break;
                     }
@@ -357,7 +383,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     hideDashboard();
                     break;
                 case R.id.ChatBtn:
-
                     Intent xmpp1 = getPackageManager().getLaunchIntentForPackage(Constants.Conversations);
                     Intent xmpp2 = getPackageManager().getLaunchIntentForPackage(Constants.PixArt);
                     if((xmpp1 == null)&&(xmpp2 == null)) {
@@ -378,7 +403,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                             break;
                         }
                         else
-                            showChoose();
+                            showChatChoose();
                         break;
                     }
                     else
@@ -413,12 +438,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     hideDashboard();
                     break;*/
                 case R.id.CallsBtn:
-                    Intent board = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
-                    if(board == null) {
-                        showBoardDialog();
+                    Intent calls = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
+                    if(calls == null) {
+                        showCallsDialog();
                         break;
                     }
-                    else startActivity(board);
+                    else startActivity(calls);
                     break;
                 case R.id.NotesBtn:
                     Intent notes = getPackageManager().getLaunchIntentForPackage(Constants.NotesApp);
@@ -531,7 +556,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     }
 
     //Show chat choice
-    private void showChoose() {
+    private void showChatChoose() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle(R.string.ChooseChatTitle)
                 .setMessage(R.string.ChooseChat);
@@ -568,6 +593,51 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 }
                 else
                     startActivity(xmpp2);
+                return;
+            }
+        });
+        builder.setView(view);
+        builder.show();
+    }
+
+    //Show mail choice
+    private void showMailChoose() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle(R.string.ChooseMailTitle)
+                .setMessage(R.string.ChooseMail);
+        View view = View.inflate(this, R.layout.check_remember, null);
+        final CheckBox checkMail = (CheckBox) view.findViewById(R.id.checkMail);
+        checkMail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+        builder.setPositiveButton(R.string.K9mail, new DialogInterface.OnClickListener() {
+            Intent mail1 = getPackageManager().getLaunchIntentForPackage(Constants.k9);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (((CheckBox) checkMail).isChecked()) {
+                    check.edit().putBoolean("checkK9", true).apply();
+                    startActivity(mail1);
+                    return;
+                }
+                else
+                    startActivity(mail1);
+                return;
+            }
+        });
+        builder.setNegativeButton(R.string.FairEmail, new DialogInterface.OnClickListener() {
+            Intent mail2 = getPackageManager().getLaunchIntentForPackage(Constants.FairEmail);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (((CheckBox) checkMail).isChecked()) {
+                    check.edit().putBoolean("checkFairEmail", true).apply();
+                    startActivity(mail2);
+                    return;
+                }
+                else
+                    startActivity(mail2);
                 return;
             }
         });
@@ -622,6 +692,18 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.setCancelable(false);
         builder.setTitle(R.string.MailInfoTitle);
         builder.setMessage(email + "\n\n" + getString(R.string.MailInfo));
+        if(check.getBoolean("checkK9", true)|| check.getBoolean("checkFairEmail",true)) {
+            View view = View.inflate(this, R.layout.check_forget, null);
+            final CheckBox forgetMail = (CheckBox) view.findViewById(R.id.forgetMail);
+            forgetMail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    check.edit().putBoolean("checkK9", false).apply();
+                    check.edit().putBoolean("checkFairEmail", false).apply();
+                }
+            });
+            builder.setView(view);
+        }
         builder.setPositiveButton(R.string.global_ok, null);
         builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
             @Override
@@ -642,6 +724,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
+
     private void showMailDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
@@ -702,12 +785,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }
 
-    //Akkoma info
+    //Social info
     private void showSocialInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
-        builder.setTitle(R.string.AkkomaTitle);
-        builder.setMessage(getString(R.string.AkkomaInfo));
+        builder.setTitle(R.string.SocialTitle);
+        builder.setMessage(getString(R.string.SocialInfo));
         builder.setPositiveButton(R.string.global_ok, null);
         builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
             @Override
@@ -722,7 +805,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(getString(R.string.AkkomaDialog));
+        builder.setMessage(getString(R.string.SocialDialog));
         builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
             Intent social = getPackageManager().getLaunchIntentForPackage(Constants.Fedilab);
             @Override
@@ -765,6 +848,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.ForgetTitle);
+        // Chat forget
         if(check.getBoolean("checkConv", true)|| check.getBoolean("checkPix",true)) {
             View view = View.inflate(this, R.layout.check_forget, null);
             final CheckBox forgetChat = (CheckBox) view.findViewById(R.id.forgetChat);
@@ -773,6 +857,19 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     check.edit().putBoolean("checkConv", false).apply();
                     check.edit().putBoolean("checkPix", false).apply();
+                }
+            });
+            builder.setView(view);
+        }
+        // Mail forget
+        if(check.getBoolean("checkK9", true)|| check.getBoolean("checkFairEmail",true)) {
+            View view = View.inflate(this, R.layout.check_forget, null);
+            final CheckBox forgetMail = (CheckBox) view.findViewById(R.id.forgetMail);
+            forgetMail.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    check.edit().putBoolean("checkK9", false).apply();
+                    check.edit().putBoolean("checkFairEmail", false).apply();
                 }
             });
             builder.setView(view);
@@ -1007,13 +1104,13 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
         });
         builder.show();
-    }
+    }*/
     
-    private void showBoardDialog(){
+    private void showCallsDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(taiga +"\n\n"+ getString(R.string.CallsDialog));
+        builder.setMessage(jitsi +"\n\n"+ getString(R.string.CallsDialog));
         builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
             Intent calls = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
             @Override
@@ -1024,7 +1121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.setNegativeButton(R.string.global_cancel , null);
         builder.show();
-    }*/
+    }
 
     private void showCallsInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
@@ -1163,9 +1260,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 .setTitle(R.string.StateTitle);
         LayoutInflater inflater = getLayoutInflater();
         View view = inflater.inflate(R.layout.state_dialog, (ViewGroup) findViewById(R.id.StateView));
-        //xmppBtn
-        Button xmppBtn = view.findViewById(R.id.xmppBtn);
-        xmppBtn.setOnClickListener(new View.OnClickListener() {
+        //StateXMPPBtn
+        Button StateXMPPBtn = view.findViewById(R.id.StateXMPPBtn);
+        StateXMPPBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Uri uri = Uri.parse(String.valueOf(Constants.URL_DisApp_STATEXMPP));
                 Intent xmpp = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
@@ -1173,9 +1270,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
 
         });
-        //MatrixBtn
-        Button matrixBtn = view.findViewById(R.id.matrixBtn);
-        matrixBtn.setOnClickListener(new View.OnClickListener() {
+        //StateMatrixBtn
+        Button StateMatrixBtn = view.findViewById(R.id.StateMatrixBtn);
+        StateMatrixBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Uri uri = Uri.parse(String.valueOf(Constants.URL_DisApp_STATEMATRIX));
                 Intent matrix = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
@@ -1183,9 +1280,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
 
         });
-        //SocialBtn - Possibly needs a rename, when it is reimplemented
-        /*Button SocialBtn = view.findViewById(R.id.SocialBtn);
-        SocialBtn.setOnClickListener(new View.OnClickListener() {
+        //StateSocialBtn
+        /*Button StateSocialBtn = view.findViewById(R.id.StateSocialBtn);
+        StateSocialBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Uri uri = Uri.parse(String.valueOf(Constants.URL_DisApp_STATESOCIAL));
                 Intent social = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
@@ -1193,9 +1290,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
 
         });*/
-        //newsBtn
-        Button NewsBtn = view.findViewById(R.id.NewsBtn);
-        NewsBtn.setOnClickListener(new View.OnClickListener() {
+        //StateNewsBtn
+        Button StateNewsBtn = view.findViewById(R.id.StateNewsBtn);
+        StateNewsBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Uri uri = Uri.parse(String.valueOf(Constants.URL_DisApp_STATENEWS));
                 Intent news = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
@@ -1203,9 +1300,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
 
         });
-        //rssBtn
-        Button RssBtn = view.findViewById(R.id.RssBtn);
-        RssBtn.setOnClickListener(new View.OnClickListener() {
+        //StateRssBtn
+        Button StateRssBtn = view.findViewById(R.id.StateRssBtn);
+        StateRssBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Uri uri = Uri.parse(String.valueOf(Constants.URL_DisApp_STATERSS));
                 Intent rss = new Intent(Intent.ACTION_VIEW, Uri.parse(String.valueOf(uri)));
@@ -1270,11 +1367,10 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         final AlertDialog dialog = builder.create();
         dialog.show();
-        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener()
-        {int Counter = 0;
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener(new View.OnClickListener() {
+            int Counter = 0;
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 if (Counter < 10)
                     Counter++;
                 //first time tap check
@@ -1305,7 +1401,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     public void onBackPressed() {
         ScrollView dashboard = findViewById(R.id.dashboard);
         FragmentManager manager = getSupportFragmentManager();
-        if (dashboard.getVisibility() == View.GONE){
+        if (dashboard.getVisibility() == View.GONE) {
             dashboard.setVisibility(View.VISIBLE);
             return;
         }
@@ -1381,9 +1477,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         MenuItem register = menu.findItem(R.id.action_forget);
         if(check.getBoolean("checkConv", true)||check.getBoolean("checkPix", true)) {
             register.setVisible(true);
+        } else {
+            register.setVisible(false);
         }
-        else
-        {
+        if(check.getBoolean("checkK9", true)||check.getBoolean("checkFairEmail", true)) {
+            register.setVisible(true);
+        } else {
             register.setVisible(false);
         }
         return true;
@@ -1537,7 +1636,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     Log.e("Permission error","You have asked for permission");
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
                 }
-                if (Uri.parse( url ).toString().startsWith( "blob" )){
+                if (Uri.parse( url ).toString().startsWith( "blob" )) {
                     webView.loadUrl("");
                     startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.URL_DisApp_UPLOAD)));
                 } else {
@@ -1580,8 +1679,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 if(url.startsWith("http")&&url.contains("disroot")&&!Uri.parse( url ).toString().startsWith( "blob" )) {
                     view.loadUrl(url);
                     return super.shouldOverrideUrlLoading(view, url);
-                }
-                else {
+                } else {
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     view.getContext().startActivity(intent);
                     return true;
@@ -1595,8 +1693,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         if (url.startsWith("geo:") || url.startsWith("mailto:") || url.startsWith("tel:") || url.startsWith("sms:")|| url.startsWith("xmpp:")) {
             Intent searchAddress = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(searchAddress);
-        }else
+        } else {
             webView.loadUrl(url);
+        }
         return true;
     }
 
@@ -1662,7 +1761,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                                 }
                             });
                         }
-                        //permission is denied (and never ask again is  checked)
+                        //permission is denied (and never ask again is checked)
                         //shouldShowRequestPermissionRationale will return false
                         else {
                             Toast.makeText(this, "Go to settings and enable permissions", Toast.LENGTH_LONG).show();
@@ -1704,7 +1803,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     String dataString = data.getDataString();
                     if (dataString != null) {
                         results = new Uri[]{Uri.parse(dataString)};
-                    }else {
+                    } else {
                         if (data.getClipData() != null) {
                             final int numSelectedFiles = data.getClipData().getItemCount();
 
@@ -1748,8 +1847,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 Log.e("Permission error","You have asked for permission");
                 ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
-        }
-        else { //you dont need to worry about these stuff below api level 23
+        } else { //you dont need to worry about these stuff below api level 23
             Log.e("Permission error","You already have the permission");
         }
     }
@@ -1925,8 +2023,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         if (c.has("description")&&!c.isNull("description")){
                             String description = c.getString("description");
                             serviceDetails.put("description", description);
-                        }
-                        else {
+                        } else {
                             serviceDetails.put("description", "No Description");
                         }
                         //serviceDetails.put("description", description);
@@ -1946,7 +2043,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         }
                     });
                 }
-            }else {
+            } else {
                 Log.e(TAG, "Couldn't get json from server.");
                 runOnUiThread(new Runnable() {
                     @Override
@@ -1972,8 +2069,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 String description = "";
                 if (hashmap.get("description")!=null &&!hashmap.isEmpty()){//.has("description")&&!hasmap.isNull("description")
                     description = hashmap.get("description");
-                }
-                else {
+                } else {
                     description ="No Description";
                 }
                 switch (hash) {
@@ -2017,6 +2113,10 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         taiga = description;
                         getTaiga(taiga);
                         break;*/
+                    case "Calls":
+                        jitsi = description;
+                        getJitsi(jitsi);
+                        break;
                     case "User Password management":
                         user = description;
                         getUser(user);
@@ -2038,46 +2138,49 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         }
     }
 
-    private void getEmail(String string){
+    private void getEmail(String string) {
         email = string;
     }
-    private void getCloud(String string){
+    private void getCloud(String string) {
         cloud = string;
     }
-    private void getForum(String string){
+    private void getForum(String string) {
         forum = string;
     }
-    private void getEtherpad(String string){
+    private void getEtherpad(String string) {
         etherpad = string;
     }
-    private void getBin(String string){
+    private void getBin(String string) {
         bin = string;
     }
-    private void getUpload(String string){
+    private void getUpload(String string) {
         upload = string;
     }
-    private void getSearx(String string){
+    private void getSearx(String string) {
         searx = string;
     }
-    private void getAkkoma(String string){
+    private void getAkkoma(String string) {
         akkoma = string;
     }
-    /*private void getTaiga(String string){
+    /*private void getTaiga(String string) {
         taiga = string;
     }*/
-    private void getUser(String string){
+    private void getJitsi(String string) {
+        jitsi = string;
+    }
+    private void getUser(String string) {
         user = string;
     }
-    private void getXmpp(String string){
+    private void getXmpp(String string) {
         xmpp = string;
     }
-    private void getNotes(String string){
+    private void getNotes(String string) {
         notes = string;
     }
-    private void getGit(String string){
+    private void getGit(String string) {
         git = string;
     }
-    private void getCryptpad(String string){
+    private void getCryptpad(String string) {
         cryptpad = string;
     }
 }

@@ -56,7 +56,7 @@ public class SettingsActivity extends AppCompatActivity {
         BtnPreference = getSharedPreferences( "UploadBtn", Context.MODE_PRIVATE );//upload
         BtnPreference = getSharedPreferences( "SearxBtn", Context.MODE_PRIVATE );//searx
         BtnPreference = getSharedPreferences( "SocialBtn", Context.MODE_PRIVATE );//social
-        /*BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//Board*/
+        //BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//Board
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
@@ -82,7 +82,7 @@ public class SettingsActivity extends AppCompatActivity {
         final CheckBox checkUploadBtn = iconSettings.findViewById( R.id.uploadBtnPreference );//upload
         final CheckBox checkSearxBtn = iconSettings.findViewById( R.id.searxBtnPreference );//search
         final CheckBox checkSocialBtn = iconSettings.findViewById( R.id.socialBtnPreference );//social
-        /*final CheckBox checkBoardBtn = iconSettings.findViewById( R.id.boardBtnPreference );//board*/
+        //final CheckBox checkBoardBtn = iconSettings.findViewById( R.id.boardBtnPreference );//board
         final CheckBox checkCallsBtn = iconSettings.findViewById( R.id.callsBtnPreference );//calls
         final CheckBox checkNotesBtn = iconSettings.findViewById( R.id.notesBtnPreference );//notes
         final CheckBox checkGitBtn = iconSettings.findViewById( R.id.gitBtnPreference );//git
@@ -101,7 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (BtnPreference.getBoolean( "UploadBtn", true )) checkUploadBtn.setChecked( true );//upload
         if (BtnPreference.getBoolean( "SearxBtn", true )) checkSearxBtn.setChecked( true );//search
         if (BtnPreference.getBoolean( "SocialBtn", true )) checkSocialBtn.setChecked( true );//social
-        /*if (BtnPreference.getBoolean( "BoardBtn", true )) checkBoardBtn.setChecked( true );//board*/
+        //if (BtnPreference.getBoolean( "BoardBtn", true )) checkBoardBtn.setChecked( true );//board
         if (BtnPreference.getBoolean( "CallsBtn", true )) checkCallsBtn.setChecked( true );//calls
         if (BtnPreference.getBoolean( "NotesBtn", true )) checkNotesBtn.setChecked( true );//notes
         if (BtnPreference.getBoolean( "GitBtn", true )) checkGitBtn.setChecked( true );//git
