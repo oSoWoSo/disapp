@@ -1128,7 +1128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(jitsi +"\n\n"+ getString(R.string.CallsDialog));
+        builder.setMessage(getString(R.string.CallsDialog));
         builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
             Intent calls = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
             @Override
@@ -1145,7 +1145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.CallsTitle);
-        builder.setMessage(getString(R.string.CallsInfo));
+        builder.setMessage(jitsi +"\n\n"+ getString(R.string.CallsInfo));
         builder.setPositiveButton(R.string.global_ok, null);
         builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
             @Override
