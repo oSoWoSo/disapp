@@ -66,9 +66,6 @@
                     android:host="upload.disroot.org"
                     android:scheme="https" />
                 <data
-                    android:host="forum.disroot.org"
-                    android:scheme="https" />
-                <data
                     android:host="cryptpad.disroot.org"
                     android:scheme="https" />
                 <data
@@ -76,9 +73,6 @@
                     android:scheme="https" />
                 <data
                     android:host="upload.disroot.org"
-                    android:scheme="https" />
-                <data
-                    android:host="board.disroot.org"
                     android:scheme="https" />
                 <data
                     android:host="searx.disroot.org"

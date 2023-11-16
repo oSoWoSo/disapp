@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     WebChromeClient.FileChooserParams chooserParams;
     ValueCallback<Uri[]> chooserPathUri;
     Button button;
-    private Button MailBtn,CloudBtn,ForumBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,BoardBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
-    private String email,cloud,forum,etherpad,bin,upload,searx,taiga,user,xmpp,notes,git,cryptpad;
+    private Button MailBtn,CloudBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
+    private String email,cloud,etherpad,bin,upload,searx,jitsi,user,xmpp,notes,git,cryptpad;
     private CookieManager cookieManager;
     private WebView webView;
     private DisWebChromeClient disWebChromeClient;
@@ -154,7 +154,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         //buttons visiblility preference
         BtnPreference = getSharedPreferences( "MailBtn", Context.MODE_PRIVATE );//mail
         BtnPreference = getSharedPreferences( "CloudBtn", Context.MODE_PRIVATE );//cloud
-        BtnPreference = getSharedPreferences( "ForumBtn", Context.MODE_PRIVATE );//forum
         BtnPreference = getSharedPreferences( "ChatBtn", Context.MODE_PRIVATE );//chat
         BtnPreference = getSharedPreferences( "PadBtn", Context.MODE_PRIVATE );//pad
         BtnPreference = getSharedPreferences( "CryptpadBtn", Context.MODE_PRIVATE );//cryptpad
@@ -234,15 +233,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         // Link the button in activity_main.xml
         MailBtn = findViewById( R.id.MailBtn );
         CloudBtn = findViewById( R.id.CloudBtn );
-        //DiasporaBtn = findViewById( R.id.DiasporaBtn );//end of Disroot's Dandelion
-        ForumBtn = findViewById( R.id.ForumBtn );
         ChatBtn = findViewById( R.id.ChatBtn );
         PadBtn = findViewById( R.id.PadBtn );
         CryptpadBtn = findViewById( R.id.CryptpadBtn );
         BinBtn = findViewById( R.id.BinBtn );
         UploadBtn = findViewById( R.id.UploadBtn );
         SearxBtn = findViewById( R.id.SearxBtn );
-        BoardBtn = findViewById( R.id.BoardBtn );
         CallsBtn = findViewById( R.id.CallsBtn );
         NotesBtn = findViewById( R.id.NotesBtn );
         GitBtn = findViewById( R.id.GitBtn );
@@ -272,15 +268,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         //Set longclick buttons
         MailBtn.setOnLongClickListener( this );
         CloudBtn.setOnLongClickListener( this );
-        //DiasporaBtn.setOnLongClickListener( this );//end of Disroot's Dandelion
-        ForumBtn.setOnLongClickListener( this );
         ChatBtn.setOnLongClickListener( this );
         PadBtn.setOnLongClickListener( this );
         CryptpadBtn.setOnLongClickListener( this );
         BinBtn.setOnLongClickListener( this );
         UploadBtn.setOnLongClickListener( this );
         SearxBtn.setOnLongClickListener( this );
-        BoardBtn.setOnLongClickListener( this );
         CallsBtn.setOnLongClickListener( this );
         NotesBtn.setOnLongClickListener( this );
         GitBtn.setOnLongClickListener( this );
@@ -292,15 +285,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         //set clickbuttons
         MailBtn.setOnClickListener( this );
         CloudBtn.setOnClickListener( this );
-        //DiasporaBtn.setOnClickListener( this );//end of Disroot's Dandelion
-        ForumBtn.setOnClickListener( this );
         ChatBtn.setOnClickListener( this );
         PadBtn.setOnClickListener( this );
         CryptpadBtn.setOnClickListener( this );
         BinBtn.setOnClickListener( this );
         UploadBtn.setOnClickListener( this );
         SearxBtn.setOnClickListener( this );
-        BoardBtn.setOnClickListener( this );
         CallsBtn.setOnClickListener( this );
         NotesBtn.setOnClickListener( this );
         GitBtn.setOnClickListener( this );
@@ -342,18 +332,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         break;
                     }
                     else startActivity(cloud);
-                    break;
-                /*case R.id.DiasporaBtn: //end ofDisroot's Dandelion
-                        Intent pod = getPackageManager().getLaunchIntentForPackage(Diaspora);
-                        if(getPackageManager().getLaunchIntentForPackage(Diaspora) == null) {
-                            showDiaDialog();
-                            break;
-                        }
-                        else startActivity(pod);
-                    break;*/
-                case R.id.ForumBtn:
-                    webView.loadUrl(Constants.URL_DisApp_FORUM);
-                    hideDashboard();
                     break;
                 case R.id.ChatBtn:
 
@@ -407,14 +385,10 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     webView.loadUrl(Constants.URL_DisApp_SEARX);
                     hideDashboard();
                     break;
-                case R.id.BoardBtn:
-                    webView.loadUrl(Constants.URL_DisApp_BOARD);
-                    hideDashboard();
-                    break;
                 case R.id.CallsBtn:
                     Intent board = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
                     if(board == null) {
-                        showBoardDialog();
+                        showCallsDialog();
                         break;
                     }
                     else startActivity(board);
@@ -466,12 +440,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             case R.id.CloudBtn:
                 showCloudInfo();
                 break;
-            /*case R.id.DiasporaBtn://end of Disroot's Dandelion
-                showDiaInfo();
-                break;*/
-            case R.id.ForumBtn:
-                showForumInfo();
-                break;
             case R.id.ChatBtn:
                 showChatInfo();
                 break;
@@ -489,9 +457,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 break;
             case R.id.SearxBtn:
                 showSearxInfo();
-                break;
-            case R.id.BoardBtn:
-                showBoardInfo();
                 break;
             case R.id.CallsBtn:
                 showCallsInfo();
@@ -698,66 +663,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
         });
         builder.setNegativeButton(R.string.global_cancel , null);
-        builder.show();
-    }
-
-    /*End of Disroot's Dandelion*
-    //Diaspora info
-    private void showDiaInfo() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.DiasporaTitle);
-        builder.setMessage(getString(R.string.DiasporaInfo));
-        builder.setPositiveButton(R.string.global_ok, null);
-        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                webView.loadUrl(Constants.URL_DisApp_DIAHELP);
-                hideDashboard();
-            }
-        });
-        builder.show();
-    }
-    private void showDiaDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(getString(R.string.DiasporaDialog));
-        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
-            Intent pod = getPackageManager().getLaunchIntentForPackage(Diaspora);
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                pod = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Diaspora));
-                startActivity(pod);
-            }
-        });
-        builder.setNegativeButton(R.string.global_cancel , null);
-        builder.show();
-    }*/
-
-    private void showForumInfo() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.ForumTitle);
-        builder.setMessage(forum + "\n\n"+ getString(R.string.ForumInfo));
-        builder.setPositiveButton(R.string.global_ok, null);
-        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                webView.loadUrl(Constants.URL_DisApp_FORUMHELP);
-                hideDashboard();
-            }
-        });
-        builder.setNeutralButton( R.string.hide, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.ForumBtn).getParent()!=null){
-                    viewGroup.removeView(ForumBtn);
-                    BtnPreference.edit().putBoolean( "ForumBtn", false ).apply();
-                    return;}
-            }
-        });
         builder.show();
     }
 
@@ -982,32 +887,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }
 
-    private void showBoardInfo() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-        builder.setCancelable(false);
-        builder.setTitle(R.string.BoardTitle);
-        builder.setMessage(taiga +"\n\n"+ getString(R.string.BoardInfo));
-        builder.setPositiveButton(R.string.global_ok, null);
-        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                webView.loadUrl(Constants.URL_DisApp_BOARDHELP);
-                hideDashboard();
-            }
-        });
-        builder.setNeutralButton( R.string.hide, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
-                if (findViewById( R.id.BoardBtn).getParent()!=null){
-                    viewGroup.removeView(BoardBtn);
-                    BtnPreference.edit().putBoolean( "BoardBtn", false ).apply();
-                    return;}
-            }
-        });
-        builder.show();
-    }
-
     private void showCallsInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
@@ -1033,11 +912,11 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showBoardDialog(){
+    private void showCallsDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
-        builder.setMessage(taiga +"\n\n"+ getString(R.string.CallsDialog));
+        builder.setMessage( jitsi +"\n\n"+ getString(R.string.CallsDialog));
         builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
             Intent calls = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
             @Override
@@ -1482,7 +1361,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         webView = findViewById(R.id.webView_content);
         webView.setWebChromeClient(disWebChromeClient);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setDomStorageEnabled(true);//solves taiga board \o/
+        webView.getSettings().setDomStorageEnabled(true);
         webView.setVerticalScrollBarEnabled(true);
         webView.getSettings().setAppCacheEnabled(true);
         webView.getSettings().setBuiltInZoomControls(true);
@@ -1987,10 +1866,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         cloud = description;
                         getCloud(cloud);
                         break;
-                    case "Forum":
-                        forum = description;
-                        getForum(forum);
-                        break;
                     case "Pad":
                         etherpad = description;
                         getEtherpad(etherpad);
@@ -2007,9 +1882,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                         searx = description;
                         getSearx(searx);
                         break;
-                    case "Project board":
-                        taiga = description;
-                        getTaiga(taiga);
+                    case "Calls":
+                        jitsi = description;
+                        getCalls( jitsi );
                         break;
                     case "User Password management":
                         user = description;
@@ -2038,9 +1913,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     private void getCloud(String string){
         cloud = string;
     }
-    private void getForum(String string){
-        forum = string;
-    }
     private void getEtherpad(String string){
         etherpad = string;
     }
@@ -2053,8 +1925,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     private void getSearx(String string){
         searx = string;
     }
-    private void getTaiga(String string){
-        taiga = string;
+    private void getCalls(String string){
+        jitsi = string;
     }
     private void getUser(String string){
         user = string;

@@ -4,7 +4,6 @@
     <string name="action_mail">Mail</string>
     <string name="action_cloud">Cloud</string>
     <string name="action_diaspora">Diaspora*</string>
-    <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
     <string name="action_cryptpad">Cryptpad</string>
@@ -76,8 +75,6 @@
     <string name="UploadInfo">Upload ist eine Datei-Hosting-Software, die temporär verschlüsselte Dateien speichert, damit Du sie mit anderen über einen Link teilen kannst. Alle Dateien sind verschlüsselt, bevor sie Dein Gerät verlassen, was bedeutet, dass der Server keine Kenntnis von hochgeladen Daten hat.\nKeine Registrierung notwendig.</string>
     <string name="SearxTitle">Searx Info</string>
     <string name="SearxInfo">Searx ist eine anonyme Multi-Suchmaschinen-Plattform, die Ergebnisse anderer Suchmaschinen abruft, ohne Informationen über den Benutzer zu speichern. Kein Tracking, Profiling oder Data Mining durch große Unternehmen. \nKeine Registrierung notwendig.</string>
-    <string name="BoardTitle">Taiga Info</string>
-    <string name="BoardInfo">Taiga ist ein Projektmanagement-Werkzeug, das für Programmierer, Designer und Start-ups entwickelt wurde, die mit agilen Methodiken arbeiten. Es kann jedoch auf praktisch jedes Projekt angewendet werden, auch außerhalb des IT-Bereichs.</string>
     <string name="UserTitle">Nutzer-Passwortverwaltung Hilfe</string> <!-- *Info  -->
     <string name="UserInfo">Nutze unser User Service Center, um deinen Account zu verwalten und dein Passwort zu ändern.</string>
     <string name="StateTitle">Status Info</string>
@@ -87,8 +84,6 @@
     <string name="HowToInfo">Unsere Seite mit Howtos und Tutorials, die Ihnen helfen, sich mit den verschiedenen Disroot-Diensten zurechtzufinden.</string>
     <string name="AboutTitle">Über Info</string>
     <string name="AboutInfo">Informationen zu dieser App</string>
-    <string name="ForumTitle">Forum Hilfe</string>  <!-- *Info *you can login with you disroot email adress or user name * this is more a link to distalk then to discourse-->
-    <string name="ForumInfo">Discourse ist ein open-source Ansatz für Diskussions-Foren. Es bietet alles, was Ihre Community, Gruppe oder Ihr Kollektiv braucht, um ihre Kommunikationsplattform zu erstellen.</string>
     <string name="LogoTitle">Haben Sie wirklich lange auf das Logo gedrückt?</string> <!-- yeigh easter eggs -->
     <string name="LogoInfo">Warum? Es ist doch nur ein Logo.\nSie sind aber neugierig ;-)</string>
     <string name="LogoBtn">Disroot rules \\o/</string>
@@ -141,8 +136,6 @@
     <string name="action_optimization">Energiesparfunktion</string>
     <string name="OptimizationTitle">Energiesparfunktion!</string>
 
-    <!--needs update:20/10/2020-->
-    <string name="action_board">Projekt-Board</string>
     <string name="action_user">Account</string>
     <string name="action_searx">Suche</string>
     <string name="OptimizationInfo">Die Disroot-App kann sich mit der Statusseite von Disroot synchronisieren. Das heißt, dass Du in Echtzeit Neuigkeiten zu Problemen, Downtimes, geplanten Wartungen und Anderem erhältst, die auf https://state.disroot.org veröffentlicht werden.\nWir empfehlen, die Batterieoptimierung abzuschalten und der Disroot-App zu erlauben, im Hintergrund zu laufen. Wenn Du nicht sicher bist, kannst Du die Einstellungen später jederzeit im Menü der Disroot-App ändern.</string>

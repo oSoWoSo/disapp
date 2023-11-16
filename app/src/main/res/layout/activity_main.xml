@@ -95,27 +95,6 @@
                     android:textColor="@color/white"
                     app:fontFamily="@font/open_sans_regular" />
 
-                <!--end of Disroot's Dandelion
-                <Button
-                    android:id="@+id/DiasporaBtn"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/ic_diaspora"
-                    android:text="@string/action_diaspora"
-                    android:textColor="#ffffff"
-                    app:fontFamily="@font/open_sans_regular" />-->
-
-                <Button
-                    android:id="@+id/ForumBtn"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:drawableTop="@drawable/ic_forum"
-                    android:text="@string/action_forum"
-                    android:textColor="@color/white"
-                    app:fontFamily="@font/open_sans_regular" />
-
                 <Button
                     android:id="@+id/ChatBtn"
                     style="?android:attr/borderlessButtonStyle"
@@ -173,17 +152,6 @@
                     android:layout_height="wrap_content"
                     android:drawableTop="@drawable/ic_searx"
                     android:text="@string/action_searx"
-                    android:textColor="@color/white"
-                    app:fontFamily="@font/open_sans_regular" />
-
-                <Button
-                    android:id="@+id/BoardBtn"
-                    style="?android:attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxWidth="@dimen/extra_margin"
-                    android:drawableTop="@drawable/ic_board"
-                    android:text="@string/action_board"
                     android:textColor="@color/white"
                     app:fontFamily="@font/open_sans_regular" />
 

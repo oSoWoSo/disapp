@@ -4,14 +4,12 @@
     <string name="action_mail">E-mail</string>
     <string name="action_cloud">Nuvem</string>
     <string name="action_diaspora">Diaspora*</string>
-    <string name="action_forum">Fórum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Pad</string>
     <string name="action_cryptpad">Cryptpad</string>
     <string name="action_bin">Paste bin</string>
     <string name="action_upload">Upload</string>
     <string name="action_searx">Pesquisa</string>
-    <string name="action_board">Quadro de projetos</string>
     <string name="action_state">Status</string>
     <string name="action_howto">Tutorial</string>
     <string name="action_about">Sobre</string>
@@ -81,8 +79,6 @@
     <string name="UploadInfo">Upload é um software para compartilhar os arquivos que temporariamente armazena eles criptografados para que você os possa compartilhar com outras pessoas via link. Todos os arquivos são criptografados antes de ser enviados do seu computador, o que significa que o servidor não sabe que dados estão armazenados.\nNão é necessário ter uma conta para usar.</string>
     <string name="SearxTitle">Sobre Searx</string>
     <string name="SearxInfo">Searx é uma plataforma de busca múltipla, que agrega resultados de pesquisa de várias plataformas de busca e não armazena informação sobre seus usuários. Sem rastreamento, profiling ou coleta de dados.\nNão é necessário ter uma conta para usar.</string>
-    <string name="BoardTitle">Sobre Programa de gestão de projetos</string>
-    <string name="BoardInfo">O Taiga é uma ferramenta de gestão de projetos, criada para desenvolvedores, designers e startups que usam a metodologia de trabalho agile. No entanto pode ser usado por virtualmente qualquer tipo de projeto ou grupo, mesmo fora do mundo das tecnologias de informação.</string>
     <string name="UserTitle">Sobre Gerenciador das senhas do usuário</string>
     <string name="UserInfo">Use o nosso User Self Service Center (Centro de Auto-Atendimento ao Usuário) para gerenciar seus dados de usuário e senhas</string>
     <string name="StateTitle">Sobre State</string>
@@ -92,8 +88,6 @@
     <string name="HowToInfo">O nosso site com tutoriais para ajudar você a navegar e usar os vários serviços do Disroot.</string>
     <string name="AboutTitle">Info de Sobre</string>
     <string name="AboutInfo">Esta é o site com informações sobre este App</string>
-    <string name="ForumTitle">Sobre Fórum</string>
-    <string name="ForumInfo">Discourse é uma abordagem moderna a fóruns de discussão, totalmente de código-livre. Oferece tudo o que a sua comunidade, grupo ou colectivo necessita para criar a sua plataforma de comunicação.</string>
     <string name="LogoTitle">Você realmente tentou pressionar sobre o logo?</string>
     <string name="LogoInfo">Por quê? É apenas um logo.\nNão seja tão curioso ;-)</string>
     <string name="LogoBtn">Viva Disroot \\o/</string>

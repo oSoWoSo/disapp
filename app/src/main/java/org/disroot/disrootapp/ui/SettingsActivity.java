@@ -48,14 +48,12 @@ public class SettingsActivity extends AppCompatActivity {
         ////buttons visibility preference list
         BtnPreference = getSharedPreferences( "MailBtn", Context.MODE_PRIVATE );//mail
         BtnPreference = getSharedPreferences( "CloudBtn", Context.MODE_PRIVATE );//cloud
-        BtnPreference = getSharedPreferences( "ForumBtn", Context.MODE_PRIVATE );//forum
         BtnPreference = getSharedPreferences( "ChatBtn", Context.MODE_PRIVATE );//chat
         BtnPreference = getSharedPreferences( "PadBtn", Context.MODE_PRIVATE );//pad
         BtnPreference = getSharedPreferences( "CryptpadBtn", Context.MODE_PRIVATE );//Cryptpad
         BtnPreference = getSharedPreferences( "BinBtn", Context.MODE_PRIVATE );//bin
         BtnPreference = getSharedPreferences( "UploadBtn", Context.MODE_PRIVATE );//upload
         BtnPreference = getSharedPreferences( "SearxBtn", Context.MODE_PRIVATE );//searx
-        BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//Board
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
@@ -73,14 +71,12 @@ public class SettingsActivity extends AppCompatActivity {
         View iconSettings =findViewById( R.id.iconSettings );
         final CheckBox checkMailBtn = iconSettings.findViewById( R.id.mailBtnPreference );//mail
         final CheckBox checkCloudBtn = iconSettings.findViewById( R.id.cloudBtnPreference );//cloud
-        final CheckBox checkForumBtn = iconSettings.findViewById( R.id.foumBtnPreference );//forum
         final CheckBox checkChatBtn = iconSettings.findViewById( R.id.chatBtnPreference );//chat
         final CheckBox checkPadBtn = iconSettings.findViewById( R.id.padBtnPreference );//pad
         final CheckBox checkCryptpadBtn = iconSettings.findViewById( R.id.cryptpadBtnPreference );//cryptpad
         final CheckBox checkBinBtn = iconSettings.findViewById( R.id.binBtnPreference );//bin
         final CheckBox checkUploadBtn = iconSettings.findViewById( R.id.uploadBtnPreference );//upload
         final CheckBox checkSearxBtn = iconSettings.findViewById( R.id.searxBtnPreference );//search
-        final CheckBox checkBoardBtn = iconSettings.findViewById( R.id.boardBtnPreference );//board
         final CheckBox checkCallsBtn = iconSettings.findViewById( R.id.callsBtnPreference );//calls
         final CheckBox checkNotesBtn = iconSettings.findViewById( R.id.notesBtnPreference );//notes
         final CheckBox checkGitBtn = iconSettings.findViewById( R.id.gitBtnPreference );//git
@@ -91,14 +87,12 @@ public class SettingsActivity extends AppCompatActivity {
         //Set checked if visibility is true
         if (BtnPreference.getBoolean( "MailBtn", true )) checkMailBtn.setChecked( true );//mail
         if (BtnPreference.getBoolean( "CloudBtn", true )) checkCloudBtn.setChecked( true );//cloud
-        if (BtnPreference.getBoolean( "ForumBtn", true )) checkForumBtn.setChecked( true );//forum
         if (BtnPreference.getBoolean( "ChatBtn", true )) checkChatBtn.setChecked( true );//chat
         if (BtnPreference.getBoolean( "PadBtn", true )) checkPadBtn.setChecked( true );//pad
         if (BtnPreference.getBoolean( "CryptpadBtn", true )) checkCryptpadBtn.setChecked( true );//cryptpad
         if (BtnPreference.getBoolean( "BinBtn", true )) checkBinBtn.setChecked( true );//bin
         if (BtnPreference.getBoolean( "UploadBtn", true )) checkUploadBtn.setChecked( true );//upload
         if (BtnPreference.getBoolean( "SearxBtn", true )) checkSearxBtn.setChecked( true );//search
-        if (BtnPreference.getBoolean( "BoardBtn", true )) checkBoardBtn.setChecked( true );//board
         if (BtnPreference.getBoolean( "CallsBtn", true )) checkCallsBtn.setChecked( true );//calls
         if (BtnPreference.getBoolean( "NotesBtn", true )) checkNotesBtn.setChecked( true );//notes
         if (BtnPreference.getBoolean( "GitBtn", true )) checkGitBtn.setChecked( true );//git
@@ -121,15 +115,6 @@ public class SettingsActivity extends AppCompatActivity {
                 BtnPreference.edit().putBoolean( "CloudBtn", true ).apply();
             } else {
                 BtnPreference.edit().putBoolean( "CloudBtn", false ).apply();
-            }
-        } );
-
-        //forum
-        checkForumBtn.setOnCheckedChangeListener( (view, isChecked) -> {
-            if (checkForumBtn.isChecked()) {
-                BtnPreference.edit().putBoolean( "ForumBtn", true ).apply();
-            } else {
-                BtnPreference.edit().putBoolean( "ForumBtn", false ).apply();
             }
         } );
 
@@ -187,16 +172,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         } );
 
-        //board
-        checkBoardBtn.setOnCheckedChangeListener( (view, isChecked) -> {
-            if (checkBoardBtn.isChecked()) {
-                BtnPreference.edit().putBoolean( "BoardBtn", true ).apply();
-            } else {
-                BtnPreference.edit().putBoolean( "BoardBtn", false ).apply();
-            }
-        } );
-
-        //board
+        //Calls
         checkCallsBtn.setOnCheckedChangeListener( (view, isChecked) -> {
             if (checkCallsBtn.isChecked()) {
                 BtnPreference.edit().putBoolean( "CallsBtn", true ).apply();

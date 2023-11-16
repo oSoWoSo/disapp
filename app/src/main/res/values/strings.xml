@@ -4,14 +4,12 @@
     <string name="action_mail">Mail</string>
     <string name="action_cloud">Cloud</string>
     <string name="action_diaspora">Diaspora*</string>
-    <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Pad</string>
     <string name="action_cryptpad">Cryptpad</string>
     <string name="action_bin">Paste bin</string>
     <string name="action_upload">Upload</string>
     <string name="action_searx">Search</string>
-    <string name="action_board">Project board</string>
     <string name="action_state">State</string>
     <string name="action_howto">How to</string>
     <string name="action_about">About</string>
@@ -81,8 +79,6 @@
     <string name="UploadInfo">Upload is a file hosting software that temporarily stores encrypted files so you can share them with others using a link. All files are encrypted before they leave your computer meaning server has zero knowledge of hosted data.\nNo registration is required.</string>
     <string name="SearxTitle">Searx Info</string>
     <string name="SearxInfo">Searx is an anonymous multi search engine platform, aggregating the results of other search engines while not storing information about its users.  No tracking, profiling, no data mining by big corporations. \nNo registration is required.</string>
-    <string name="BoardTitle">Project Management Board Info</string>
-    <string name="BoardInfo">Taiga is a project management tool, developed for programmers, designers and startups working with agile methodology in mind. It can however be applied to virtually any project or group, even outside of IT realm.</string>
     <string name="UserTitle">User Password Management Help</string>
     <string name="UserInfo">Use our User Self Service Center to manage your user and password data</string>
     <string name="StateTitle">State Info</string>
@@ -92,8 +88,6 @@
     <string name="HowToInfo">Our page with howto\'s and tutorials to help you find your way around the various Disroot services.</string>
     <string name="AboutTitle">About Info</string>
     <string name="AboutInfo">This is the about page of this app</string>
-    <string name="ForumTitle">Forum Help</string>
-    <string name="ForumInfo">Discourse is a fully open-source modern approach to discussion forums. It offers everything your community, group or collective needs to create their communication platform.</string>
     <string name="LogoTitle">Did you really just try the long press on the logo?</string>
     <string name="LogoInfo">Why? It\'s just a logo.\nDon\'t be too curious ;-)</string>
     <string name="LogoBtn">Disroot rules \\o/</string>

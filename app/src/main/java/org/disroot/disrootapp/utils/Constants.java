@@ -10,12 +10,10 @@ public class Constants {
     public static final long SPLASH_SCREEN_DURATION = 3000;
     public static final long SPLASH_SCREEN_INTERVAL = 1000;
 
-    public static final String URL_DisApp_FORUM = "https://forum.disroot.org/";
     public static final String URL_DisApp_CRYPTPAD = "https://cryptpad.disroot.org/";
     public static final String URL_DisApp_BIN = "https://bin.disroot.org";
     public static final String URL_DisApp_UPLOAD = "https://upload.disroot.org";
     public static final String URL_DisApp_SEARX = "https://search.disroot.org";
-    public static final String URL_DisApp_BOARD = "https://board.disroot.org";
     public static final String URL_DisApp_USER = "https://user.disroot.org";
     public static final String URL_DisApp_HOWTO = "https://howto.disroot.org";
     public static final String URL_DisApp_K9HELP = "https://howto.disroot.org/en/tutorials/email/clients/mobile/k9";
@@ -38,12 +36,10 @@ public class Constants {
     public static final String URL_XMPP = "xmpp:disroot@chat.disroot.org?join";
     public static final String URL_SUPPORT = "mailto:support@disroot.org";
     public static final String URL_DisApp_CLOUDHELP = "https://howto.disroot.org/en/tutorials/cloud/clients/mobile/android";
-    public static final String URL_DisApp_FORUMHELP = "https://howto.disroot.org/en/tutorials/forum";
     public static final String URL_DisApp_PADHELP = "https://howto.disroot.org/en/tutorials/office/pads/padland";
     public static final String URL_DisApp_CRYPTPADHELP = "https://howto.disroot.org/en/tutorials/office/cryptpad";
     public static final String URL_DisApp_BINHELP = "https://howto.disroot.org/en/tutorials/office/bin";
     public static final String URL_DisApp_UPLOADHELP = "https://howto.disroot.org/en/tutorials/office/lufi";
-    public static final String URL_DisApp_BOARDHELP = "https://howto.disroot.org/en/tutorials/project_board";
     public static final String URL_DisApp_NOTESHELP = "https://howto.disroot.org/en/tutorials/cloud/apps/notes";
     public static final String URL_DisApp_CALLSHELP = "https://disroot.org/en/services/calls";
     public static final String URL_DisApp_GITHELP = "https://howto.disroot.org/en/contribute/git";
@@ -59,7 +55,7 @@ public class Constants {
     public static final String CallsApp = "org.jitsi.meet";
     public static final String GitApp = "org.mian.gitnex";
 
-    public static final int[] buttonIDs = new int[] {R.id.MailBtn, R.id.CloudBtn, R.id.ForumBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.BoardBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
+    public static final int[] buttonIDs = new int[] {R.id.MailBtn,R.id.CloudBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
 
 
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;//file upload

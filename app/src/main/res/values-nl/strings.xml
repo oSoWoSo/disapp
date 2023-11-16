@@ -4,7 +4,6 @@
     <string name="action_mail">Mail</string>
     <string name="action_cloud">Cloud</string>
     <string name="action_diaspora">Diaspora*</string>
-    <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
     <string name="action_cryptpad">Cryptpad</string>
@@ -89,8 +88,6 @@
     <string name="UploadInfo">Upload is een file hosting software die tijdelijk versleutelde bestanden opslaat, zodat u ze kunt delen met anderen via een link. Alle bestanden worden gecodeerd voordat ze uw computer verlaten, wat betekent dat de server geen kennis heeft van gehoste gegevens.\nEr is geen registratie vereist.</string>
     <string name="SearxTitle">Searx Info</string>
     <string name="SearxInfo">Searx is een anoniem multi zoekmachine platform, dat de resultaten van andere zoekmachines samenvoegt en geen informatie over de gebruikers opslaat.  Geen tracking, geen profilering, geen data mining door grote bedrijven.\nEr is geen registratie vereist.</string>
-    <string name="BoardTitle">Project Management Bord Info</string>
-    <string name="BoardInfo">Taiga is een project management tool, ontwikkeld voor programmeurs, ontwerpers en startups die werken met een flexibele methodologie in gedachten. Het kan echter op vrijwel elk project of groep worden toegepast, zelfs buiten de IT-omgeving.</string>
     <string name="UserTitle">Gebruikerswachtwoordbeheer Help</string>
     <string name="UserInfo">Gebruik ons User Self Service Center om uw gebruikers- en wachtwoordgegevens te beheren</string>
     <string name="StateTitle">Status Info</string>
@@ -100,8 +97,6 @@
     <string name="HowToInfo">Onze pagina met howtos en tutorials om je te helpen je weg te vinden in de verschillende Disroot diensten.</string>
     <string name="AboutTitle">Over Info</string>
     <string name="AboutInfo">Dit is de over-pagina van deze app</string>
-    <string name="ForumTitle">Forum Help</string>
-    <string name="ForumInfo">Discourse is een volledig open-source moderne benadering van discussiefora. Het biedt alles wat uw gemeenschap, groep of collectief nodig heeft om hun communicatieplatform te creëren.</string>
     <string name="LogoTitle">Heb je echt gewoon de lange druk op het logo geprobeerd?</string>
     <string name="LogoInfo">Waarom? Het is gewoon een logo.\n Wees niet te nieuwsgierig  ;-)</string>
     <string name="LogoBtn">Disroot rules \\o/</string>
@@ -152,7 +147,6 @@
     <string name="do_you_want_to_exit">Will je de app verlaten?</string>
     <string name="action_optimization">Batterij optimalisatie</string>
     <string name="OptimizationTitle">Batterij optimalisatie!</string>
-    <string name="action_board">Project bord</string>
     <string name="action_user">Account</string>
     <string name="action_searx">Zoeken</string>
     <string name="OptimizationInfo">De Disroot app kan synchroniseren met de statuspagina van Disroot. Dit betekent dat u realtime updates ontvangt over problemen, uitvaltijden, gepland onderhoud en andere zaken die worden gepubliceerd via https://state.disroot.org\nWe raden aan om de batterijoptimalisatie uit te schakelen en de Disroot app op de achtergrond te laten draaien. Als u niet zeker bent, kunt u de instelling later altijd nog wijzigen via het menu van de Disroot app.</string>

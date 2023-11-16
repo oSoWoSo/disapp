@@ -4,7 +4,6 @@
     <string name="action_mail">Email</string>
     <string name="action_cloud">Cloud</string>
     <string name="action_diaspora">Diaspora*</string>
-    <string name="action_forum">Fórum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
     <string name="action_cryptpad">Cryptpad</string>
@@ -87,8 +86,6 @@
     <string name="UploadInfo">Upload é um software para partilhar ficheiros que armazena temporariamente ficheiros encriptados para que você os possa partilhar com outras pessoas usando um link. Todos os ficheiros são encriptados antes de deixaram o seu computador, o que significa que o servidor não sabe que dados estão armazenados.\nNão é necessário ter uma conta de utilizador para usar.</string>
     <string name="SearxTitle">Sobre Searx</string>
     <string name="SearxInfo"> Searx é uma plataforma multi motores de busca, que agrega resultados de pesquisa de outros motores de busca ao mesmo tempo que não armazena informação acerca dos seus utilizadores. Sem tracking, profiling ou data mining. \nNão é necessário ter uma conta de utilizador para usar.</string>
-    <string name="BoardTitle">Sobre o Taiga, programa de gestão de projetos</string>
-    <string name="BoardInfo">O Taiga é uma ferramenta de gestão de projetos, criada para programadores, designers e startups que usam a metodologia de trabalho agile. No entanto pode ser usado por virtualmente qualquer projeto ou grupo, mesmo fora do mundo das tecnologias de informação.</string>
     <string name="UserTitle">Gestão de Password de Utilizador</string>
     <string name="UserInfo">Use o nosso Self Service Center de utilizador para gerir a sua conta de utilizador e a sua password</string>
     <string name="StateTitle">Sobre State</string>
@@ -98,8 +95,6 @@
     <string name="HowToInfo">A nossa página com tutoriais para ajudar a navegar e utilizar os vários serviços do Disroot.</string>
     <string name="AboutTitle">Sobre Descrição</string>
     <string name="AboutInfo">Esta é a página com informações acerca desta app</string>
-    <string name="ForumTitle"> Sobre Fórum</string>
-    <string name="ForumInfo">Discourse é uma abordagem moderna a fóruns de discussão completamente open-source. Oferece tudo o que a sua comunidade, grupo ou colectivo necessita para criar a sua plataforma de comunicação.</string>
     <string name="LogoTitle">Acabou mesmo de tentar mesmo carregar longamente no logotipo?</string>
     <string name="LogoInfo">Prâ quê? É apenas um logótipo.\nNão seja demasiado curioso ;-)</string>
     <string name="LogoBtn">Disroot rula \\o/</string>
@@ -150,7 +145,6 @@
     <string name="do_you_want_to_exit">Queres sair da aplicação?</string>
     <string name="action_optimization">Otimização da bateria</string>
     <string name="OptimizationTitle">Otimização da bateria!</string>
-    <string name="action_board">Project board</string>
     <string name="action_user">Conta</string>
     <string name="action_searx">Pesquisa</string>
     <string name="OptimizationInfo">Esta aplicação consegue sincronizar com a status page do Disroot. Isso significa que recebes atualizações e informações em tempo real acerca de: problemas com o serviço, atualizações de software, quando um serviço é colocado em manutenção, que são publicadas em https://state.disroot.org\nNós recomendamos desativar a otimização de bateria e permitir esta aplicação funcionar em background. Se tiveres dúvidas acerca disto podes sempre alterar as permissões mais tarde a partir do menu da aplicação.</string>

@@ -5,14 +5,12 @@
     <string name="action_mail">Courrier</string>
     <string name="action_cloud">Cloud</string>
     <string name="action_diaspora">Diaspora*</string>
-    <string name="action_forum">Forum</string>
     <string name="action_chat">Chat</string>
     <string name="action_pad">Etherpad</string>
     <string name="action_cryptpad">Cryptpad</string>
     <string name="action_bin">Private bin</string>
     <string name="action_upload">Téléverser</string>
     <string name="action_searx">Search</string><!--needs update:20/10/2020-->
-    <string name="action_board">Project board</string><!--needs update:20/10/2020-->
     <string name="action_user">Account</string><!--needs update:20/10/2020-->
     <string name="action_state">État des services</string>
     <string name="action_howto">Tutoriels</string>
@@ -119,8 +117,6 @@
     <string name="UploadInfo">Téléverser est un logiciel d\'hébergement de fichiers qui stocke temporairement des fichiers chiffrés pour que vous puissiez les partager avec d\'autres en utilisant un lien. Tous les fichiers sont chiffrés avant qu\'ils ne quittent votre ordinateur, ce qui signifie que le serveur n\'a aucune connaissance des données hébergées.</string>
     <string name="SearxTitle">Info Searx</string>
     <string name="SearxInfo"> Searx est une plateforme anonyme multi moteurs de recherche, agrégeant les résultats d\'autres moteurs de recherche tout en ne stockant pas d\'informations sur ses utilisateurs.  Pas de suivi, pas de profilage, pas d\'exploration de données par les grandes entreprises.\nAucune inscription n\'est requise.</string>
-    <string name="BoardTitle">Info sur le tableau de gestion de projets</string>
-    <string name="BoardInfo">Taiga est un outil de gestion de projet, développé pour les programmeurs, les concepteurs et les startups travaillant avec une méthodologie de gestion agile à l\'esprit. Il peut cependant s\'appliquer à pratiquement n\'importe quel projet ou groupe, même en dehors du domaine informatique.</string>
     <string name="UserTitle">Aide à la gestion des mots de passe des utilisateurs</string>
     <string name="UserInfo">Utilisez notre Centre de libre-service pour gérer vos données d\'utilisateur et de mot de passe</string>
     <string name="StateTitle">Informations sur l\'état des services</string>
@@ -130,8 +126,6 @@
     <string name="HowToInfo">Notre page avec des tutoriels pour vous aider à vous y retrouver parmi les différents services Disroot.</string>
     <string name="AboutTitle">Info À propos</string>
     <string name="AboutInfo">Accédez à la page À propos de cette application</string>
-    <string name="ForumTitle">Aide du Forum</string>
-    <string name="ForumInfo">Discourse est une approche moderne et entièrement open-source des forums de discussion. Il offre tout ce dont votre communauté, groupe ou collectif a besoin pour créer sa plateforme de communication.</string>
     <string name="LogoTitle">Venez-vous vraiment d\'essayer l’appui long sur le logo \?</string>
     <string name="LogoInfo">Pourquoi \? C\'est juste un logo.
 \nNe soyez pas trop curieux ;-)</string>
