@@ -64,7 +64,8 @@
     <string name="SpreadTheWordBtn">Share the app</string>
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">Last couple of things!</string>
-    <string name="FirstInfo">&#8226; By doing a long press on each icon you can get extra information… \n\n&#8226; The app can sync with the status page of Disroot. This means that you will receive realtime updates on issues, downtimes, scheduled maintenance and others published via https://status.disroot.org\nWe recommend to turn off battery optimization and allow Disroot app to run in the background. If you\'re not sure, you can always change the setting from the Disroot app menu later.</string>
+    <!--<string name="FirstInfo">&#8226; By doing a long press on each icon you can get extra information… \n\n&#8226; The app can sync with the status page of Disroot. This means that you will receive realtime updates on issues, downtimes, scheduled maintenance and others published via https://status.disroot.org\nWe recommend to turn off battery optimization and allow Disroot app to run in the background. If you\'re not sure, you can always change the setting from the Disroot app menu later.</string> -->
+    <string name="FirstInfo">&#8226; By doing a long press on each icon you can get extra information…</string>
     <string name="DiasporaTitle">Diaspora* Settings</string>
     <string name="DiasporaInfo">Distributed and decentralized social network. Post, share, like, create communities.\n\nUsername:\n your_diaspora_username@pod.disroot.org\n\nPassword:\n your_diaspora_password</string>
     <string name="PadInfo">With Etherpad write articles, press releases, to-do lists, etc. together with friends, fellow students or colleagues, all working on the same document at the same time.\nNo registration is required.</string>

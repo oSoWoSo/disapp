@@ -45,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
         toolbar.setNavigationIcon( R.drawable.ic_arrow_back );
         toolbar.setNavigationOnClickListener( v -> onBackPressed() );
 
-        ////buttons visibility preference list
+        //buttons visibility preference list
         BtnPreference = getSharedPreferences( "MailBtn", Context.MODE_PRIVATE );//mail
         BtnPreference = getSharedPreferences( "CloudBtn", Context.MODE_PRIVATE );//cloud
         BtnPreference = getSharedPreferences( "ChatBtn", Context.MODE_PRIVATE );//chat

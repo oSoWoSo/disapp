@@ -71,7 +71,7 @@
     <string name="SpreadTheWordBtn">Partilhar a app</string>
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">Quase que me esquecia</string><!-- need update -->
-    <string name="FirstInfo">Podes carregar por alguns segundos em cada ícone para aparecer informação extra…</string><!-- need update -->
+    <string name="FirstInfo">Podes carregar por alguns segundos em cada ícone para aparecer informação extra…</string>
     <string name="DiasporaTitle">Definições do Diaspora*</string>
     <string name="DiasporaInfo">Rede social Distribuída e Descentralizada. Postar, partilhar, criar comunidades.\n\nUsername:\n o_seu_nome_de_utilizador_no_diaspora@pod.disroot.org\n\nPassword:\n a_sua_password_diaspora</string>
     <string name="PadInfo">Com o Etherpad pode escrever artigos, comunicados de imprensa, listas de tarefas, etc. em conjunto com outras pessoas, amigos, colegas, todos a trabalhar no mesmo documento ao mesmo tempo.\nNão é necessário ter uma conta de utilizador para usar.</string>

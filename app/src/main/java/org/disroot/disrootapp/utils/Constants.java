@@ -63,4 +63,5 @@ public class Constants {
     public static final int FILECHOOSER_RESULTCODE = 1;//file upload
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String components = "https://status.disroot.org/index.json";
+    public static String URL_DisApp_STATE = "https://status.disroot.org/";
 }

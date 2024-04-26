@@ -72,7 +72,8 @@
     <string name="SpreadTheWordBtn">Podelite aplikaciju</string>
     <string name="DisrootWeb">Disroot sajt</string>
     <string name="FirstTitle">Još nešto!</string>
-    <string name="FirstInfo">&#8226; Duži pritisak na bilo koju ikonicu prikazaće dodatne informacije… \n\n&#8226; Aplikacija se može uskladiti sa statusnom stranicom Disroot sajta. To znači da ćete u realnom vremenu dobijati poruke o problemima, zastojima, zakazanom održavanju i sl. putem https://state.disroot.org\nPreporučujemo da isključite optimizaciju baterije i dozvolite aplikaciji da radi u pozadini. Ako niste sigurni, podešavanja možete izmeniti iz menija Disroot aplikacije. </string>
+    <!--<string name="FirstInfo">&#8226; Duži pritisak na bilo koju ikonicu prikazaće dodatne informacije… \n\n&#8226; Aplikacija se može uskladiti sa statusnom stranicom Disroot sajta. To znači da ćete u realnom vremenu dobijati poruke o problemima, zastojima, zakazanom održavanju i sl. putem https://state.disroot.org\nPreporučujemo da isključite optimizaciju baterije i dozvolite aplikaciji da radi u pozadini. Ako niste sigurni, podešavanja možete izmeniti iz menija Disroot aplikacije. </string>-->
+    <string name="FirstInfo">&#8226; Duži pritisak na bilo koju ikonicu prikazaće dodatne informacije…</string>
     <string name="DiasporaTitle">Diaspora* podešavanja</string>
     <string name="DiasporaInfo">Raspodeljena i decentralizovana društvena mreža. Objavite, delite, stvarajte zajednice.\n\nKorisnik:\n vaše_diaspora_korisničko_ime@pod.disroot.org\n\nLozinka:\n vaša_diaspora_lozinka</string>
     <string name="PadInfo">Pomoću Etherpad-a pišite članke, medijske objave, podsetnike, itd. Zajedno sa prijateljima, kolegama sa fakulteta ili saradnicima, možete istovremeno raditi na određenom dokumentu.\nRegistracija nije potrebna.</string>

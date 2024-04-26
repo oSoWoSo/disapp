@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
         } );
         componentList = new ArrayList<>();
-        new GetList().execute();
+        //new GetList().execute();
 
         setupWebView(savedInstanceState, frameLayoutContainer);
         //settings
@@ -167,9 +167,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "UserBtn", Context.MODE_PRIVATE );//user
         BtnPreference = getSharedPreferences( "HowToBtn", Context.MODE_PRIVATE );//howTo
         BtnPreference = getSharedPreferences( "AboutBtn", Context.MODE_PRIVATE );//about
-        //Status service
-        Intent intent = new Intent( MainActivity.this, StatusService.class);
-        startService(intent);
+        // status service disabled
+        //Intent intent = new Intent( MainActivity.this, StatusService.class);
+        //startService(intent);
 
         //progressbarLoading
         progressBar = findViewById(R.id.progressbarLoading);
@@ -197,6 +197,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 
         //ckCangelog library
         ChangeLog cl = new ChangeLog(this);
+        //Battery optimization
         if (cl.isFirstRun()) {
             cl.getLogDialog().show();
         }
@@ -413,9 +414,15 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     webView.loadUrl(Constants.URL_DisApp_USER);
                     hideDashboard();
                     break;
+                // status service disabled
+                    /*
                 case R.id.StateBtn:
                     Intent goState = new Intent(MainActivity.this, StateActivity.class);
                     MainActivity.this.startActivity(goState);
+                    break;*/
+                case R.id.StateBtn:
+                    webView.loadUrl(Constants.URL_DisApp_STATE);
+                    hideDashboard();
                     break;
                 case R.id.HowToBtn:
                     webView.loadUrl(Constants.URL_DisApp_HOWTO);
@@ -544,12 +551,14 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.setCancelable(false);
         builder.setTitle(R.string.FirstTitle);
         builder.setMessage(getString(R.string.FirstInfo));
-        builder.setPositiveButton(R.string.global_ok,  new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(R.string.global_ok,null);
+        // status service disabled
+        /*builder.setPositiveButton(R.string.global_ok,  new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 showOptimzation();
             }
-        });
+        });*/
         builder.show();
     }
 
@@ -1245,9 +1254,13 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (disWebChromeClient.hideCustomView()) {
                 return true;
-            } else if (!disWebChromeClient.hideCustomView() && webView.canGoBack()) {
+            } if (!disWebChromeClient.hideCustomView() && webView.canGoBack()&&webView.copyBackForwardList().getCurrentIndex()>1){
+                Log.e(TAG, "CanGoBack" );
                 webView.goBack();
                 return true;
+            } else
+            {
+                webView.goBack();
             }
         }
         return super.onKeyDown(keyCode, event);
@@ -1326,9 +1339,11 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 webView.loadUrl(url);
                 return true;
             }
-            case R.id.action_optimization:
+            //Status service disabled
+            /*case R.id.action_optimization:
                 showOptimzation();
                 return true;
+            */
             case R.id.action_about:
                 Intent goAbout = new Intent(MainActivity.this, AboutActivity.class);
                 MainActivity.this.startActivity(goAbout);
@@ -1375,6 +1390,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
         webView.getSettings().setDatabaseEnabled(true);
         webView.setOnLongClickListener(this);
+        webView.loadData( "","text/html","utf-8" );
 
         //enable cookies
         cookieManager = CookieManager.getInstance();
@@ -1769,7 +1785,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 
 
     //components
-    @SuppressLint("StaticFieldLeak")
+    // status service disabled
+    /*@SuppressLint("StaticFieldLeak")
     class GetList extends AsyncTask<Void, Void, Void> {
         protected Void doInBackground(Void... arg0) {
             HttpHandler sh = new HttpHandler();
@@ -1906,6 +1923,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
         }
     }
+    */
 
     private void getEmail(String string){
         email = string;

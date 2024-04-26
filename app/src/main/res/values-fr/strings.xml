@@ -96,7 +96,8 @@
     <string name="SpreadTheWordBtn">Partager l\'application</string>
     <string name="DisrootWeb">Disroot web</string>
     <string name="FirstTitle">Dernière chose !</string>
-    <string name="FirstInfo"><![CDATA[• En appuyant longuement sur chaque icône, vous pouvez obtenir des informations supplémentaires… \n\n&#8226 ; L\'application peut se synchroniser avec la page de statut de Disroot. Cela signifie que vous recevrez des mises à jour en temps réel sur les problèmes, les temps d\'arrêt, la maintenance programmée et d\'autres problèmes publiés via https://state.disroot.org\nNous vous recommandons de désactiver l\'optimisation de la batterie et d\'autoriser l\'application Disroot à fonctionner en arrière-plan. Si vous n\'êtes pas sûr, vous pouvez toujours changer le réglage à partir du menu de l\'application Disroot plus tard.]]></string>
+    <!--<string name="FirstInfo"><![CDATA[• En appuyant longuement sur chaque icône, vous pouvez obtenir des informations supplémentaires… \n\n&#8226 ; L\'application peut se synchroniser avec la page de statut de Disroot. Cela signifie que vous recevrez des mises à jour en temps réel sur les problèmes, les temps d\'arrêt, la maintenance programmée et d\'autres problèmes publiés via https://state.disroot.org\nNous vous recommandons de désactiver l\'optimisation de la batterie et d\'autoriser l\'application Disroot à fonctionner en arrière-plan. Si vous n\'êtes pas sûr, vous pouvez toujours changer le réglage à partir du menu de l\'application Disroot plus tard.]]></string>-->
+    <string name="FirstInfo"><![CDATA[• En appuyant longuement sur chaque icône, vous pouvez obtenir des informations supplémentaires…]]></string>
     <string name="DiasporaTitle">Paramètres Diaspora*</string>
     <string name="DiasporaInfo">Réseau social distribué et décentralisé. Postez, partagez, aimez, créez des communautés.
 \n

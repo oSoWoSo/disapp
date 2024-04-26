@@ -31,10 +31,12 @@
         android:icon="@drawable/ic_clear_cookies"
         android:id="@+id/action_clear_cookies"
         android:title="@string/action_clear_cookies" />
+        <!--// status service disabled
         <item
             android:icon="@drawable/ic_battery"
             android:id="@+id/action_optimization"
             android:title="@string/action_optimization" />
+        -->
         <item
             android:icon="@drawable/ic_settings"
             android:id="@+id/action_set_icons"
