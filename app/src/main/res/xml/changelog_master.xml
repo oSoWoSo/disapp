@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
-    <release version="2.1.0" versioncode="32" >
+    <release version="2.1.1" versioncode="32" >
         <change>Removal of state messages</change>
         <change>Status now redirects to web page instead of integrated status list</change>
         <change>Fix Back press on Webview</change>
+    </release>
+    <release version="2.0.9" versioncode="32" >
+        <change>missed tag</change>
     </release>
     <release version="2.0.8" versioncode="31" >
         <change>Removal of Forum and Board</change>
