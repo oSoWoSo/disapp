@@ -2,19 +2,30 @@
 <manifest xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.webkit.PermissionRequest" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="true" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
-        tools:ignore="QueryAllPackagesPermission" />
+    <queries>
+        <package android:name="com.fsck.k9" />
+        <package android:name="com.nextcloud.client" />
+        <package android:name="eu.siacs.conversations" />
+        <package android:name="de.pixart.messenger" />
+        <package android:name="com.mikifus.padland" />
+        <package android:name="it.niedermann.owncloud.notes" />
+        <package android:name="com.nextcloud_cookbook_flutter" />
+        <package android:name="de.jbservices.nc_passwords_app" />
+        <package android:name="com.nextcloud.talk2" />
+    </queries>
 
     <application
         android:allowBackup="true"

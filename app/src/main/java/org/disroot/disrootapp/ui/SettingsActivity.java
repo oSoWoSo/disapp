@@ -6,15 +6,23 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import static android.support.constraint.Constraints.TAG;
 
 import org.disroot.disrootapp.R;
 
 public class SettingsActivity extends AppCompatActivity {
+
     SharedPreferences BtnPreference;
+    SharedPreferences credentials;
+    private EditText usernameInput;
+    private EditText passwordInput;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,6 +53,13 @@ public class SettingsActivity extends AppCompatActivity {
         toolbar.setNavigationIcon( R.drawable.ic_arrow_back );
         toolbar.setNavigationOnClickListener( v -> onBackPressed() );
 
+        //CredentialsInput
+        usernameInput = findViewById(R.id.username_input);
+        passwordInput = findViewById(R.id.password_input);
+
+        // Save button
+        Button saveAutoLoginButton = findViewById(R.id.saveAutoLoginButton);
+
         //buttons visibility preference list
         BtnPreference = getSharedPreferences( "MailBtn", Context.MODE_PRIVATE );//mail
         BtnPreference = getSharedPreferences( "CloudBtn", Context.MODE_PRIVATE );//cloud
@@ -60,6 +75,20 @@ public class SettingsActivity extends AppCompatActivity {
         BtnPreference = getSharedPreferences( "UserBtn", Context.MODE_PRIVATE );//user
         BtnPreference = getSharedPreferences( "HowToBtn", Context.MODE_PRIVATE );//howTo
         BtnPreference = getSharedPreferences( "AboutBtn", Context.MODE_PRIVATE );//about
+        BtnPreference = getSharedPreferences( "AutoLoginPreference", Context.MODE_PRIVATE );//Autologin
+        credentials = getSharedPreferences( "username", Context.MODE_PRIVATE );//username
+        credentials = getSharedPreferences( "password", Context.MODE_PRIVATE );//password
+
+
+        saveAutoLoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Action to perform when the button is pressed
+                saveAutoLogin();
+            }
+        });
+
+
 
         //checkbox list
         checkPrefBox();
@@ -83,6 +112,20 @@ public class SettingsActivity extends AppCompatActivity {
         final CheckBox checkUserBtn = iconSettings.findViewById( R.id.userBtnPreference );//user
         final CheckBox checkHowToBtn = iconSettings.findViewById( R.id.howToBtnPreference );//howTo
         final CheckBox checkAboutBtn = iconSettings.findViewById( R.id.aboutBtnPreference );//about
+        final CheckBox checkAutoLoginPreference = iconSettings.findViewById( R.id.autoLoginCheckBox );//AutoLoginPreference
+        final String storedUsername = credentials.getString("username", "");
+        final String storedPassword = credentials.getString("password", "");
+
+
+        //fill credentials if not empty
+        if (!storedUsername.isEmpty()) {
+            usernameInput.setHint(storedUsername);
+            usernameInput.setText(storedUsername);
+        }
+        if (!storedPassword.isEmpty()) {
+            passwordInput.setHint(storedPassword);
+            passwordInput.setText(storedPassword);
+        }
 
         //Set checked if visibility is true
         if (BtnPreference.getBoolean( "MailBtn", true )) checkMailBtn.setChecked( true );//mail
@@ -99,6 +142,16 @@ public class SettingsActivity extends AppCompatActivity {
         if (BtnPreference.getBoolean( "UserBtn", true )) checkUserBtn.setChecked( true );//user
         if (BtnPreference.getBoolean( "HowToBtn", true )) checkHowToBtn.setChecked( true );//howTo
         if (BtnPreference.getBoolean( "AboutBtn", true )) checkAboutBtn.setChecked( true );//about
+        if (BtnPreference.getBoolean( "AutoLoginPreference", true )) checkAutoLoginPreference.setChecked( true );//AutoLoginPreference
+
+        //AutoLoginPreference
+        checkAutoLoginPreference.setOnCheckedChangeListener( (view, isChecked) -> {
+            if (checkAutoLoginPreference.isChecked()) {
+                BtnPreference.edit().putBoolean( "AutoLoginPreference", true ).apply();
+            } else {
+                BtnPreference.edit().putBoolean( "AutoLoginPreference", false ).apply();
+            }
+        } );
 
         //Mail
         checkMailBtn.setOnCheckedChangeListener( (view, isChecked) -> {
@@ -225,6 +278,21 @@ public class SettingsActivity extends AppCompatActivity {
                 BtnPreference.edit().putBoolean( "AboutBtn", false ).apply();
             }
         } );
+    }
+
+    private void saveAutoLogin() {
+        // Retrieve the password from the EditText
+        String username = usernameInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
+
+        // Here you would save the password using SharedPreferences
+        SharedPreferences.Editor editor = credentials.edit();
+
+        // Save the credentals
+        editor.putString("username", username);  // Replace with username input
+        editor.putString("password", password);  // Replace with password input
+
+        editor.apply();
     }
 
     @Override //make sure changes are applied when going back

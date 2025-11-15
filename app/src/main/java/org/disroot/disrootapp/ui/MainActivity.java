@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     SharedPreferences firstStart = null;//first start
     SharedPreferences check = null;
     SharedPreferences BtnPreference;
+    SharedPreferences credentials;
     WebChromeClient.FileChooserParams chooserParams;
     ValueCallback<Uri[]> chooserPathUri;
     Button button;
@@ -167,6 +168,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "UserBtn", Context.MODE_PRIVATE );//user
         BtnPreference = getSharedPreferences( "HowToBtn", Context.MODE_PRIVATE );//howTo
         BtnPreference = getSharedPreferences( "AboutBtn", Context.MODE_PRIVATE );//about
+        BtnPreference = getSharedPreferences( "AutoLoginPreference", Context.MODE_PRIVATE );//Autologin
+        credentials = getSharedPreferences( "username", Context.MODE_PRIVATE );//username
+        credentials = getSharedPreferences( "password", Context.MODE_PRIVATE );//password
         // status service disabled
         //Intent intent = new Intent( MainActivity.this, StatusService.class);
         //startService(intent);
@@ -1378,7 +1382,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setDomStorageEnabled(true);
         webView.setVerticalScrollBarEnabled(true);
-        webView.getSettings().setAppCacheEnabled(true);
+        //webView.getSettings().setAppCacheEnabled(true);
         webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setSaveFormData(true);
         webView.getSettings().setAllowFileAccess(true);
@@ -1391,6 +1395,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         webView.getSettings().setDatabaseEnabled(true);
         webView.setOnLongClickListener(this);
         webView.loadData( "","text/html","utf-8" );
+        webView.getSettings().setLoadsImagesAutomatically(true);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
         //enable cookies
         cookieManager = CookieManager.getInstance();
@@ -1461,6 +1467,41 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 progressBar.setVisibility(View.GONE);
+                final String password = credentials.getString( "password", "" );
+                final String username = credentials.getString( "username", "" );
+
+                if (url.contains("https://user.disroot.org/pwm/private/login")) {
+
+                    String autoLogin;
+                    if (BtnPreference.getBoolean("AutoLogin", true)){
+                        autoLogin = "document.getElementsByClassName('btn pwm-btn-submit')[0].click();";}
+                    else { autoLogin = null;
+                    }
+                    final String js = "javascript:" +
+                            "setTimeout(function() {" +
+                            "var usernameField = document.querySelector(\"input[name='username']\");" +
+                            "if (usernameField) { usernameField.value = '" + username + "'; }" +
+                            "var passwordField = document.querySelector(\"input[name='password']\");" +
+                            "if (passwordField) { passwordField.value = '" + password + "'; }" +
+                            "passwordField.dispatchEvent(new Event('input'));"+
+                            "usernameField.dispatchEvent(new Event('input'));"+
+                            autoLogin+
+                            "}, 500);";
+                    Log.e(TAG,"login: "+username + " - password: "+password);
+                    if (Build.VERSION.SDK_INT >= 19) {
+                        view.evaluateJavascript(js, new ValueCallback<String>() {
+                            @Override
+                            public void onReceiveValue(String s) {
+                            }
+                        });
+                    }
+                    else {
+                        view.loadUrl(js);
+                    }
+                }
+                else {
+                    view.loadUrl(loadUrl);
+                }
             }
 
             @Override
