@@ -2,7 +2,8 @@
 <changelog>
     <release version="2.2.1" versioncode="34" >
         <change>Updated SDK</change>
-        <change>Added auto login on Disroot acount page</change>
+        <change>Corrected status bar in newer Android versions</change>
+        <change>Added D.Scribe</change>
     </release>
     <release version="2.1.1" versioncode="33" >
         <change>Removal of state messages</change>

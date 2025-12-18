@@ -36,6 +36,7 @@ public class Constants {
     public static final String URL_XMPP = "xmpp:disroot@chat.disroot.org?join";
     public static final String URL_SUPPORT = "mailto:support@disroot.org";
     public static final String URL_DisApp_CLOUDHELP = "https://howto.disroot.org/en/tutorials/cloud/clients/mobile/android";
+    public static final String URL_DisApp_DSCRIBEHELP = "https://howto.disroot.org/it/tutorials/social/dscribe";
     public static final String URL_DisApp_PADHELP = "https://howto.disroot.org/en/tutorials/office/pads/padland";
     public static final String URL_DisApp_CRYPTPADHELP = "https://howto.disroot.org/en/tutorials/office/cryptpad";
     public static final String URL_DisApp_BINHELP = "https://howto.disroot.org/en/tutorials/office/bin";
@@ -44,6 +45,7 @@ public class Constants {
     public static final String URL_DisApp_CALLSHELP = "https://disroot.org/en/services/calls";
     public static final String URL_DisApp_GITHELP = "https://howto.disroot.org/en/contribute/git";
     public static final String URL_DisApp_DISAPP = "https://f-droid.org/en/packages/org.disroot.disrootapp/";
+    public static final String ds = "app.vger.voyager";
 
     public static final String k9 = "com.fsck.k9";
     public static final String nc = "com.nextcloud.client";
@@ -55,7 +57,7 @@ public class Constants {
     public static final String CallsApp = "org.jitsi.meet";
     public static final String GitApp = "org.mian.gitnex";
 
-    public static final int[] buttonIDs = new int[] {R.id.MailBtn,R.id.CloudBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
+    public static final int[] buttonIDs = new int[] {R.id.MailBtn,R.id.CloudBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.DScribeBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
 
 
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;//file upload

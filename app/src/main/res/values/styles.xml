@@ -4,15 +4,11 @@
         <item name="colorPrimary">@color/bg_primary_blue_dark</item>
         <item name="colorPrimaryDark">@color/bg_primary_blue</item>
         <item name="colorAccent">@color/bg_primary_blue</item>
-        <!--<item name="android:navigationBarColor">@color/bg_primary_blue_dark</item>-->
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="toolbarStyle">@style/Widget.MyApp.ActionBar</item>
         <item name="android:textAllCaps">false</item>
-        <!--i<item name="cardViewStyle">@style/CardView</item>-->
-        <!--<item name="colorControlNormal">@color/gray</item>if checkbox is activated-->
-        <!--<item name="colorControlActivated">@color/gray</item>if checkbox is activated-->
     </style>
 
     <style name="DisTheme.Settings" parent="Theme.AppCompat.Light.NoActionBar">

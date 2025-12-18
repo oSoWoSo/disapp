@@ -178,4 +178,7 @@
     <string name="set_password">"Password: "</string>
     <string name="save_autologin">save</string>
     <string name="enable_autologin_preference">Enable Autologin:</string>
+    <string name="DScribeInfoTitle">D.Scribe Settings</string>
+    <string name="DScribeInfo">Scribe is a social link aggregation and discussion platform, powered by Lemmy. Content is organized into communities, so it is easy to subscribe to topics that you are interested in, and ignore others.</string>
+    <string name="DScribeDialog">To continue you need to install Voyager first.\\nPlease select install to continue with the installation on F-Droid.</string>
 </resources>

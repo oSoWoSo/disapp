@@ -3,8 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.webkit.PermissionRequest" />
     <uses-feature
@@ -12,7 +15,7 @@
         android:required="true" />
     <uses-feature
         android:name="android.hardware.camera.autofocus"
-        android:required="true" />
+        android:required="false" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <queries>
@@ -25,6 +28,7 @@
         <package android:name="com.nextcloud_cookbook_flutter" />
         <package android:name="de.jbservices.nc_passwords_app" />
         <package android:name="com.nextcloud.talk2" />
+        <package android:name="app.vger.voyager" />
     </queries>
 
     <application
@@ -38,20 +42,6 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         tools:targetApi="s">
 
-        <!--// status service disabled
-        <receiver
-            android:name=".StatusBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-        <service
-            android:name=".StatusService"
-            android:enabled="true"
-            android:exported="false" />
-        -->
         <activity
             android:name="org.disroot.disrootapp.ui.SplashScreenActivity"
             android:configChanges="orientation|screenSize"
@@ -68,34 +58,19 @@
             android:hardwareAccelerated="true"
             android:label="@string/dashboard"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data
-                    android:host="disroot.org"
-                    android:scheme="https" />
-                <data
-                    android:host="upload.disroot.org"
-                    android:scheme="https" />
-                <data
-                    android:host="cryptpad.disroot.org"
-                    android:scheme="https" />
-                <data
-                    android:host="bin.disroot.org"
-                    android:scheme="https" />
-                <data
-                    android:host="upload.disroot.org"
-                    android:scheme="https" />
-                <data
-                    android:host="searx.disroot.org"
-                    android:scheme="https" />
-
-                <data
-                    android:host="status.disroot.org"
-                    android:scheme="https" />
+                <data android:scheme="https" />
+                <data android:host="disroot.org" />
+                <data android:host="upload.disroot.org" />
+                <data android:host="cryptpad.disroot.org" />
+                <data android:host="bin.disroot.org" />
+                <data android:host="searx.disroot.org" />
+                <data android:host="status.disroot.org" />
             </intent-filter>
         </activity>
         <activity

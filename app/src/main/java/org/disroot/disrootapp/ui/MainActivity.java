@@ -1,7 +1,6 @@
 package org.disroot.disrootapp.ui;
 
 import android.Manifest;
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.DownloadManager;
@@ -10,10 +9,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -59,16 +58,9 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.Toast;
-
 import org.disroot.disrootapp.R;
-import org.disroot.disrootapp.StatusService;
 import org.disroot.disrootapp.utils.Constants;
-import org.disroot.disrootapp.utils.HttpHandler;
 import org.disroot.disrootapp.webviews.DisWebChromeClient;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Method;
@@ -78,9 +70,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import de.cketti.library.changelog.ChangeLog;
-
 import static android.support.constraint.Constraints.TAG;
 
 @SuppressWarnings("ALL")
@@ -93,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     WebChromeClient.FileChooserParams chooserParams;
     ValueCallback<Uri[]> chooserPathUri;
     Button button;
-    private Button MailBtn,CloudBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
-    private String email,cloud,etherpad,bin,upload,searx,jitsi,user,xmpp,notes,git,cryptpad;
+    private Button MailBtn,CloudBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,DScribeBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
+    private String email,cloud,etherpad,bin,upload,searx,jitsi,user,xmpp,notes,git,cryptpad,dscribe;
     private CookieManager cookieManager;
     private WebView webView;
     private DisWebChromeClient disWebChromeClient;
@@ -113,12 +103,21 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
         setContentView(R.layout.activity_main);
         FrameLayout frameLayoutContainer = findViewById(R.id.framelayout_container);
+        int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
+        boolean isDarkMode = currentNightMode == Configuration.UI_MODE_NIGHT_YES;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !isDarkMode) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        }
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        // Set up the toolbar
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon( R.drawable.ic_home );
-        toolbar.setNavigationOnClickListener( new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ScrollView dashboard = findViewById(R.id.dashboard);
@@ -150,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
 
         setupWebView(savedInstanceState, frameLayoutContainer);
         //settings
-        firstStart = getSharedPreferences("org.disroot.disrootap", MODE_PRIVATE);//fisrt start
+        firstStart = getSharedPreferences("org.disroot.disrootap", MODE_PRIVATE);//first start
         check = getSharedPreferences("org.disroot.disrootapp", MODE_PRIVATE);
         //buttons visiblility preference
         BtnPreference = getSharedPreferences( "MailBtn", Context.MODE_PRIVATE );//mail
@@ -162,18 +161,14 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "UploadBtn", Context.MODE_PRIVATE );//upload
         BtnPreference = getSharedPreferences( "SearxBtn", Context.MODE_PRIVATE );//search
         BtnPreference = getSharedPreferences( "BoardBtn", Context.MODE_PRIVATE );//board
+        BtnPreference = getSharedPreferences( "DScribeBtn", Context.MODE_PRIVATE );//D.scribe
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
         BtnPreference = getSharedPreferences( "UserBtn", Context.MODE_PRIVATE );//user
         BtnPreference = getSharedPreferences( "HowToBtn", Context.MODE_PRIVATE );//howTo
         BtnPreference = getSharedPreferences( "AboutBtn", Context.MODE_PRIVATE );//about
-        BtnPreference = getSharedPreferences( "AutoLoginPreference", Context.MODE_PRIVATE );//Autologin
-        credentials = getSharedPreferences( "username", Context.MODE_PRIVATE );//username
-        credentials = getSharedPreferences( "password", Context.MODE_PRIVATE );//password
-        // status service disabled
-        //Intent intent = new Intent( MainActivity.this, StatusService.class);
-        //startService(intent);
+
 
         //progressbarLoading
         progressBar = findViewById(R.id.progressbarLoading);
@@ -210,6 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         if (firstStart.getBoolean("firsttap", true)){
             check.edit().putBoolean("checkConv",false).apply();
             check.edit().putBoolean("checkPix",false).apply();
+            BtnPreference.edit().putBoolean("AutoLoginPreference",false).apply();
         }
 
         //pull to refresh
@@ -244,6 +240,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BinBtn = findViewById( R.id.BinBtn );
         UploadBtn = findViewById( R.id.UploadBtn );
         SearxBtn = findViewById( R.id.SearxBtn );
+        DScribeBtn = findViewById( R.id.DScribeBtn );
         CallsBtn = findViewById( R.id.CallsBtn );
         NotesBtn = findViewById( R.id.NotesBtn );
         GitBtn = findViewById( R.id.GitBtn );
@@ -267,42 +264,19 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
         }
 
-        //get preferences
+// Define an array or list of buttons
+        Button[] buttons = {
+                MailBtn, CloudBtn, ChatBtn, PadBtn,
+                CryptpadBtn, BinBtn, UploadBtn, SearxBtn,
+                DScribeBtn, CallsBtn, NotesBtn, GitBtn,
+                UserBtn, StateBtn, HowToBtn, AboutBtn
+        };
 
-
-        //Set longclick buttons
-        MailBtn.setOnLongClickListener( this );
-        CloudBtn.setOnLongClickListener( this );
-        ChatBtn.setOnLongClickListener( this );
-        PadBtn.setOnLongClickListener( this );
-        CryptpadBtn.setOnLongClickListener( this );
-        BinBtn.setOnLongClickListener( this );
-        UploadBtn.setOnLongClickListener( this );
-        SearxBtn.setOnLongClickListener( this );
-        CallsBtn.setOnLongClickListener( this );
-        NotesBtn.setOnLongClickListener( this );
-        GitBtn.setOnLongClickListener( this );
-        UserBtn.setOnLongClickListener( this );
-        StateBtn.setOnLongClickListener( this );
-        HowToBtn.setOnLongClickListener( this );
-        AboutBtn.setOnLongClickListener( this );
-
-        //set clickbuttons
-        MailBtn.setOnClickListener( this );
-        CloudBtn.setOnClickListener( this );
-        ChatBtn.setOnClickListener( this );
-        PadBtn.setOnClickListener( this );
-        CryptpadBtn.setOnClickListener( this );
-        BinBtn.setOnClickListener( this );
-        UploadBtn.setOnClickListener( this );
-        SearxBtn.setOnClickListener( this );
-        CallsBtn.setOnClickListener( this );
-        NotesBtn.setOnClickListener( this );
-        GitBtn.setOnClickListener( this );
-        UserBtn.setOnClickListener( this );
-        StateBtn.setOnClickListener( this );
-        HowToBtn.setOnClickListener( this );
-        AboutBtn.setOnClickListener( this );
+// Set long click and click listeners using a loop
+        for (Button btn : buttons) {
+            btn.setOnLongClickListener(this);
+            btn.setOnClickListener(this);
+        }
 
         ImageButton imageButton = findViewById(R.id.logo);//LogoBtn
         imageButton.setOnLongClickListener(new View.OnLongClickListener() {
@@ -324,7 +298,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         else {
             switch (view.getId()) {
                 case R.id.MailBtn:
-                    Intent mail = getPackageManager().getLaunchIntentForPackage( Constants.k9 );
+                    Intent mail = getPackageManager().getLaunchIntentForPackage(Constants.k9);
                     if (mail == null) {
                         showMailDialog();
                         break;
@@ -369,7 +343,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 case R.id.PadBtn:
                     Intent pad = getPackageManager().getLaunchIntentForPackage(Constants.Padland);
                     if(pad == null) {
-                        showPAdDialog();
+                        showPadDialog();
                         break;
                     }
                     else startActivity(pad);
@@ -389,6 +363,14 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 case R.id.SearxBtn:
                     webView.loadUrl(Constants.URL_DisApp_SEARX);
                     hideDashboard();
+                    break;
+                case R.id.DScribeBtn:
+                    Intent dscribe = getPackageManager().getLaunchIntentForPackage(Constants.ds);
+                    if(dscribe == null) {
+                        showDScribeDialog();
+                        break;
+                    }
+                    else startActivity(dscribe);
                     break;
                 case R.id.CallsBtn:
                     Intent board = getPackageManager().getLaunchIntentForPackage(Constants.CallsApp);
@@ -469,6 +451,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             case R.id.SearxBtn:
                 showSearxInfo();
                 break;
+            case R.id.DScribeBtn:
+                showDScribeInfo();
+                break;
             case R.id.CallsBtn:
                 showCallsInfo();
                 break;
@@ -496,9 +481,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         return false;
     }
 
-    //Dialog windows
-
-    //hide Dashboard
     private void hideDashboard() {
         final ScrollView dashboard = findViewById(R.id.dashboard);
         webView.setVisibility( View.VISIBLE );
@@ -778,7 +760,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         });
         builder.show();
     }
-    private void showPAdDialog(){
+    private void showPadDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
         builder.setTitle(R.string.DiaInstallTitle);
@@ -900,6 +882,47 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.show();
     }
 
+    private void showDScribeInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DScribeInfoTitle);
+        builder.setMessage(dscribe + "\n\n" + getString(R.string.DScribeInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.more_help, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_DSCRIBEHELP);
+                hideDashboard();
+            }
+        });
+        builder.setNeutralButton( R.string.hide, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
+                if (findViewById( R.id.DScribeBtn).getParent()!=null){
+                    viewGroup.removeView(DScribeBtn);
+                    BtnPreference.edit().putBoolean( "DScribeBtn", false ).apply();
+                    return;}
+            }
+        });
+        builder.show();
+    }
+    private void showDScribeDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.DScribeDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            Intent dscribe = getPackageManager().getLaunchIntentForPackage(Constants.ds);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dscribe = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.ds));
+                startActivity(dscribe);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
     private void showCallsInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false);
@@ -1304,7 +1327,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         return super.onCreateOptionsMenu(menu);
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         ScrollView dashboard = findViewById(R.id.dashboard);
@@ -1314,27 +1336,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             case R.id.action_share:
                 shareCurrentPage();
                 return true;
-            /*case R.id.action_home:
-                if(webView.getVisibility()==View.VISIBLE){
-                    //animation
-                    animateup.setDuration(500);
-                    animateup.setFillAfter(false);
-                    dashboard.startAnimation(animateup);
-                    dashboard.setVisibility(View.VISIBLE);
-                    webView.setVisibility(View.GONE);
-                    return true;
-                }
-
-                if (webView.getVisibility()==View.GONE && webView.getUrl()!=null){
-                    //animation
-                    animatedown.setDuration(500);
-                    animatedown.setFillAfter(false);
-                    dashboard.startAnimation(animatedown);
-                    hideDashboard();
-                    return true;
-                }
-                else
-                    return true;*/
             case R.id.action_forget:
                 showForget();
 
@@ -1343,11 +1344,6 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 webView.loadUrl(url);
                 return true;
             }
-            //Status service disabled
-            /*case R.id.action_optimization:
-                showOptimzation();
-                return true;
-            */
             case R.id.action_about:
                 Intent goAbout = new Intent(MainActivity.this, AboutActivity.class);
                 MainActivity.this.startActivity(goAbout);
@@ -1467,41 +1463,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
                 progressBar.setVisibility(View.GONE);
-                final String password = credentials.getString( "password", "" );
-                final String username = credentials.getString( "username", "" );
 
-                if (url.contains("https://user.disroot.org/pwm/private/login")) {
-
-                    String autoLogin;
-                    if (BtnPreference.getBoolean("AutoLogin", true)){
-                        autoLogin = "document.getElementsByClassName('btn pwm-btn-submit')[0].click();";}
-                    else { autoLogin = null;
-                    }
-                    final String js = "javascript:" +
-                            "setTimeout(function() {" +
-                            "var usernameField = document.querySelector(\"input[name='username']\");" +
-                            "if (usernameField) { usernameField.value = '" + username + "'; }" +
-                            "var passwordField = document.querySelector(\"input[name='password']\");" +
-                            "if (passwordField) { passwordField.value = '" + password + "'; }" +
-                            "passwordField.dispatchEvent(new Event('input'));"+
-                            "usernameField.dispatchEvent(new Event('input'));"+
-                            autoLogin+
-                            "}, 500);";
-                    Log.e(TAG,"login: "+username + " - password: "+password);
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        view.evaluateJavascript(js, new ValueCallback<String>() {
-                            @Override
-                            public void onReceiveValue(String s) {
-                            }
-                        });
-                    }
-                    else {
-                        view.loadUrl(js);
-                    }
-                }
-                else {
-                    view.loadUrl(loadUrl);
-                }
+                view.loadUrl(loadUrl);
             }
 
             @Override
@@ -1818,188 +1781,5 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                                     String capture) {
             openFileChooser(uploadMsg, acceptType);
         }
-    }
-
-
-
-
-
-
-    //components
-    // status service disabled
-    /*@SuppressLint("StaticFieldLeak")
-    class GetList extends AsyncTask<Void, Void, Void> {
-        protected Void doInBackground(Void... arg0) {
-            HttpHandler sh = new HttpHandler();
-
-            String jsonStringcomponents = sh.makeServiceCall( Constants.components );
-
-            Log.e( TAG, "Response from url(Service): " + Constants.components );
-
-            if (jsonStringcomponents != null) {//components page
-                try {
-                    JSONObject jsonObj = new JSONObject(jsonStringcomponents);
-
-                    // Getting JSON Array node
-                    JSONArray data = jsonObj.getJSONArray("systems");
-
-                    // looping through All data
-                    for (int i = 0; i < data.length(); i++) {
-                        JSONObject c = data.getJSONObject(i);
-                        HashMap<String, String> serviceDetails = new HashMap<>();
-
-                        //String id = c.getString("id");
-                        String name = c.getString("name");
-                        //String description = c.getString("description");
-
-                        // tmp hash map for single service
-
-                        // adding each child node to HashMap key => value
-                        //serviceDetails.put("id", id);
-                        serviceDetails.put("name", name);
-                        if (c.has("description")&&!c.isNull("description")){
-                            String description = c.getString("description");
-                            serviceDetails.put("description", description);
-                        }
-                        else {
-                            serviceDetails.put("description", "No Description");
-                        }
-                        //serviceDetails.put("description", description);
-
-                        // adding service to service list
-                        componentList.add(serviceDetails);
-                    }
-                } catch (final JSONException e) {
-                    Log.e(TAG, "Json parsing error: " + e.getMessage());
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(),
-                                    "Json parsing error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG)
-                                    .show();
-                        }
-                    });
-                }
-            }else {
-                Log.e(TAG, "Couldn't get json from server.");
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(getApplicationContext(),
-                                "Couldn't get json from server. Is your internet connection ok?",
-                                Toast.LENGTH_LONG)
-                                .show();
-                    }
-                });
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void result) {
-            super.onPostExecute( result );
-            // Dismiss the progress dialog
-            for (int a =0; a<componentList.size();a++)
-            {
-                HashMap<String, String> hashmap= (HashMap<String, String>) componentList.get(a);
-                String hash = hashmap.get("name");
-                String description = "";
-                if (hashmap.get("description")!=null &&!hashmap.isEmpty()){//.has("description")&&!hasmap.isNull("description")
-                    description = hashmap.get("description");
-                }
-                else {
-                    description ="No Description";
-                }
-                switch (hash) {
-                    case "Notes":
-                        notes = description;
-                        getNotes(notes);
-                        break;
-                    case "Mail Server":
-                        email = description;
-                        getEmail(email);
-                        break;
-                    case "Cloud":
-                        cloud = description;
-                        getCloud(cloud);
-                        break;
-                    case "Pad":
-                        etherpad = description;
-                        getEtherpad(etherpad);
-                        break;
-                    case "Bin":
-                        bin = description;
-                        getBin(bin);
-                        break;
-                    case "Upload":
-                        upload = description;
-                        getUpload(upload);
-                        break;
-                    case "Searx":
-                        searx = description;
-                        getSearx(searx);
-                        break;
-                    case "Calls":
-                        jitsi = description;
-                        getCalls( jitsi );
-                        break;
-                    case "User Password management":
-                        user = description;
-                        getUser(user);
-                        break;
-                    case "XMPP Chat server":
-                        xmpp = description;
-                        getXmpp(xmpp);
-                        break;
-                    case "Git":
-                        git = description;
-                        getGit(git);
-                        break;
-                    case "Cryptpad":
-                        cryptpad = description;
-                        getCryptpad(cryptpad);
-                        break;
-                }
-            }
-        }
-    }
-    */
-
-    private void getEmail(String string){
-        email = string;
-    }
-    private void getCloud(String string){
-        cloud = string;
-    }
-    private void getEtherpad(String string){
-        etherpad = string;
-    }
-    private void getBin(String string){
-        bin = string;
-    }
-    private void getUpload(String string){
-        upload = string;
-    }
-    private void getSearx(String string){
-        searx = string;
-    }
-    private void getCalls(String string){
-        jitsi = string;
-    }
-    private void getUser(String string){
-        user = string;
-    }
-    private void getXmpp(String string){
-        xmpp = string;
-    }
-    private void getNotes(String string){
-        notes = string;
-    }
-    private void getGit(String string){
-        git = string;
-    }
-    private void getCryptpad(String string){
-        cryptpad = string;
     }
 }
