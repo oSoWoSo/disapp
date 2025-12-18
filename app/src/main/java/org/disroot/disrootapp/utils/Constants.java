@@ -44,6 +44,7 @@ public class Constants {
     public static final String URL_DisApp_NOTESHELP = "https://howto.disroot.org/en/tutorials/cloud/apps/notes";
     public static final String URL_DisApp_CALLSHELP = "https://disroot.org/en/services/calls";
     public static final String URL_DisApp_GITHELP = "https://howto.disroot.org/en/contribute/git";
+    public static final String URL_DisApp_AUDIOHELP = "https://howto.disroot.org/en/tutorials/office/mumble/plumble";
     public static final String URL_DisApp_DISAPP = "https://f-droid.org/en/packages/org.disroot.disrootapp/";
     public static final String ds = "app.vger.voyager";
 
@@ -56,8 +57,8 @@ public class Constants {
     public static final String NotesApp = "it.niedermann.owncloud.notes";
     public static final String CallsApp = "org.jitsi.meet";
     public static final String GitApp = "org.mian.gitnex";
-
-    public static final int[] buttonIDs = new int[] {R.id.MailBtn,R.id.CloudBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.DScribeBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
+    public static final String AudioApp = "se.lublin.mumla";
+    public static final int[] buttonIDs = new int[] {R.id.MailBtn,R.id.CloudBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.DScribeBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.AudioBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
 
 
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;//file upload
@@ -66,4 +67,5 @@ public class Constants {
     public static final String TAG = MainActivity.class.getSimpleName();
     public static final String components = "https://status.disroot.org/index.json";
     public static String URL_DisApp_STATE = "https://status.disroot.org/";
+
 }

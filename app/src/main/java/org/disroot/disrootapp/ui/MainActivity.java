@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     WebChromeClient.FileChooserParams chooserParams;
     ValueCallback<Uri[]> chooserPathUri;
     Button button;
-    private Button MailBtn,CloudBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,DScribeBtn,CallsBtn,NotesBtn,GitBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
-    private String email,cloud,etherpad,bin,upload,searx,jitsi,user,xmpp,notes,git,cryptpad,dscribe;
+    private Button MailBtn,CloudBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,DScribeBtn,CallsBtn,NotesBtn,GitBtn,AudioBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
+    private String email,cloud,etherpad,bin,upload,searx,jitsi,user,xmpp,notes,git,audio,cryptpad,dscribe;
     private CookieManager cookieManager;
     private WebView webView;
     private DisWebChromeClient disWebChromeClient;
@@ -165,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
+        BtnPreference = getSharedPreferences( "AudioBtn", Context.MODE_PRIVATE );//audio
         BtnPreference = getSharedPreferences( "UserBtn", Context.MODE_PRIVATE );//user
         BtnPreference = getSharedPreferences( "HowToBtn", Context.MODE_PRIVATE );//howTo
         BtnPreference = getSharedPreferences( "AboutBtn", Context.MODE_PRIVATE );//about
@@ -244,6 +245,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         CallsBtn = findViewById( R.id.CallsBtn );
         NotesBtn = findViewById( R.id.NotesBtn );
         GitBtn = findViewById( R.id.GitBtn );
+        AudioBtn = findViewById( R.id.AudioBtn );
         UserBtn = findViewById( R.id.UserBtn );
         StateBtn = findViewById( R.id.StateBtn );
         HowToBtn = findViewById( R.id.HowToBtn );
@@ -268,7 +270,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         Button[] buttons = {
                 MailBtn, CloudBtn, ChatBtn, PadBtn,
                 CryptpadBtn, BinBtn, UploadBtn, SearxBtn,
-                DScribeBtn, CallsBtn, NotesBtn, GitBtn,
+                DScribeBtn, CallsBtn, NotesBtn, GitBtn,AudioBtn,
                 UserBtn, StateBtn, HowToBtn, AboutBtn
         };
 
@@ -396,16 +398,18 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     }
                     else startActivity(git);
                     break;
+                case R.id.AudioBtn:
+                    Intent audio = getPackageManager().getLaunchIntentForPackage(Constants.AudioApp);
+                    if(audio == null) {
+                        showAudioDialog();
+                        break;
+                    }
+                    else startActivity(audio);
+                    break;
                 case R.id.UserBtn:
                     webView.loadUrl(Constants.URL_DisApp_USER);
                     hideDashboard();
                     break;
-                // status service disabled
-                    /*
-                case R.id.StateBtn:
-                    Intent goState = new Intent(MainActivity.this, StateActivity.class);
-                    MainActivity.this.startActivity(goState);
-                    break;*/
                 case R.id.StateBtn:
                     webView.loadUrl(Constants.URL_DisApp_STATE);
                     hideDashboard();
@@ -462,6 +466,9 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 break;
             case R.id.GitBtn:
                 showGitInfo();
+                break;
+            case R.id.AudioBtn:
+                showAudioInfo();
                 break;
             case R.id.UserBtn:
                 showUserInfo();
@@ -1049,8 +1056,47 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         builder.setNegativeButton(R.string.global_cancel , null);
         builder.show();
     }
-
-
+    private void showAudioInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.AudioTitle);
+        builder.setMessage(audio +"\n\n"+ getString(R.string.AudioInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_AUDIOHELP);
+                hideDashboard();
+            }
+        });
+        builder.setNeutralButton( R.string.hide, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
+                if (findViewById( R.id.AudioBtn).getParent()!=null){
+                    viewGroup.removeView(AudioBtn);
+                    BtnPreference.edit().putBoolean( "AudioBtn", false ).apply();
+                    return;}
+            }
+        });
+        builder.show();
+    }
+    private void showAudioDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.AudioDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            Intent audio = getPackageManager().getLaunchIntentForPackage(Constants.AudioApp);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                audio = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.AudioApp));
+                startActivity(audio);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
     private void showUserInfo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setCancelable(false)

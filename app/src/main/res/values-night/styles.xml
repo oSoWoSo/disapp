@@ -3,7 +3,7 @@
     <style name="DisTheme" parent="Theme.AppCompat.NoActionBar"> <!-- Change Light.NoActionBar to NoActionBar -->
         <item name="colorPrimary">@color/bg_primary_blue_dark</item>
         <item name="colorPrimaryDark">@color/bg_primary_blue</item>
-        <item name="colorAccent">@color/bg_primary_blue</item>
+        <item name="colorAccent">@color/bg_primary_blue_dark</item>
         <item name="android:navigationBarColor">@color/bg_primary_blue_dark</item> <!-- Uncomment for dark navigation bar -->
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>

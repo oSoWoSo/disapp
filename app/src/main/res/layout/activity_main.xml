@@ -196,6 +196,16 @@
                     app:fontFamily="@font/open_sans_regular" />
 
                 <Button
+                    android:id="@+id/AudioBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_audio"
+                    android:text="@string/action_audio"
+                    android:textColor="@color/white"
+                    app:fontFamily="@font/open_sans_regular" />
+
+                <Button
                     android:id="@+id/UserBtn"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"

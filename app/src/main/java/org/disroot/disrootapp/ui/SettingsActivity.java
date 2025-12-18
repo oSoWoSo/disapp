@@ -63,6 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
         BtnPreference = getSharedPreferences( "CallsBtn", Context.MODE_PRIVATE );//calls
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
+        BtnPreference = getSharedPreferences( "AudioBtn", Context.MODE_PRIVATE );//audio
         BtnPreference = getSharedPreferences( "UserBtn", Context.MODE_PRIVATE );//user
         BtnPreference = getSharedPreferences( "HowToBtn", Context.MODE_PRIVATE );//howTo
         BtnPreference = getSharedPreferences( "AboutBtn", Context.MODE_PRIVATE );//about
@@ -86,6 +87,7 @@ public class SettingsActivity extends AppCompatActivity {
         final CheckBox checkCallsBtn = iconSettings.findViewById( R.id.callsBtnPreference );//calls
         final CheckBox checkNotesBtn = iconSettings.findViewById( R.id.notesBtnPreference );//notes
         final CheckBox checkGitBtn = iconSettings.findViewById( R.id.gitBtnPreference );//git
+        final CheckBox checkAudioBtn = iconSettings.findViewById( R.id.audioBtnPreference );//audio
         final CheckBox checkUserBtn = iconSettings.findViewById( R.id.userBtnPreference );//user
         final CheckBox checkHowToBtn = iconSettings.findViewById( R.id.howToBtnPreference );//howTo
         final CheckBox checkAboutBtn = iconSettings.findViewById( R.id.aboutBtnPreference );//about
@@ -103,6 +105,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (BtnPreference.getBoolean( "CallsBtn", true )) checkCallsBtn.setChecked( true );//calls
         if (BtnPreference.getBoolean( "NotesBtn", true )) checkNotesBtn.setChecked( true );//notes
         if (BtnPreference.getBoolean( "GitBtn", true )) checkGitBtn.setChecked( true );//git
+        if (BtnPreference.getBoolean( "AudioBtn", true )) checkAudioBtn.setChecked( true );//audio
         if (BtnPreference.getBoolean( "UserBtn", true )) checkUserBtn.setChecked( true );//user
         if (BtnPreference.getBoolean( "HowToBtn", true )) checkHowToBtn.setChecked( true );//howTo
         if (BtnPreference.getBoolean( "AboutBtn", true )) checkAboutBtn.setChecked( true );//about
@@ -212,6 +215,15 @@ public class SettingsActivity extends AppCompatActivity {
                 BtnPreference.edit().putBoolean( "GitBtn", true ).apply();
             } else {
                 BtnPreference.edit().putBoolean( "GitBtn", false ).apply();
+            }
+        } );
+
+        //audio
+        checkAudioBtn.setOnCheckedChangeListener( (view, isChecked) -> {
+            if (checkAudioBtn.isChecked()) {
+                BtnPreference.edit().putBoolean( "AudioBtn", true ).apply();
+            } else {
+                BtnPreference.edit().putBoolean( "AudioBtn", false ).apply();
             }
         } );
 

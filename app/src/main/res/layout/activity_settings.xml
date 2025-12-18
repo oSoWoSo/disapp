@@ -321,6 +321,29 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_audio"
+                    android:drawableLeft="@drawable/ic_audio"
+                    android:drawableTint="@color/gray"
+                    android:text="@string/action_audio"
+                    android:textColor="@color/gray" />
+
+                <CheckBox
+                    android:id="@+id/audioBtnPreference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:button="@drawable/checkbox" />
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/DisTheme.Settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_user"
                     android:drawableLeft="@drawable/ic_user"
                     android:drawableTint="@color/gray"

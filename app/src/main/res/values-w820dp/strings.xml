@@ -12,4 +12,8 @@
     <string name="DScribeInfoTitle">D.Scribe Settings</string>
     <string name="DScribeInfo">Scribe is a social link aggregation and discussion platform, powered by Lemmy. Content is organized into communities, so it is easy to subscribe to topics that you are interested in, and ignore others.</string>
     <string name="DScribeDialog">To continue you need to install Voyager first.\\nPlease select install to continue with the installation on F-Droid.</string>
-</resources>
+    <string name="action_audio">Mumble</string>
+    <string name="AudioTitle">Audio Info</string>
+    <string name="AudioInfo">Disroot\'s Audio is powered by Mumble. Mumble is a free, open source, low latency, high quality voice chat application. It was originally intended for gamers, but it can be use to organize audio meeting, conference, etc.</string>
+    <string name="AudioDialog">To continue you need to install Mumla first.\\nPlease select install to continue with the installation on F-Droid</string>
+ </resources>

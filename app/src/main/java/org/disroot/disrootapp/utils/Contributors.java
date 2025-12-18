@@ -5,11 +5,11 @@ package org.disroot.disrootapp.utils;
  */
 public class Contributors {
     public static final String[] admins= {
-            "<a href='https://hub.disroot.org/channel/muppeth'>Muppeth",
-            "<a href='https://hub.disroot.org/channel/antilopa'>Antilopa"
+            "<a href='https://git.disroot.org/muppeth'>Muppeth",
+            "<a href='https://git.disroot.org/antilopa'>Antilopa"
     };
     public static final String[] devs= {
-            "<a href='https://hub.disroot.org/channel/massimiliano'>Massimiliano"
+            "<a href='https://git.disroot.org/massimiliano'>Massimiliano"
     };
     public static final String[] translators= {
             "Fede",
@@ -20,6 +20,6 @@ public class Contributors {
             "shadowsword"
     };
     public static final String[] artworks= {
-            "<a href='https://hub.disroot.org/channel/antilopa'>Antilopa"
+            "<a href='https://git.disroot.org/antilopa'>Antilopa"
     };
 }

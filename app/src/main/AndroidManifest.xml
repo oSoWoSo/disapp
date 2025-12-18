@@ -29,6 +29,7 @@
         <package android:name="de.jbservices.nc_passwords_app" />
         <package android:name="com.nextcloud.talk2" />
         <package android:name="app.vger.voyager" />
+        <package android:name="se.lublin.mumla" />
     </queries>
 
     <application
