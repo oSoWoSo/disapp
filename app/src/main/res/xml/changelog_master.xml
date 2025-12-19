@@ -8,6 +8,7 @@
         <change>Added Akkoma</change>
         <change>Added Libre Translate</change>
         <change>Updated contributors links</change>
+        <change>Removed unused state links</change>
     </release>
     <release version="2.1.1" versioncode="33" >
         <change>Removal of state messages</change>

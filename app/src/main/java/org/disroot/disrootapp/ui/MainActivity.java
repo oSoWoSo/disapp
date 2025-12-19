@@ -1231,6 +1231,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
 
         });
+        //remove non working links
+        /*
         //SocialBtn
         Button SocialBtn = view.findViewById(R.id.SocialBtn);
         SocialBtn.setOnClickListener(new View.OnClickListener() {
@@ -1261,6 +1263,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
 
         });
+        */
         builder.setView(view)
                 .setPositiveButton(R.string.global_ok, null)
                 .show();
