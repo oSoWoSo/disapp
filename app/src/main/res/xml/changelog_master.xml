@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
-    <release version="2.2.2" versioncode="34" >
+    <release version="2.1.2" versioncode="34" >
         <change>Updated SDK's</change>
         <change>Correction Dark mode</change>
         <change>Corrected status bar in newer Android versions</change>
