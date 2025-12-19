@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <changelog>
     <release version="2.2.2" versioncode="34" >
-        <change>Updated SDK</change>
+        <change>Updated SDK's</change>
+        <change>Correction Dark mode</change>
         <change>Corrected status bar in newer Android versions</change>
         <change>Added D.Scribe</change>
-        <change>Correction Dark mode</change>
+        <change>Added Akkoma</change>
+        <change>Added Libre Translate</change>
         <change>Updated contributors links</change>
     </release>
     <release version="2.1.1" versioncode="33" >

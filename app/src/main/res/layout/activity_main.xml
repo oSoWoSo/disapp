@@ -45,7 +45,7 @@
             android:fillViewport="true"
             android:stackFromBottom="true"
             android:transcriptMode="alwaysScroll"
-            android:visibility="visible"><!--android:background="@color/bg_primary_blue_dark" #203140 android:background="@drawable/bgimage"-->
+            android:visibility="visible">
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -202,6 +202,26 @@
                     android:layout_height="wrap_content"
                     android:drawableTop="@drawable/ic_audio"
                     android:text="@string/action_audio"
+                    android:textColor="@color/white"
+                    app:fontFamily="@font/open_sans_regular" />
+
+                <Button
+                    android:id="@+id/AkkomaBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_akkoma"
+                    android:text="@string/action_akkoma"
+                    android:textColor="@color/white"
+                    app:fontFamily="@font/open_sans_regular" />
+
+                <Button
+                    android:id="@+id/LibreTranslateBtn"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableTop="@drawable/ic_libretranslate"
+                    android:text="@string/action_libretranslate"
                     android:textColor="@color/white"
                     app:fontFamily="@font/open_sans_regular" />
 

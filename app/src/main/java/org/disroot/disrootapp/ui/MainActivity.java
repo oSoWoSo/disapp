@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
     WebChromeClient.FileChooserParams chooserParams;
     ValueCallback<Uri[]> chooserPathUri;
     Button button;
-    private Button MailBtn,CloudBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,DScribeBtn,CallsBtn,NotesBtn,GitBtn,AudioBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
-    private String email,cloud,etherpad,bin,upload,searx,jitsi,user,xmpp,notes,git,audio,cryptpad,dscribe;
+    private Button MailBtn,CloudBtn,ChatBtn,PadBtn, CryptpadBtn,BinBtn,UploadBtn,SearxBtn,DScribeBtn,CallsBtn,NotesBtn,GitBtn,AudioBtn,AkkomaBtn,LibreTranslateBtn,UserBtn,StateBtn,HowToBtn,AboutBtn;//all buttons
+    private String email,cloud,etherpad,bin,upload,searx,jitsi,user,xmpp,notes,git,audio,cryptpad,dscribe,akkoma,libretranslate;
     private CookieManager cookieManager;
     private WebView webView;
     private DisWebChromeClient disWebChromeClient;
@@ -166,6 +166,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         BtnPreference = getSharedPreferences( "NotesBtn", Context.MODE_PRIVATE );//notes
         BtnPreference = getSharedPreferences( "GitBtn", Context.MODE_PRIVATE );//git
         BtnPreference = getSharedPreferences( "AudioBtn", Context.MODE_PRIVATE );//audio
+        BtnPreference = getSharedPreferences( "AkkomaBtn", Context.MODE_PRIVATE );//akkoma
+        BtnPreference = getSharedPreferences( "LibreTranslateBtn", Context.MODE_PRIVATE );//libre translate
         BtnPreference = getSharedPreferences( "UserBtn", Context.MODE_PRIVATE );//user
         BtnPreference = getSharedPreferences( "HowToBtn", Context.MODE_PRIVATE );//howTo
         BtnPreference = getSharedPreferences( "AboutBtn", Context.MODE_PRIVATE );//about
@@ -246,6 +248,8 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         NotesBtn = findViewById( R.id.NotesBtn );
         GitBtn = findViewById( R.id.GitBtn );
         AudioBtn = findViewById( R.id.AudioBtn );
+        AkkomaBtn = findViewById( R.id.AkkomaBtn );
+        LibreTranslateBtn = findViewById( R.id.LibreTranslateBtn );
         UserBtn = findViewById( R.id.UserBtn );
         StateBtn = findViewById( R.id.StateBtn );
         HowToBtn = findViewById( R.id.HowToBtn );
@@ -270,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
         Button[] buttons = {
                 MailBtn, CloudBtn, ChatBtn, PadBtn,
                 CryptpadBtn, BinBtn, UploadBtn, SearxBtn,
-                DScribeBtn, CallsBtn, NotesBtn, GitBtn,AudioBtn,
+                DScribeBtn, CallsBtn, NotesBtn, GitBtn,AudioBtn,AkkomaBtn,LibreTranslateBtn,
                 UserBtn, StateBtn, HowToBtn, AboutBtn
         };
 
@@ -406,6 +410,18 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                     }
                     else startActivity(audio);
                     break;
+                case R.id.AkkomaBtn:
+                    Intent akkoma = getPackageManager().getLaunchIntentForPackage(Constants.AkkomaApp);
+                    if(akkoma == null) {
+                        showAkkomaDialog();
+                        break;
+                    }
+                    else startActivity(akkoma);
+                    break;
+                case R.id.LibreTranslateBtn:
+                    webView.loadUrl(Constants.URL_LIBRETRANSLATE);
+                    hideDashboard();
+                    break;
                 case R.id.UserBtn:
                     webView.loadUrl(Constants.URL_DisApp_USER);
                     hideDashboard();
@@ -469,6 +485,12 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
                 break;
             case R.id.AudioBtn:
                 showAudioInfo();
+                break;
+            case R.id.AkkomaBtn:
+                showAkkomaInfo();
+                break;
+            case R.id.LibreTranslateBtn:
+                showLibreTranslateInfo();
                 break;
             case R.id.UserBtn:
                 showUserInfo();
@@ -1095,6 +1117,73 @@ public class MainActivity extends AppCompatActivity implements View.OnLongClickL
             }
         });
         builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+    private void showAkkomaInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.AkkomaTitle);
+        builder.setMessage(akkoma +"\n\n"+ getString(R.string.AkkomaInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_AKKOMAHELP);
+                hideDashboard();
+            }
+        });
+        builder.setNeutralButton( R.string.hide, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
+                if (findViewById( R.id.AkkomaBtn).getParent()!=null){
+                    viewGroup.removeView(AkkomaBtn);
+                    BtnPreference.edit().putBoolean( "AkkomaBtn", false ).apply();
+                    return;}
+            }
+        });
+        builder.show();
+    }
+    private void showAkkomaDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.DiaInstallTitle);
+        builder.setMessage(getString(R.string.AkkomaDialog));
+        builder.setPositiveButton(R.string.global_install, new DialogInterface.OnClickListener() {
+            Intent akkoma = getPackageManager().getLaunchIntentForPackage(Constants.AkkomaApp);
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                akkoma = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constants.AkkomaApp));
+                startActivity(akkoma);
+            }
+        });
+        builder.setNegativeButton(R.string.global_cancel , null);
+        builder.show();
+    }
+
+    private void showLibreTranslateInfo() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setTitle(R.string.LibreTranslateTitle);
+        builder.setMessage(libretranslate +"\n\n"+ getString(R.string.LibreTranslateInfo));
+        builder.setPositiveButton(R.string.global_ok, null);
+        builder.setNegativeButton(R.string.tell_more, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                webView.loadUrl(Constants.URL_DisApp_LIBRETRANSLATEHELP);
+                hideDashboard();
+            }
+        });
+        builder.setNeutralButton( R.string.hide, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                ViewGroup viewGroup =((ViewGroup)findViewById( R.id.StateBtn ).getParent());
+                if (findViewById( R.id.LibreTranslateBtn).getParent()!=null){
+                    viewGroup.removeView(LibreTranslateBtn);
+                    BtnPreference.edit().putBoolean( "LibreTranslateBtn", false ).apply();
+                    return;}
+            }
+        });
         builder.show();
     }
     private void showUserInfo() {

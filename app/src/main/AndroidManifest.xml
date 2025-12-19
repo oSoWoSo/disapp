@@ -30,6 +30,7 @@
         <package android:name="com.nextcloud.talk2" />
         <package android:name="app.vger.voyager" />
         <package android:name="se.lublin.mumla" />
+        <package android:name="fr.gouv.etalab.mastodon" />
     </queries>
 
     <application

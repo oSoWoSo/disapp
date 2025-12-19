@@ -344,6 +344,52 @@
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_akkoma"
+                    android:drawableLeft="@drawable/ic_akkoma"
+                    android:drawableTint="@color/gray"
+                    android:text="@string/action_akkoma"
+                    android:textColor="@color/gray" />
+
+                <CheckBox
+                    android:id="@+id/akkomaBtnPreference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:button="@drawable/checkbox" />
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/DisTheme.Settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_libretranslate"
+                    android:drawableLeft="@drawable/ic_libretranslate"
+                    android:drawableTint="@color/gray"
+                    android:text="@string/action_libretranslate"
+                    android:textColor="@color/gray" />
+
+                <CheckBox
+                    android:id="@+id/LibreTranslateBtnPreference"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center_vertical"
+                    android:button="@drawable/checkbox" />
+            </FrameLayout>
+
+            <FrameLayout
+                style="@style/DisTheme.Settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:drawableStart="@drawable/ic_user"
                     android:drawableLeft="@drawable/ic_user"
                     android:drawableTint="@color/gray"

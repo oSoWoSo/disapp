@@ -187,4 +187,9 @@
     <string name="AudioTitle">Audio Info</string>
     <string name="AudioInfo">Disroot\'s Audio is powered by Mumble. Mumble is a free, open source, low latency, high quality voice chat application. It was originally intended for gamers, but it can be use to organize audio meeting, conference, etc.</string>
     <string name="AudioDialog">To continue you need to install Mumla first.\\nPlease select install to continue with the installation on F-Droid</string>
+    <string name="AkkomaTitle">Akkoma Info</string>
+    <string name="AkkomaInfo">Akkoma is a microblogging server software that can federate (= exchange messages with) other servers that support ActivityPub, like Friendica, GNU Social, Hubzilla, Mastodon, Misskey, Peertube, and Pixelfed.</string>
+    <string name="AkkomaDialog">To continue you need to install Fedilab first.\\nPlease select install to continue with the installation on F-Droid</string>
+    <string name="LibreTranslateTitle">Translate Info</string>
+    <string name="LibreTranslateInfo">Disroot\'s Translate is a machine translation service, powered by LibreTranslate. LibreTranslate supports a lot of languages. It is an useful tool for those wishing to translate text between different languages. It is also a valuable tool for developers wishing to create translation applications.</string>
 </resources>

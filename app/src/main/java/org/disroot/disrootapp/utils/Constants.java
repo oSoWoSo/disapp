@@ -24,8 +24,6 @@ public class Constants {
     public static final String URL_DisApp_STATESOCIAL = "https://hub.disroot.org/channel/disroot_state";
     public static final String URL_DisApp_STATENEWS = "https://state.disroot.org/subscribe";
     public static final String URL_DisApp_STATERSS = "https://state.disroot.org/atom";
-
-
     public static final String URL_LICENSE = "https://www.gnu.org/licenses/lgpl-3.0.en.html";
     public static final String URL_DISROOT = "https://disroot.org";
     public static final String URL_FDROID = "https://f-droid.org/FDroid.apk";
@@ -35,6 +33,7 @@ public class Constants {
     public static final String URL_BUGS = "https://git.disroot.org/Disroot/disapp/issues";
     public static final String URL_XMPP = "xmpp:disroot@chat.disroot.org?join";
     public static final String URL_SUPPORT = "mailto:support@disroot.org";
+    public static final String URL_LIBRETRANSLATE = "https://translate.disroot.org/";
     public static final String URL_DisApp_CLOUDHELP = "https://howto.disroot.org/en/tutorials/cloud/clients/mobile/android";
     public static final String URL_DisApp_DSCRIBEHELP = "https://howto.disroot.org/it/tutorials/social/dscribe";
     public static final String URL_DisApp_PADHELP = "https://howto.disroot.org/en/tutorials/office/pads/padland";
@@ -45,12 +44,14 @@ public class Constants {
     public static final String URL_DisApp_CALLSHELP = "https://disroot.org/en/services/calls";
     public static final String URL_DisApp_GITHELP = "https://howto.disroot.org/en/contribute/git";
     public static final String URL_DisApp_AUDIOHELP = "https://howto.disroot.org/en/tutorials/office/mumble/plumble";
+    public static final String URL_DisApp_LIBRETRANSLATEHELP = "https://disroot.org/services/libretranslate";
+    public static final String URL_DisApp_AKKOMAHELP = "https://disroot.org/services/akkoma";
     public static final String URL_DisApp_DISAPP = "https://f-droid.org/en/packages/org.disroot.disrootapp/";
     public static final String ds = "app.vger.voyager";
 
     public static final String k9 = "com.fsck.k9";
     public static final String nc = "com.nextcloud.client";
-    public static final String Diaspora = "com.github.dfa.diaspora_android";
+    public static final String AkkomaApp = "fr.gouv.etalab.mastodon";
     public static final String Conversations = "eu.siacs.conversations";
     public static final String PixArt = "de.pixart.messenger";
     public static final String Padland = "com.mikifus.padland";
@@ -58,7 +59,7 @@ public class Constants {
     public static final String CallsApp = "org.jitsi.meet";
     public static final String GitApp = "org.mian.gitnex";
     public static final String AudioApp = "se.lublin.mumla";
-    public static final int[] buttonIDs = new int[] {R.id.MailBtn,R.id.CloudBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.DScribeBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.AudioBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
+    public static final int[] buttonIDs = new int[] {R.id.MailBtn,R.id.CloudBtn,R.id.ChatBtn,R.id.PadBtn,R.id.CryptpadBtn,R.id.BinBtn,R.id.UploadBtn,R.id.SearxBtn,R.id.DScribeBtn,R.id.CallsBtn,R.id.NotesBtn,R.id.GitBtn,R.id.AudioBtn,R.id.AkkomaBtn,R.id.LibreTranslateBtn,R.id.UserBtn,R.id.StateBtn,R.id.HowToBtn,R.id.AboutBtn};
 
 
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;//file upload
